@@ -1,0 +1,6 @@
+interface:
+  display_name: "Building Partner"
+  short_description: "Guide human-led technical builds"
+  default_prompt: "Use $building-partner to help me plan and build this technical project."
+policy:
+  allow_implicit_invocation: true

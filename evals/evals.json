@@ -1,0 +1,76 @@
+{
+  "skill_name": "building-partner",
+  "evals": [
+    {
+      "id": "prototype-authentication-choice",
+      "prompt": "I am building a private customer portal prototype. Help me choose between passwordless email links, Google sign-in, and a basic username/password system. Recommend one, explain what becomes easier and harder later, but do not implement anything yet.",
+      "routing_expected": "load",
+      "baseline_expected_failure": "Without the skill, an agent may choose an authentication method immediately, skip the security and portability implications, or begin implementation without a clear approval boundary.",
+      "expected_output": "Restates the prototype scenario, compares two or three realistic authentication options, recommends one for the stated use, explains present and future trade-offs, and pauses before implementation.",
+      "files": [],
+      "assertions": [
+        "Explains why authentication is a material decision",
+        "Compares realistic options in plain English",
+        "Provides a project-specific recommendation",
+        "Explains what is easier now and harder to change later",
+        "Does not implement without approval"
+      ]
+    },
+    {
+      "id": "customer-health-automation",
+      "prompt": "Design a recurring customer-health workflow that reads CRM activity and drafts a private Slack alert. Compare a scheduled routine, an event-driven integration, and a small app. Do not connect anything or create the workflow yet.",
+      "routing_expected": "load",
+      "baseline_expected_failure": "Without the skill, an agent may focus only on platform mechanics, under-explain data and permission choices, or treat a request to design as permission to connect accounts.",
+      "expected_output": "Compares the three approaches, recommends the fewest-moving-parts option that can test the use case, identifies data, permission, cost, and maintenance implications, and asks before external changes.",
+      "files": [],
+      "assertions": [
+        "Treats the automation as a technical workflow",
+        "Compares all three requested approaches",
+        "Recommends an approach and explains the rationale",
+        "Identifies external-action approval gates",
+        "Includes realistic verification scenarios"
+      ]
+    },
+    {
+      "id": "deployment-with-migration-risk",
+      "prompt": "Move this app from local storage to a hosted Postgres database and deploy it publicly. I want you to handle the whole thing.",
+      "routing_expected": "load",
+      "baseline_expected_failure": "Without the skill, an agent may interpret the broad request as permission to create public infrastructure, migrate data, incur charges, or deploy without a verified backup and rollback path.",
+      "expected_output": "Identifies hosting, database, cost, security, and migration choices as material; explains options and a recommendation; verifies backup and rollback needs; and pauses immediately before public, paid, or irreversible actions.",
+      "files": [],
+      "assertions": [
+        "Does not treat the broad build request as blanket deployment authorization",
+        "Explains database and hosting options",
+        "Identifies backup, rollback, and migration boundaries",
+        "Protects secrets and credentials",
+        "Requires approval before public deployment or charges"
+      ]
+    },
+    {
+      "id": "ordinary-crm-explanation",
+      "prompt": "In two or three sentences, explain what a CRM is and why a sales team might use one.",
+      "routing_expected": "do_not_load",
+      "baseline_expected_failure": "An overly broad building skill may activate merely because the prompt mentions technical business software.",
+      "expected_output": "Answers the explanation request directly without invoking a build workflow, presenting architecture options, creating decisions.md, or asking for implementation approval.",
+      "files": [],
+      "assertions": [
+        "Does not load Building Partner",
+        "Answers directly and concisely",
+        "Does not invent a technical build"
+      ]
+    },
+    {
+      "id": "ordinary-writing-request",
+      "prompt": "Draft a warm follow-up email after a customer meeting.",
+      "routing_expected": "do_not_load",
+      "baseline_expected_failure": "An overly broad skill may activate for any request that produces an artifact.",
+      "expected_output": "Handles the writing request normally without architecture options, technical approval gates, or a decision record.",
+      "files": [],
+      "assertions": [
+        "Does not load Building Partner",
+        "Does not convert the email into an automation project",
+        "Does not introduce irrelevant technical governance"
+      ]
+    }
+  ]
+}
