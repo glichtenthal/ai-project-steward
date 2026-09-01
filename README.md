@@ -1,10 +1,10 @@
 # Building Partner
 
-A portable operating skill for human-led AI builds.
+Describe what you want to build in ordinary language. Building Partner helps the AI surface consequential choices, ask before risky actions, record accepted decisions, and verify the result against the real use case.
 
-Building Partner helps people plan and build apps, prototypes, automations, integrations, and other technical workflows while keeping consequential decisions with the person doing the work.
+Use it for apps, prototypes, automations, integrations, deployments, and other technical workflows. It installs as a portable skill and keeps consequential decisions with the person doing the work.
 
-Use it independently whenever AI is helping you build something. It can also follow a judgment workflow, carrying clarified context, tested assumptions, and accepted decisions into implementation with visible trade-offs, explicit approvals, and verification against the real use case.
+Building Partner works on its own or after a judgment workflow when clarified context, tested assumptions, and accepted decisions should carry into implementation.
 
 ## Why this exists
 
@@ -40,6 +40,8 @@ Plan this app in ordinary language, explain the material choices, and recommend 
 Review this deployment plan and tell me what requires approval or a rollback path.
 ```
 
+See the [worked quick demo](examples/quick-demo.md) for a complete example with realistic options, an approval boundary, a decision record, and verification scenarios.
+
 ## Install for Claude or ChatGPT
 
 Download `building-partner.skill` from the [latest release](https://github.com/glichtenthal/building-partner/releases/latest), then import it through your Skills settings.
@@ -49,7 +51,7 @@ Download `building-partner.skill` from the [latest release](https://github.com/g
 Ask Codex:
 
 ```text
-Install Building Partner v1.0.0 into ~/.agents/skills
+Install Building Partner v1.1.0 into ~/.agents/skills
 ```
 
 Or install manually:
@@ -58,7 +60,7 @@ Or install manually:
 python3 ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-github.py \
   --repo glichtenthal/building-partner \
   --path . \
-  --ref v1.0.0 \
+  --ref v1.1.0 \
   --method download \
   --name building-partner \
   --dest ~/.agents/skills
@@ -69,10 +71,6 @@ Do not install the skill in more than one user-skills location. Duplicate-name s
 ## Other skill-capable platforms
 
 Platforms including Town and Replit can import or recreate the root `SKILL.md` as a private custom skill. Keep automatic selection enabled and run both a positive technical-build test and a negative ordinary-work test after installation.
-
-## Try it in three minutes
-
-Start with the [worked quick demo](examples/quick-demo.md). It shows a realistic build request, the expected decision shape, approval boundary, and completion check.
 
 ## How it fits with the judgment loop
 
@@ -92,6 +90,8 @@ building-partner/
 ├── agents/
 │   └── openai.yaml
 ├── assets/
+│   ├── icon-large.svg
+│   ├── icon-small.png
 │   └── social-preview.svg
 ├── evals/
 │   └── evals.json

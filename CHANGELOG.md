@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.1.0 — 2026-08-31
+
+- Added a distinct Building Partner mark, lighter social card, and skill UI metadata.
+- Reframed the public language around the practical build experience.
+- Added evals for small reversible changes and superseding an accepted decision.
+- Promoted the worked demo for faster evaluation of the skill.
+
 ## v1.0.0 — 2026-08-30
 
 - Published the platform-neutral Building Partner skill.

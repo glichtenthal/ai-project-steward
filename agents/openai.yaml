@@ -1,6 +1,9 @@
 interface:
   display_name: "Building Partner"
   short_description: "Guide human-led technical builds"
+  icon_small: "./assets/icon-small.png"
+  icon_large: "./assets/icon-large.svg"
+  brand_color: "#0B6B5B"
   default_prompt: "Use $building-partner to help me plan and build this technical project."
 policy:
   allow_implicit_invocation: true

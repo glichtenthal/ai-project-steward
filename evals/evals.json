@@ -71,6 +71,36 @@
         "Does not convert the email into an automation project",
         "Does not introduce irrelevant technical governance"
       ]
+    },
+    {
+      "id": "small-reversible-ui-change",
+      "prompt": "Change the label on the private dashboard button from 'Submit' to 'Save changes', run the relevant check, and stop. This is a local prototype and the label is easy to reverse.",
+      "routing_expected": "load",
+      "baseline_expected_failure": "A governance-heavy building skill may turn a small reversible change into an architecture discussion, present unnecessary options, or create a decision record that adds no value.",
+      "expected_output": "Makes the small local change directly, verifies the relevant interface behavior, and reports the result without presenting material-decision options, requesting approval, or creating decisions.md.",
+      "files": [],
+      "assertions": [
+        "Treats the request as a technical change",
+        "Does not present unnecessary architecture options",
+        "Does not request approval for a low-impact reversible edit",
+        "Does not create or update decisions.md",
+        "Verifies the changed label"
+      ]
+    },
+    {
+      "id": "supersede-existing-decision",
+      "prompt": "Our decisions.md records an accepted choice to use local SQLite for the prototype. We now need concurrent writes from several staff members and reliable remote backups. Review whether that earlier decision should change, but do not migrate or deploy anything yet.",
+      "routing_expected": "load",
+      "baseline_expected_failure": "Without decision continuity, an agent may silently replace the accepted SQLite choice, ignore what changed, or begin a migration before the user approves a new approach.",
+      "expected_output": "Explains how the new concurrency and backup requirements change the earlier decision, compares realistic storage options, recommends an approach, and waits for approval before recording the old decision as superseded or starting migration work.",
+      "files": [],
+      "assertions": [
+        "Acknowledges the existing accepted decision",
+        "Explains which new facts justify reconsideration",
+        "Compares realistic options and recommends one",
+        "Does not silently reverse or overwrite the earlier decision",
+        "Waits for approval before migration or deployment"
+      ]
     }
   ]
 }

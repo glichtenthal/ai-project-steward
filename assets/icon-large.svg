@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800" role="img" aria-labelledby="title desc">
+  <title id="title">Building Partner mark</title>
+  <desc id="desc">Two overlapping building blocks joined by a checked decision point.</desc>
+  <rect width="800" height="800" rx="176" fill="#F4F8F6"/>
+  <rect x="128" y="144" width="336" height="384" rx="68" fill="#102033"/>
+  <rect x="336" y="272" width="336" height="384" rx="68" fill="#48B89D"/>
+  <circle cx="400" cy="400" r="124" fill="#FFFFFF" stroke="#102033" stroke-width="24"/>
+  <path d="M337 402l44 44 88-104" fill="none" stroke="#0B6B5B" stroke-width="36" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
