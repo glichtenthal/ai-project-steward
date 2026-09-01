@@ -30,3 +30,13 @@
 - **Rationale:** The name identifies the technology, the work, and the role. Steward describes an active collaborator that helps the project succeed without taking authority from the user. The public language will consistently emphasize four responsibilities: visible choices, approval boundaries, recorded decisions, and verified results.
 - **Consequences and trade-offs:** The new name is more differentiated and faithful to the skill's behavior. “Project” can sound broader than technical builds, so the routing description must continue to exclude ordinary writing, research, summarization, and administrative work. Existing private installations, links, packages, and tests require a coordinated migration. The repository rename and release publication remain paused until the prepared migration is verified and approved.
 - **Reconsider when:** Routing begins to activate for ordinary non-build projects, users consistently misunderstand “steward,” or the name develops a material product or trademark conflict.
+
+## 2026-09-01 — One canonical worker with minimal platform routers
+
+- **Status:** Accepted
+- **Context:** Personal skill systems can route nondeterministically, while full copies of the framework in skills, global instructions, and Projects create duplication and policy drift.
+- **Options considered:** Copy the complete framework into every available instruction surface; rely only on each platform's implicit skill router; keep one canonical skill and add a minimal router only where testing shows it improves activation.
+- **Decision:** Treat `ai-project-steward` as the canonical worker. Use a short platform router in Claude/Cowork, Claude Code, and the dedicated ChatGPT Project without duplicating the full framework. Keep the full policy in the dedicated private Perplexity Project because Perplexity does not expose the same personal-skill model. Remove active legacy `building-partner` copies after replacement tests pass.
+- **Rationale:** This preserves broad conditional coverage and reliable activation while reducing the number of full policy copies that can drift.
+- **Consequences and trade-offs:** Maintenance becomes simpler because the substantive policy changes in one place. Router wording remains platform-specific, and Perplexity still requires one separate full Project copy. Removing legacy copies is difficult to reverse without reinstalling them, but the canonical package and release artifacts remain available.
+- **Reconsider when:** A platform makes implicit skill routing demonstrably deterministic, removes personal skill support, or provides a native reference mechanism that eliminates the need for a textual router.

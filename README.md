@@ -1,6 +1,6 @@
 # AI Project Steward
 
-AI Project Steward is an active AI collaborator for human-led project builds. It keeps consequential choices visible, preserves approval boundaries, records accepted decisions, and verifies the working result.
+AI Project Steward is an operating skill for AI-assisted builds. It helps plan and execute the project while keeping human authority visible at the choices that affect data, cost, security, portability, deployment, or maintenance. It records accepted decisions and checks the working result against the real use case.
 
 Use it for apps, prototypes, automations, integrations, deployments, and other technical workflows. You can describe the result without specifying the technical solution; the skill translates the goal into practical implementation while keeping consequential decisions with the person doing the work.
 
