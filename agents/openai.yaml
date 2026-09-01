@@ -1,9 +1,9 @@
 interface:
-  display_name: "Building Partner"
-  short_description: "Guide human-led technical builds"
+  display_name: "AI Project Steward"
+  short_description: "Steward human-led AI project builds"
   icon_small: "./assets/icon-small.png"
   icon_large: "./assets/icon-large.svg"
   brand_color: "#0B6B5B"
-  default_prompt: "Use $building-partner to help me plan and build this technical project."
+  default_prompt: "Use $ai-project-steward to help me build this project with visible choices, explicit approvals, and a verified result."
 policy:
   allow_implicit_invocation: true

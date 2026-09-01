@@ -1,6 +1,6 @@
 # Contributing
 
-This skill improves when people contribute realistic build scenarios, routing failures, and examples where important choices became visible too late.
+AI Project Steward improves when people contribute realistic build scenarios, routing failures, and examples where important choices became visible too late.
 
 Good contributions include:
 

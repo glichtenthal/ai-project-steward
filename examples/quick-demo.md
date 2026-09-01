@@ -1,4 +1,4 @@
-# Building Partner Quick Demo
+# AI Project Steward Quick Demo
 
 Use this when AI is helping plan or implement a technical build and material choices need to remain visible.
 
@@ -14,7 +14,7 @@ Do not implement anything until we agree on the approach.
 ## Copy-Paste Prompt
 
 ```text
-Use Building Partner on this request. Compare the realistic approaches, recommend one,
+Use AI Project Steward on this request. Compare the realistic approaches, recommend one,
 explain what becomes easier now and harder to change later, and identify any approvals
 needed before implementation.
 ```
@@ -55,4 +55,4 @@ Verification
 
 ## Natural Next Step
 
-Approve or revise the recommended approach, then ask Building Partner to implement the smallest working version and run the three verification scenarios.
+Approve or revise the recommended approach, then ask AI Project Steward to implement the smallest working version and run the three verification scenarios.

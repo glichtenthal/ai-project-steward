@@ -1,16 +1,16 @@
-# Building Partner
+# AI Project Steward
 
-Describe what you want to build in ordinary language. Building Partner helps the AI surface consequential choices, ask before risky actions, record accepted decisions, and verify the result against the real use case.
+AI Project Steward is an active AI collaborator for human-led project builds. It keeps consequential choices visible, preserves approval boundaries, records accepted decisions, and verifies the working result.
 
-Use it for apps, prototypes, automations, integrations, deployments, and other technical workflows. It installs as a portable skill and keeps consequential decisions with the person doing the work.
+Use it for apps, prototypes, automations, integrations, deployments, and other technical workflows. You can describe the result without specifying the technical solution; the skill translates the goal into practical implementation while keeping consequential decisions with the person doing the work.
 
-Building Partner works on its own or after a judgment workflow when clarified context, tested assumptions, and accepted decisions should carry into implementation.
+AI Project Steward works on its own or after a judgment workflow when clarified context, tested assumptions, and accepted decisions should carry into implementation.
 
 ## Why this exists
 
 AI can move from a plain-language request to working software quickly. That speed is useful, but it can also hide choices about data, cost, permissions, hosting, portability, and maintenance until they are expensive to unwind.
 
-Building Partner makes those choices visible without turning every implementation detail into a meeting. It asks for approval when the stakes warrant it, records material decisions, protects secrets, and checks the working result before describing the build as complete.
+AI Project Steward makes those choices visible without turning every implementation detail into a meeting. It asks for approval when the stakes warrant it, records material decisions, protects secrets, and checks the working result before describing the build as complete.
 
 ## What it does
 
@@ -44,29 +44,29 @@ See the [worked quick demo](examples/quick-demo.md) for a complete example with 
 
 ## Install for Claude or ChatGPT
 
-Download `building-partner.skill` from the [latest release](https://github.com/glichtenthal/building-partner/releases/latest), then import it through your Skills settings.
+Download `ai-project-steward.skill` from the [latest release](https://github.com/glichtenthal/ai-project-steward/releases/latest), then import it through your Skills settings.
 
 ## Install for Codex
 
 Ask Codex:
 
 ```text
-Install Building Partner v1.1.0 into ~/.agents/skills
+Install AI Project Steward v2.0.0 into ~/.agents/skills
 ```
 
 Or install manually:
 
 ```bash
 python3 ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-github.py \
-  --repo glichtenthal/building-partner \
+  --repo glichtenthal/ai-project-steward \
   --path . \
-  --ref v1.1.0 \
+  --ref v2.0.0 \
   --method download \
-  --name building-partner \
+  --name ai-project-steward \
   --dest ~/.agents/skills
 ```
 
-Do not install the skill in more than one user-skills location. Duplicate-name skills can route unpredictably.
+If `building-partner` is already installed, confirm that `ai-project-steward` passes the routing tests and then remove the legacy copy. Do not leave both versions active; overlapping skills can route unpredictably.
 
 ## Other skill-capable platforms
 
@@ -78,14 +78,14 @@ Platforms including Town and Replit can import or recreate the root `SKILL.md` a
 - **Ground Truth** pressure-tests the plan or assumptions.
 - **The Quorum** deliberates consequential decisions.
 - **Test Drive** creates the smallest credible test.
-- **Building Partner** carries the work into implementation with visible choices, approvals, continuity, and verification.
+- **AI Project Steward** carries the work into implementation with visible choices, approval boundaries, decision continuity, and verification.
 
-The other skills are optional. Use Building Partner by itself for an AI-assisted build, or use it after the loop when earlier judgment work should carry into implementation.
+The other skills are optional. Use AI Project Steward by itself for an AI-assisted build, or use it after the loop when earlier judgment work should carry into implementation.
 
 ## Repo layout
 
 ```text
-building-partner/
+ai-project-steward/
 ├── SKILL.md
 ├── agents/
 │   └── openai.yaml

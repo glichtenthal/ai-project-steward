@@ -1,5 +1,5 @@
 {
-  "skill_name": "building-partner",
+  "skill_name": "ai-project-steward",
   "evals": [
     {
       "id": "prototype-authentication-choice",
@@ -54,7 +54,7 @@
       "expected_output": "Answers the explanation request directly without invoking a build workflow, presenting architecture options, creating decisions.md, or asking for implementation approval.",
       "files": [],
       "assertions": [
-        "Does not load Building Partner",
+        "Does not load AI Project Steward",
         "Answers directly and concisely",
         "Does not invent a technical build"
       ]
@@ -67,7 +67,7 @@
       "expected_output": "Handles the writing request normally without architecture options, technical approval gates, or a decision record.",
       "files": [],
       "assertions": [
-        "Does not load Building Partner",
+        "Does not load AI Project Steward",
         "Does not convert the email into an automation project",
         "Does not introduce irrelevant technical governance"
       ]

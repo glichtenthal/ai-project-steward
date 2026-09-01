@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
-  <title id="title">Building Partner</title>
-  <desc id="desc">A portable skill that helps people plan and build apps, prototypes, automations, and integrations with AI.</desc>
+  <title id="title">AI Project Steward</title>
+  <desc id="desc">A portable skill that stewards human-led AI project builds through visible choices, approval boundaries, recorded decisions, and verified results.</desc>
   <rect width="1200" height="630" fill="#F4F8F6"/>
   <rect x="64" y="64" width="1072" height="502" rx="30" fill="#FFFFFF" stroke="#B9DED4" stroke-width="3"/>
 
@@ -12,11 +12,10 @@
     <path d="M54 65l7 7 14-16" fill="none" stroke="#0B6B5B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
 
-  <text x="280" y="166" fill="#102033" font-family="Inter, Arial, sans-serif" font-size="72" font-weight="700">BUILDING PARTNER</text>
-  <text x="280" y="226" fill="#526070" font-family="Inter, Arial, sans-serif" font-size="30">For apps, prototypes, automations, and integrations</text>
+  <text x="280" y="166" fill="#102033" font-family="Inter, Arial, sans-serif" font-size="64" font-weight="700">AI PROJECT STEWARD</text>
+  <text x="280" y="226" fill="#526070" font-family="Inter, Arial, sans-serif" font-size="30">Your AI collaborator for human-led project builds</text>
 
   <line x1="112" y1="310" x2="1088" y2="310" stroke="#D7E7E1" stroke-width="2"/>
-  <text x="112" y="384" fill="#102033" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="600">Describe what you want to build in ordinary language.</text>
-  <text x="112" y="438" fill="#526070" font-family="Inter, Arial, sans-serif" font-size="28">Building Partner helps the AI explain consequential choices, ask before risky actions,</text>
-  <text x="112" y="480" fill="#526070" font-family="Inter, Arial, sans-serif" font-size="28">and verify the result against the real use case.</text>
+  <text x="112" y="392" fill="#102033" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="600">VISIBLE CHOICES  •  APPROVAL BOUNDARIES</text>
+  <text x="112" y="454" fill="#0B6B5B" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="600">RECORDED DECISIONS  •  VERIFIED RESULTS</text>
 </svg>

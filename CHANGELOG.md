@@ -1,5 +1,12 @@
 # Changelog
 
+## v2.0.0 — 2026-08-31
+
+- Renamed the skill from Building Partner to AI Project Steward.
+- Clarified its role as an active collaborator that keeps choices visible, preserves approval boundaries, records accepted decisions, and verifies working results.
+- Replaced the generic plain-language lead with the skill's differentiated operating responsibilities.
+- Added migration guidance for removing the legacy `building-partner` installation after routing verification.
+
 ## v1.1.0 — 2026-08-31
 
 - Added a distinct Building Partner mark, lighter social card, and skill UI metadata.
