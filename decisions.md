@@ -40,3 +40,13 @@
 - **Rationale:** This preserves broad conditional coverage and reliable activation while reducing the number of full policy copies that can drift.
 - **Consequences and trade-offs:** Maintenance becomes simpler because the substantive policy changes in one place. Router wording remains platform-specific, and Perplexity still requires one separate full Project copy. Removing legacy copies is difficult to reverse without reinstalling them, but the canonical package and release artifacts remain available.
 - **Reconsider when:** A platform makes implicit skill routing demonstrably deterministic, removes personal skill support, or provides a native reference mechanism that eliminates the need for a textual router.
+
+## 2026-09-01 — Publish the AI Project Steward migration
+
+- **Status:** Accepted
+- **Context:** The renamed skill, replacement packages, private-platform routing tests, updated public card, and catalog migration are complete. The existing public repository still uses the `building-partner` name, while the prepared catalog and documentation point to `ai-project-steward` and release `v2.0.0`.
+- **Options considered:** Keep the migration local; create a separate new repository; rename the existing repository in place and publish the prepared release and catalog updates.
+- **Decision:** Rename the existing public repository to `ai-project-steward`, publish `v2.0.0` with the rebuilt `ai-project-steward.skill` package, and deploy the updated agent-skills catalog. Preserve GitHub's repository redirect, the catalog redirect, and the legacy installer alias during the migration period.
+- **Rationale:** An in-place rename preserves history and inbound links while establishing one public canonical identity. Publishing the source, release, and catalog together prevents broken installation paths.
+- **Consequences and trade-offs:** The new public URLs and package become authoritative immediately. Existing links should redirect, but third-party caches and copied installation instructions may take time to update. Reversing the public rename would create additional redirects and confusion.
+- **Reconsider when:** Redirect traffic is negligible and the compatibility alias can be retired, or a broken external dependency requires extending the migration period.
