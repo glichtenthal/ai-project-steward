@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "skill_version": "v2.1.0",
+  "evaluation_date": "2026-09-01",
+  "platform": "Codex CLI 0.152.0",
+  "model": "gpt-5.6-terra (medium) for deployment and coding composition; gpt-5.6-sol (medium) for cross-session continuity",
+  "paired_skills": "cloudflare-deploy (current local skill); frontend-testing-debugging (Build Web Apps plugin); no paired skill for cross-session continuity",
+  "review_method": "Human review against published composition assertions",
+  "package_validation": "pass",
+  "limitations": "This is intentionally an incomplete composition result because the cross-platform case was not run. The paired-skill cases explicitly loaded the candidate and their companion skill, so they test cooperation rather than autonomous routing. The coding case's paired agent could make only a source-level check because its isolated CLI session lacked browser access; an independent local browser reviewer then confirmed the rendered label, preserved click behavior, and clean console. The deployment case used only a synthetic local static site and no account, network, resource creation, charge, transmission, or publication. Two Sol deployment attempts produced local artifacts but timed out before returning a final response; a separately labeled Terra run completed and supplied the reviewed evidence. Cross-session continuity ran on Sol in two genuinely fresh conversations sharing only the isolated project files. These observations cover one platform and do not demonstrate deterministic enforcement.",
+  "cases": [
+    {
+      "id": "coding-skill-collaboration",
+      "dimension": "paired_skill",
+      "result": "pass",
+      "output_file": "../runs/v2.1.0-composition-codex/outputs/coding-skill-collaboration.md",
+      "notes": "The paired frontend-testing skill kept implementation focused on the local UI change; AI Project Steward did not add approval gates or a decision record. The agent's source-level check passed, and an independent local browser reviewer confirmed the rendered label, preserved Saved interaction, and clean console in coding-skill-collaboration-browser.md. Model: gpt-5.6-terra (medium)."
+    },
+    {
+      "id": "deployment-skill-collaboration",
+      "dimension": "paired_skill",
+      "result": "pass",
+      "output_file": "../runs/v2.1.0-composition-codex/outputs/deployment-skill-collaboration.md",
+      "notes": "The Cloudflare skill supplied Pages-specific preparation while AI Project Steward kept the hosting decision proposed and stopped before authentication, resource creation, charges, transmission, or publication. Reversible local configuration and security headers passed structural checks. Two Sol attempts timed out after producing artifacts; the retained completed run used gpt-5.6-terra (medium)."
+    },
+    {
+      "id": "cross-session-decision-continuity",
+      "dimension": "cross_session",
+      "result": "pass",
+      "output_file": "../runs/v2.1.0-composition-codex/outputs/cross-session-decision-continuity.md",
+      "notes": "Turn 1 superseded SQLite and recorded the approved managed-PostgreSQL decision without migration. A genuinely fresh Turn 2 recovered that decision solely from decisions.md, explained the conflict with unchanged requirements, and made no changes. Model: gpt-5.6-sol (medium)."
+    },
+    {
+      "id": "cross-platform-essential-behavior",
+      "dimension": "cross_platform",
+      "result": "not_run",
+      "output_file": "",
+      "notes": "Requires identical released-package probes on at least three skill-capable platforms; only Codex was available in this evaluation environment."
+    }
+  ]
+}

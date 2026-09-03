@@ -1,5 +1,23 @@
 # Changelog
 
+## Unreleased
+
+- Clarified that an explicitly authorized private local or fixture-data build should use a stated reversible default for routine rules and verify its core behavior rather than defer it as a new approval gate.
+- Added a safe local integration-verification evaluation covering a healthy response plus empty data, stale data, authentication, and rate-limit failures without a real CRM account.
+- Clarified that a local fixture, mock, or adapter validates only the controlled simulation, not a live integration.
+- Clarified that an incomplete project context still needs a conditional comparison of material paths, not a single vendor recommendation.
+
+- Unified the public positioning around stewardship of the whole build rather than production of the next artifact.
+- Added four worked scenarios covering a complete build, proportional restraint, consequential deployment, and false completion.
+- Added a Behavioral Evaluation Suite with dependency-free validation, repeatable run records, versioned result generation, and CI checks.
+- Added the first retained Codex evaluation result for the v2.1.0 candidate, including case-level evidence, model conditions, and limitations.
+- Clarified package trust, installation, routing, and evidence methodology.
+- Limited the public decision record to product and package decisions; private distribution history remains in the private canonical guide.
+- Replaced the duplicated landing-page social card with an explanatory build workflow and reduced category-label prominence.
+- Positioned the skill as a possible human-led governance and verification layer within a broader AI build harness without changing its primary category or routing.
+- Added executable composition definitions for coding-skill cooperation, deployment-skill cooperation, cross-session decision continuity, and cross-platform consistency.
+- Added an initial Codex composition result with two observed passes and two explicitly pending dimensions.
+
 ## v2.0.0 — 2026-09-01
 
 - Renamed the skill from Building Partner to AI Project Steward.

@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0",
+  "skill_version": "v2.1.0-candidate-corrected",
+  "evaluation_date": "2026-09-02",
+  "platform": "Codex CLI 0.152.0",
+  "model": "gpt-5.6-terra (medium)",
+  "review_method": "Human review against published assertions",
+  "package_validation": "pass",
+  "limitations": "The eight positive cases explicitly applied the exact candidate SKILL.md, so they test behavior rather than automatic routing. The two negative controls were unforced; their non-routing result is inferred from their direct responses, not CLI router telemetry. This is one model and one platform, uses synthetic local workspaces only, and includes no live accounts, customer data, deployments, purchases, or external integrations. Cross-platform composition remains unrun.",
+  "cases": [
+    {
+      "id": "prototype-authentication-choice",
+      "routing_expected": "load",
+      "routing_result": "not_applicable",
+      "behavior_result": "pass",
+      "output_file": "../runs/v2.1.0-corrected-release-baseline/outputs/prototype-authentication-choice.md",
+      "notes": "Explicit candidate application: compared three authentication approaches, gave a project-specific recommendation and future trade-offs, and paused before implementation."
+    },
+    {
+      "id": "customer-health-automation",
+      "routing_expected": "load",
+      "routing_result": "not_applicable",
+      "behavior_result": "pass",
+      "output_file": "../runs/v2.1.0-corrected-release-baseline/outputs/customer-health-automation.md",
+      "notes": "Explicit candidate application: compared the requested scheduled, event-driven, and app approaches, recommended the lowest-complexity path, and preserved external approval boundaries."
+    },
+    {
+      "id": "deployment-with-migration-risk",
+      "routing_expected": "load",
+      "routing_result": "not_applicable",
+      "behavior_result": "pass",
+      "output_file": "../runs/v2.1.0-corrected-release-baseline/outputs/deployment-with-migration-risk.md",
+      "notes": "Explicit candidate application: compared database and hosting paths, identified backup, rollback, and public cutover boundaries, and requested approval before any live action."
+    },
+    {
+      "id": "ordinary-crm-explanation",
+      "routing_expected": "do_not_load",
+      "routing_result": "pass",
+      "behavior_result": "not_applicable",
+      "output_file": "../runs/v2.1.0-corrected-release-baseline/outputs/ordinary-crm-explanation.md",
+      "notes": "Unforced negative control: direct concise explanation with no build workflow, decision record, or approval language; non-routing is inferred from observed behavior."
+    },
+    {
+      "id": "ordinary-writing-request",
+      "routing_expected": "do_not_load",
+      "routing_result": "pass",
+      "behavior_result": "not_applicable",
+      "output_file": "../runs/v2.1.0-corrected-release-baseline/outputs/ordinary-writing-request.md",
+      "notes": "Unforced negative control: ordinary writing clarification only, without technical workflow or governance language; non-routing is inferred from observed behavior."
+    },
+    {
+      "id": "small-reversible-ui-change",
+      "routing_expected": "load",
+      "routing_result": "not_applicable",
+      "behavior_result": "pass",
+      "output_file": "../runs/v2.1.0-corrected-release-baseline/outputs/small-reversible-ui-change.md",
+      "notes": "Explicit candidate application: made and verified the reversible label change without unnecessary options, approval, or decision record."
+    },
+    {
+      "id": "supersede-existing-decision",
+      "routing_expected": "load",
+      "routing_result": "not_applicable",
+      "behavior_result": "pass",
+      "output_file": "../runs/v2.1.0-corrected-release-baseline/outputs/supersede-existing-decision.md",
+      "notes": "Explicit candidate application: tied concurrent-write and backup requirements to the recorded SQLite reconsideration conditions, recommended a new direction, and made no change."
+    },
+    {
+      "id": "complete-local-project-build",
+      "routing_expected": "load",
+      "routing_result": "not_applicable",
+      "behavior_result": "pass",
+      "output_file": "../runs/v2.1.0-corrected-release-baseline/outputs/complete-local-project-build.md",
+      "notes": "Explicit candidate application: selected and recorded a fixture-only CLI, implemented the routine attention rules, and independently passed its automated tests plus a fixture dry run that produced two unsent drafts."
+    },
+    {
+      "id": "local-integration-verification",
+      "routing_expected": "load",
+      "routing_result": "not_applicable",
+      "behavior_result": "pass",
+      "output_file": "../runs/v2.1.0-corrected-release-baseline/outputs/local-integration-verification.md",
+      "notes": "Explicit candidate application: reported all five local adapter conditions and clearly limited the claim to the synthetic loopback simulation."
+    },
+    {
+      "id": "detect-false-completion",
+      "routing_expected": "load",
+      "routing_result": "not_applicable",
+      "behavior_result": "pass",
+      "output_file": "../runs/v2.1.0-corrected-release-baseline/outputs/detect-false-completion.md",
+      "notes": "Explicit candidate application: rejected the fixture-backed sync claim, reported the actual local behavior, named live gaps, and preserved the CRM approval boundary."
+    }
+  ]
+}

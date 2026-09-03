@@ -1,0 +1,2 @@
+# Raw terminal output can contain machine- and account-specific diagnostic noise.
+*/logs/

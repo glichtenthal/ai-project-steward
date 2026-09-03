@@ -1,0 +1,1 @@
+A CRM (customer relationship management system) is a tool for organizing customer and prospect information, interactions, and sales opportunities in one place. Sales teams use it to keep track of follow-ups, manage their pipeline, collaborate on accounts, and avoid losing important details.

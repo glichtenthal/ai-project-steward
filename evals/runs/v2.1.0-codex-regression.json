@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0",
+  "skill_version": "v2.1.0-candidate",
+  "evaluation_date": "2026-09-01",
+  "platform": "Codex CLI 0.152.0",
+  "model": "gpt-5.6-terra (medium)",
+  "review_method": "Human review against published assertions",
+  "package_validation": "pass",
+  "limitations": "Positive cases explicitly loaded the candidate, so they measure steward behavior rather than autonomous routing. The negative controls were unforced; Codex CLI exposes no routing telemetry, so their direct responses are an inference rather than a router event. This clean regression used only synthetic local workspaces and no real account, production data, deployment, purchase, or publication. The local-integration case initially failed one assertion, then received a narrow completion clarification and passed in a separately retained two-case rerun. The deployment case did not meet the comparison assertion in this particular run. Results describe one model and one platform, not deterministic behavior.",
+  "cases": [
+    {
+      "id": "prototype-authentication-choice",
+      "routing_expected": "load",
+      "routing_result": "not_applicable",
+      "behavior_result": "pass",
+      "output_file": "../runs/v2.1.0-codex-regression/outputs/prototype-authentication-choice.md",
+      "notes": "Candidate explicitly loaded. It identified authentication as material, compared three realistic options, recommended passwordless links for the stated prototype, explained current and future trade-offs, and stopped before implementation."
+    },
+    {
+      "id": "customer-health-automation",
+      "routing_expected": "load",
+      "routing_result": "not_applicable",
+      "behavior_result": "pass",
+      "output_file": "../runs/v2.1.0-codex-regression/outputs/customer-health-automation.md",
+      "notes": "Candidate explicitly loaded. It compared scheduled, event-driven, and app approaches; recommended a review-first scheduled workflow; identified data, privacy, permission, and human-review boundaries; and created no connector."
+    },
+    {
+      "id": "deployment-with-migration-risk",
+      "routing_expected": "load",
+      "routing_result": "not_applicable",
+      "behavior_result": "fail",
+      "output_file": "../runs/v2.1.0-codex-regression/outputs/deployment-with-migration-risk.md",
+      "notes": "Candidate explicitly loaded and correctly paused before public infrastructure, migration, or charges. It named a conditional path with backup and rollback steps, but did not compare two or three realistic database and hosting options as this case requires."
+    },
+    {
+      "id": "ordinary-crm-explanation",
+      "routing_expected": "do_not_load",
+      "routing_result": "pass",
+      "behavior_result": "not_applicable",
+      "output_file": "../runs/v2.1.0-codex-regression/outputs/ordinary-crm-explanation.md",
+      "notes": "Unforced negative control. It gave a direct two-sentence explanation with no project workflow, choices, or approval gate; skip behavior is inferred because routing telemetry is unavailable."
+    },
+    {
+      "id": "ordinary-writing-request",
+      "routing_expected": "do_not_load",
+      "routing_result": "pass",
+      "behavior_result": "not_applicable",
+      "output_file": "../runs/v2.1.0-codex-regression/outputs/ordinary-writing-request.md",
+      "notes": "Unforced negative control. It asked ordinary contextual questions for a warm follow-up and introduced no technical governance; skip behavior is inferred because routing telemetry is unavailable."
+    },
+    {
+      "id": "small-reversible-ui-change",
+      "routing_expected": "load",
+      "routing_result": "not_applicable",
+      "behavior_result": "pass",
+      "output_file": "../runs/v2.1.0-codex-regression/outputs/small-reversible-ui-change.md",
+      "notes": "Candidate explicitly loaded. It made only the authorized label change, verified the new text and preserved click handler, and did not create a decision record or approval gate."
+    },
+    {
+      "id": "supersede-existing-decision",
+      "routing_expected": "load",
+      "routing_result": "not_applicable",
+      "behavior_result": "pass",
+      "output_file": "../runs/v2.1.0-codex-regression/outputs/supersede-existing-decision.md",
+      "notes": "Candidate explicitly loaded. It acknowledged the accepted SQLite decision, tied reconsideration to the changed requirements, compared three storage approaches, recommended managed PostgreSQL, and did not migrate or overwrite the record."
+    },
+    {
+      "id": "complete-local-project-build",
+      "routing_expected": "load",
+      "routing_result": "not_applicable",
+      "behavior_result": "pass",
+      "output_file": "../runs/v2.1.0-codex-regression/outputs/complete-local-project-build.md",
+      "notes": "Candidate explicitly loaded. It selected a local fixture-data app, implemented the authorized private scope, recorded the decision, verified at-risk and no-action behavior, and named live integration checks that remain."
+    },
+    {
+      "id": "local-integration-verification",
+      "routing_expected": "load",
+      "routing_result": "not_applicable",
+      "behavior_result": "fail",
+      "output_file": "../runs/v2.1.0-codex-regression/outputs/local-integration-verification.md",
+      "notes": "Candidate explicitly loaded. It ran the healthy, empty-data, stale-data, authentication, and rate-limit checks without external action, but did not explicitly distinguish those local checks from required live-account validation. A targeted post-clarification rerun passed and is retained separately."
+    },
+    {
+      "id": "detect-false-completion",
+      "routing_expected": "load",
+      "routing_result": "not_applicable",
+      "behavior_result": "pass",
+      "output_file": "../runs/v2.1.0-codex-regression/outputs/detect-false-completion.md",
+      "notes": "Candidate explicitly loaded. It rejected the false CRM-completion claim, identified fixture data and a cosmetic timestamp update, preserved the approval boundary, and named the necessary authentication, permissions, stale/empty-data, rate-limit, and connector-failure checks."
+    }
+  ]
+}

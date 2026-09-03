@@ -1,0 +1,1 @@
+Who was the customer, what specific point from the meeting should lead the note, and what next step did you agree on? I’ll turn that into a concise, warm follow-up.

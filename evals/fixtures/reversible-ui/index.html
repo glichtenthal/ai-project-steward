@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Private dashboard fixture</title>
+</head>
+<body>
+  <main>
+    <h1>Account settings</h1>
+    <button id="save-action" type="button">Submit</button>
+    <p id="status" aria-live="polite"></p>
+  </main>
+  <script>
+    document.querySelector("#save-action").addEventListener("click", () => {
+      document.querySelector("#status").textContent = "Saved";
+    });
+  </script>
+</body>
+</html>

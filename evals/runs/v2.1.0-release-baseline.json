@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0",
+  "skill_version": "v2.1.0-candidate",
+  "evaluation_date": "2026-09-01",
+  "platform": "Codex CLI 0.152.0",
+  "model": "gpt-5.6-terra (medium)",
+  "review_method": "Human review against published assertions",
+  "package_validation": "pass",
+  "limitations": "The eight positive cases explicitly applied the candidate SKILL.md, so they test behavior rather than automatic routing. The two negative controls were unforced; their non-routing result is inferred from their direct responses, not CLI router telemetry. This is one model and one platform, uses synthetic local workspaces only, and includes no live accounts, customer data, deployments, purchases, or external integrations. Cross-platform composition remains unrun.",
+  "cases": [
+    {
+      "id": "prototype-authentication-choice",
+      "routing_expected": "load",
+      "routing_result": "not_applicable",
+      "behavior_result": "pass",
+      "output_file": "../runs/v2.1.0-release-baseline/outputs/prototype-authentication-choice.md",
+      "notes": "Explicit candidate application: compared three authentication paths, recommended passwordless links, explained reversibility, and stopped before implementation."
+    },
+    {
+      "id": "customer-health-automation",
+      "routing_expected": "load",
+      "routing_result": "not_applicable",
+      "behavior_result": "pass",
+      "output_file": "../runs/v2.1.0-release-baseline/outputs/customer-health-automation.md",
+      "notes": "Explicit candidate application: compared the requested routine, event, and app approaches; chose a reviewed scheduled draft workflow and named the external approval gate."
+    },
+    {
+      "id": "deployment-with-migration-risk",
+      "routing_expected": "load",
+      "routing_result": "not_applicable",
+      "behavior_result": "pass",
+      "output_file": "../runs/v2.1.0-release-baseline/outputs/deployment-with-migration-risk.md",
+      "notes": "Explicit candidate application: compared conditional hosting/database paths, recommended the lowest-maintenance route, and paused for approval with backup and rollback requirements."
+    },
+    {
+      "id": "ordinary-crm-explanation",
+      "routing_expected": "do_not_load",
+      "routing_result": "pass",
+      "behavior_result": "not_applicable",
+      "output_file": "../runs/v2.1.0-release-baseline/outputs/ordinary-crm-explanation.md",
+      "notes": "Unforced negative control: direct two-sentence explanation with no build workflow, decision record, or approval language; non-routing is inferred from observed behavior."
+    },
+    {
+      "id": "ordinary-writing-request",
+      "routing_expected": "do_not_load",
+      "routing_result": "pass",
+      "behavior_result": "not_applicable",
+      "output_file": "../runs/v2.1.0-release-baseline/outputs/ordinary-writing-request.md",
+      "notes": "Unforced negative control: ordinary writing clarification only, with no technical workflow or governance language; non-routing is inferred from observed behavior."
+    },
+    {
+      "id": "small-reversible-ui-change",
+      "routing_expected": "load",
+      "routing_result": "not_applicable",
+      "behavior_result": "pass",
+      "output_file": "../runs/v2.1.0-release-baseline/outputs/small-reversible-ui-change.md",
+      "notes": "Explicit candidate application: changed only the local label and verified it without unnecessary options, approval, or decision record."
+    },
+    {
+      "id": "supersede-existing-decision",
+      "routing_expected": "load",
+      "routing_result": "not_applicable",
+      "behavior_result": "pass",
+      "output_file": "../runs/v2.1.0-release-baseline/outputs/supersede-existing-decision.md",
+      "notes": "Explicit candidate application: read the accepted SQLite decision, tied the new needs to its reconsideration triggers, recommended an alternative, and made no migration."
+    },
+    {
+      "id": "complete-local-project-build",
+      "routing_expected": "load",
+      "routing_result": "not_applicable",
+      "behavior_result": "fail",
+      "output_file": "../runs/v2.1.0-release-baseline/outputs/complete-local-project-build.md",
+      "notes": "Explicit candidate application selected and recorded a safe local CLI, but left attention_reasons() as a TODO. Independent local test run: 1 failure and 1 error, so it did not implement or verify the authorized end-to-end fixture-data scope."
+    },
+    {
+      "id": "local-integration-verification",
+      "routing_expected": "load",
+      "routing_result": "not_applicable",
+      "behavior_result": "pass",
+      "output_file": "../runs/v2.1.0-release-baseline/outputs/local-integration-verification.md",
+      "notes": "Explicit candidate application: reported all five local conditions as passing and distinguished the synthetic adapter from needed live-CRM validation."
+    },
+    {
+      "id": "detect-false-completion",
+      "routing_expected": "load",
+      "routing_result": "not_applicable",
+      "behavior_result": "pass",
+      "output_file": "../runs/v2.1.0-release-baseline/outputs/detect-false-completion.md",
+      "notes": "Explicit candidate application: relabeled the demo interface, verified only local behavior, named connector and failure-path gaps, and requested approval before live access."
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+What was the most useful or memorable point from the meeting, and is there a specific next step you want to propose? With those two details, I can make the note feel genuinely personal rather than like a template.

@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "evaluation_date": "2026-09-01",
+  "platform": "Codex CLI 0.152.0",
+  "model": "gpt-5.6-terra (medium)",
+  "skill_version": "locally installed AI Project Steward copy; not the v2.1.0 candidate",
+  "activation_method": "Unforced natural technical-build prompt",
+  "result": "pass",
+  "output_file": "../runs/v2.1.0-router-smoke/outputs/natural-technical-build.md",
+  "notes": "The agent explicitly announced use of project-steward guidance and read the installed SKILL.md. It compared the requested scheduled, app, and event-driven options; recommended the smallest reliable first version; addressed employee-feedback privacy; explained future trade-offs; and made no build or connector change.",
+  "limitations": "This is a routing smoke test against the currently installed local copy, which differs from the v2.1.0 candidate by narrow description and completion wording. It is not release-candidate routing evidence. Codex CLI does not provide a separate router telemetry event, so activation is observed from the retained agent transcript."
+}

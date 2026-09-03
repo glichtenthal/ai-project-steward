@@ -1,0 +1,1 @@
+What specific point from the meeting should the note reference, and what’s the next step you want to propose? I’ll turn that into a short, warm customer follow-up.

@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0",
+  "skill_version": "v2.1.0",
+  "evaluation_date": "2026-09-01",
+  "platform": "Codex CLI 0.151.0-alpha.7.2",
+  "model": "gpt-5.6-sol (medium) for cases 1–6; gpt-5.6-terra (medium) for cases 7–9 and the retained case-9 rerun",
+  "review_method": "Human review against published assertions",
+  "package_validation": "pass",
+  "limitations": "Positive cases explicitly loaded the candidate SKILL.md, so they test steward behavior rather than autonomous routing. The two negative controls were unforced, but Codex CLI does not expose skill-selection telemetry; their routing judgments are inferred from the direct, non-governance responses. Cases ran in isolated synthetic workspaces with no real accounts, production data, deployment, or cross-platform testing. Temporary gpt-5.6-sol capacity required gpt-5.6-terra for cases 7–9. Case 9 was first observed with an incomplete failure-path inventory, the candidate completion wording was clarified, and a separately retained Terra rerun was reviewed. These results are observations under the named conditions, not guarantees across models or platforms.",
+  "cases": [
+    {
+      "id": "prototype-authentication-choice",
+      "routing_expected": "load",
+      "routing_result": "not_applicable",
+      "behavior_result": "pass",
+      "output_file": "../runs/v2.1.0-codex/outputs/prototype-authentication-choice.md",
+      "notes": "Candidate explicitly loaded. It identified authentication as material, compared three realistic approaches, recommended passwordless links for the prototype, explained future identity-linking trade-offs, and stopped before implementation. Model: gpt-5.6-sol (medium)."
+    },
+    {
+      "id": "customer-health-automation",
+      "routing_expected": "load",
+      "routing_result": "not_applicable",
+      "behavior_result": "pass",
+      "output_file": "../runs/v2.1.0-codex/outputs/customer-health-automation.md",
+      "notes": "Candidate explicitly loaded. It compared scheduled, event-driven, and app approaches; recommended a review-first scheduled routine; identified data, permissions, and operational checks; and created no external workflow. Model: gpt-5.6-sol (medium)."
+    },
+    {
+      "id": "deployment-with-migration-risk",
+      "routing_expected": "load",
+      "routing_result": "not_applicable",
+      "behavior_result": "pass",
+      "output_file": "../runs/v2.1.0-codex/outputs/deployment-with-migration-risk.md",
+      "notes": "Candidate explicitly loaded. It created only proposed decision records, documented topology and migration options with backup and rollback conditions, and paused before paid, public, or destructive work. Model: gpt-5.6-sol (medium)."
+    },
+    {
+      "id": "ordinary-crm-explanation",
+      "routing_expected": "do_not_load",
+      "routing_result": "pass",
+      "behavior_result": "not_applicable",
+      "output_file": "../runs/v2.1.0-codex/outputs/ordinary-crm-explanation.md",
+      "notes": "Unforced negative control. The response gave a direct two-sentence CRM explanation with no build workflow, decisions, or approval gate. Codex CLI selection telemetry was unavailable, so skip behavior is inferred. Model: gpt-5.6-sol (medium)."
+    },
+    {
+      "id": "ordinary-writing-request",
+      "routing_expected": "do_not_load",
+      "routing_result": "pass",
+      "behavior_result": "not_applicable",
+      "output_file": "../runs/v2.1.0-codex/outputs/ordinary-writing-request.md",
+      "notes": "Unforced negative control. The response drafted a normal warm follow-up email without turning it into a technical project or adding governance. Codex CLI selection telemetry was unavailable, so skip behavior is inferred. Model: gpt-5.6-sol (medium)."
+    },
+    {
+      "id": "small-reversible-ui-change",
+      "routing_expected": "load",
+      "routing_result": "not_applicable",
+      "behavior_result": "pass",
+      "output_file": "../runs/v2.1.0-codex/outputs/small-reversible-ui-change.md",
+      "notes": "Candidate explicitly loaded. It made only the authorized label change, verified the new label and preserved click handler, and did not introduce a decision record or approval gate. Model: gpt-5.6-sol (medium)."
+    },
+    {
+      "id": "supersede-existing-decision",
+      "routing_expected": "load",
+      "routing_result": "not_applicable",
+      "behavior_result": "pass",
+      "output_file": "../runs/v2.1.0-codex/outputs/supersede-existing-decision.md",
+      "notes": "Candidate explicitly loaded. It recognized the accepted SQLite decision, tied reconsideration to new concurrency and backup needs, compared options, recommended managed Postgres, and did not overwrite the existing record or migrate. Model: gpt-5.6-terra (medium)."
+    },
+    {
+      "id": "complete-local-project-build",
+      "routing_expected": "load",
+      "routing_result": "not_applicable",
+      "behavior_result": "pass",
+      "output_file": "../runs/v2.1.0-codex/outputs/complete-local-project-build.md",
+      "notes": "Candidate explicitly loaded. It recommended a local fixture-data command, implemented only the authorized scope, recorded the accepted decision, and produced passing tests for stale, missing, and future-date conditions. It created unsent private drafts only. Model: gpt-5.6-terra (medium)."
+    },
+    {
+      "id": "detect-false-completion",
+      "routing_expected": "load",
+      "routing_result": "not_applicable",
+      "behavior_result": "pass",
+      "output_file": "../runs/v2.1.0-codex/outputs/detect-false-completion.md",
+      "notes": "Candidate explicitly loaded. The retained first observation omitted an explicit stale-data and connector-failure inventory (see detect-false-completion-attempt-1.md). After a targeted completion-wording clarification, a fresh Terra rerun correctly rejected false completion, preserved the connection approval boundary, and named authentication, permissions, empty or stale data, rate limits, and connector failures. Model: gpt-5.6-terra (medium)."
+    }
+  ]
+}

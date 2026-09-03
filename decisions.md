@@ -1,52 +1,63 @@
-# Decisions
+# Product Decisions
 
-## 2026-08-30 — Public skill architecture and catalog placement
+This public record contains decisions that shape the skill, package, and public catalog. Private installation status, account-specific routers, and cross-platform distribution history are maintained in the separate private distribution guide.
 
-- **Status:** Superseded
-- **Context:** Building Partner began as a personal framework distributed across several AI products. Publishing it requires a reusable source of truth and a clear relationship to the existing four-part Judgment Infrastructure loop.
-- **Options considered:** Add it as a mandatory fifth loop step; publish it only as an unrelated standalone skill; publish it as a standalone skill and place it first under Applied Judgment Systems with an optional bridge from Test Drive.
-- **Decision:** Publish `glichtenthal/building-partner` as the canonical public, platform-neutral skill. Position it first under Applied Judgment Systems and reference it after Test Drive without changing the four-part core loop. Keep private installation status and platform-specific personal adapters outside the public repository.
-- **Rationale:** The skill is useful independently and also carries earlier judgment work into implementation. This placement preserves the existing loop, gives Building Partner a clear identity, and creates room for future applied systems.
-- **Consequences and trade-offs:** The public repository gains independent releases, evals, and version history. Personal installations must be synchronized from the public policy plus any narrowly scoped private adapter. Moving Building Partner into the core loop later would require catalog and installer changes, but not a skill rewrite.
-- **Reconsider when:** Users consistently treat Building Partner as a required fifth loop step, Applied Judgment Systems becomes too broad, or maintaining the public and private layers produces demonstrated drift.
-- **Superseded because:** The repository architecture and Applied Judgment Systems placement remain appropriate, but the public name and skill identity were changed to AI Project Steward on August 31, 2026.
+## 2026-08-30 — Standalone skill and catalog placement
+
+- **Status:** Accepted
+- **Context:** The operating framework is useful independently and can also carry prior judgment work into implementation.
+- **Options considered:** Add it as a mandatory fifth step in the core judgment loop; publish it as an unrelated standalone skill; publish it as a standalone skill under Applied Judgment Systems with an optional bridge from Test Drive.
+- **Decision:** Publish the framework as a standalone, platform-neutral skill and place it first under Applied Judgment Systems. Reference it after Test Drive without changing the four-part core loop.
+- **Rationale:** This preserves the complete judgment loop while giving the build-focused operating layer a clear identity and independent installation path.
+- **Consequences and reversal difficulty:** The skill has its own repository, releases, examples, and evaluations. Moving it into the core loop later would require catalog and installer changes, but not a skill rewrite.
+- **Reconsider when:** Users consistently treat the skill as a required fifth loop step or the Applied Judgment Systems category no longer describes the portfolio.
 
 ## 2026-08-31 — Visual identity and catalog scope
 
 - **Status:** Accepted
-- **Context:** The initial dark card used a generic plus mark, while the agent-skills catalog mixed installable skills with a hosted GPT that had no repository, package, or comparable release path.
-- **Options considered:** Keep the initial identity and mixed catalog; redesign Building Partner while leaving the hosted GPT; give Building Partner a lighter reusable mark and keep the catalog focused on installable skills.
-- **Decision:** Use a light, vector-based Building Partner identity built around two overlapping blocks and a checked decision point. Keep Applied Judgment Systems as the category, present Building Partner as its first entry, and remove Executive Recruiter GPT from the agent-skills catalog until complete applications have a dedicated presentation surface.
-- **Rationale:** The mark communicates building and explicit human approval at icon and card sizes. A skills-focused catalog gives every visible entry the same basic contract: source, version, install path, and supporting material.
-- **Consequences and trade-offs:** Building Partner gains reusable icon metadata and a clearer public identity. Executive Recruiter GPT loses one discovery link but can return later in a separate applications section without changing the judgment loop or Building Partner.
-- **Reconsider when:** Two or more complete applications are ready for a consistent public applications section, or the Building Partner mark does not remain legible in supported skill interfaces.
+- **Context:** The initial identity used a generic mark, while the catalog mixed installable skills with a hosted application that had no comparable package or release path.
+- **Options considered:** Keep the initial identity and mixed catalog; redesign the identity while retaining the hosted application; use a distinctive build-and-check mark and keep this catalog focused on installable skills.
+- **Decision:** Use a light visual identity built around overlapping blocks and a checked decision point. Keep the catalog focused on installable skills until complete applications have a dedicated presentation surface.
+- **Rationale:** The mark communicates building plus explicit verification, and a skills-focused catalog gives every entry the same source, version, installation, and evidence contract.
+- **Consequences and reversal difficulty:** The skill has reusable icon metadata and a clearer public identity. A separate applications section can be introduced later without changing the skill architecture.
+- **Reconsider when:** Multiple complete applications are ready for a consistent public section or the mark does not remain legible in supported interfaces.
 
-## 2026-08-31 — Rename to AI Project Steward
+## 2026-08-31 — AI Project Steward name and role
 
 - **Status:** Accepted
-- **Context:** Building Partner was approachable but described a generic relationship rather than the skill's responsibilities. Creator Steward was more distinctive but could imply writing, design, or content creation. Build Steward was the clearest two-word alternative but is already used for a closely related digital-product governance offering.
+- **Context:** Building Partner was approachable but generic. Creator Steward was distinctive but could imply content creation rather than project development.
 - **Options considered:** Keep Building Partner with sharper positioning; rename it Creator Steward; rename it AI Project Steward.
-- **Decision:** Rename the public skill, package, repository, and catalog entry to `ai-project-steward` / AI Project Steward. Retain its placement first under Applied Judgment Systems. Preserve a temporary redirect and legacy installer alias for `building-partner`, but do not keep both skills active after migration.
-- **Rationale:** The name identifies the technology, the work, and the role. Steward describes an active collaborator that helps the project succeed without taking authority from the user. The public language will consistently emphasize four responsibilities: visible choices, approval boundaries, recorded decisions, and verified results.
-- **Consequences and trade-offs:** The new name is more differentiated and faithful to the skill's behavior. “Project” can sound broader than technical builds, so the routing description must continue to exclude ordinary writing, research, summarization, and administrative work. Existing private installations, links, packages, and tests require a coordinated migration. The repository rename and release publication remain paused until the prepared migration is verified and approved.
+- **Decision:** Use `ai-project-steward` / AI Project Steward for the skill, package, repository, and catalog entry.
+- **Rationale:** The name identifies the technology, the work, and the role. “Steward” describes an active collaborator that helps a project succeed without taking authority from the user.
+- **Consequences and reversal difficulty:** The name is differentiated and faithful to the behavior. “Project” is broad, so routing must continue to exclude ordinary writing, research, summarization, and administrative work.
 - **Reconsider when:** Routing begins to activate for ordinary non-build projects, users consistently misunderstand “steward,” or the name develops a material product or trademark conflict.
 
-## 2026-09-01 — One canonical worker with minimal platform routers
+## 2026-09-01 — Hybrid behavioral evidence system
 
 - **Status:** Accepted
-- **Context:** Personal skill systems can route nondeterministically, while full copies of the framework in skills, global instructions, and Projects create duplication and policy drift.
-- **Options considered:** Copy the complete framework into every available instruction surface; rely only on each platform's implicit skill router; keep one canonical skill and add a minimal router only where testing shows it improves activation.
-- **Decision:** Treat `ai-project-steward` as the canonical worker. Use a short platform router in Claude/Cowork, Claude Code, and the dedicated ChatGPT Project without duplicating the full framework. Keep the full policy in the dedicated private Perplexity Project because Perplexity does not expose the same personal-skill model. Remove active legacy `building-partner` copies after replacement tests pass.
-- **Rationale:** This preserves broad conditional coverage and reliable activation while reducing the number of full policy copies that can drift.
-- **Consequences and trade-offs:** Maintenance becomes simpler because the substantive policy changes in one place. Router wording remains platform-specific, and Perplexity still requires one separate full Project copy. Removing legacy copies is difficult to reverse without reinstalling them, but the canonical package and release artifacts remain available.
-- **Reconsider when:** A platform makes implicit skill routing demonstrably deterministic, removes personal skill support, or provides a native reference mechanism that eliminates the need for a textual router.
+- **Context:** Declarative prompt cases describe intended behavior but do not, by themselves, show that a released skill produced the behavior. Fully automated semantic scoring would add model cost and could mistake keyword matching for good stewardship.
+- **Options considered:** Keep declarative cases only; add fully automated model calls and grading; combine automated package validation with repeatable live runs and explicit human review.
+- **Decision:** Use a hybrid Behavioral Evaluation Suite. Automate package and case-definition validation, use a repeatable runner to prepare and summarize live runs, and publish versioned human-reviewed results with retained, redacted outputs where appropriate.
+- **Rationale:** The hybrid approach makes evidence reproducible without hiding judgment behind a brittle score. It also distinguishes package validity, routing behavior, and steward behavior.
+- **Consequences and reversal difficulty:** The repository gains a small dependency-free runner, a CI validation workflow, four public scenarios, and versioned result files. Live model runs still require platform access and must identify their model, date, method, and limitations. The structure can later move to a shared portfolio harness if several skills adopt it.
+- **Reconsider when:** Three or more skill repositories duplicate the runner, a stable cross-platform evaluation API becomes available, or human review becomes the primary bottleneck.
 
-## 2026-09-01 — Publish the AI Project Steward migration
+## 2026-09-01 — Secondary AI build harness positioning
 
 - **Status:** Accepted
-- **Context:** The renamed skill, replacement packages, private-platform routing tests, updated public card, and catalog migration are complete. The existing public repository still uses the `building-partner` name, while the prepared catalog and documentation point to `ai-project-steward` and release `v2.0.0`.
-- **Options considered:** Keep the migration local; create a separate new repository; rename the existing repository in place and publish the prepared release and catalog updates.
-- **Decision:** Rename the existing public repository to `ai-project-steward`, publish `v2.0.0` with the rebuilt `ai-project-steward.skill` package, and deploy the updated agent-skills catalog. Preserve GitHub's repository redirect, the catalog redirect, and the legacy installer alias during the migration period.
-- **Rationale:** An in-place rename preserves history and inbound links while establishing one public canonical identity. Publishing the source, release, and catalog together prevents broken installation paths.
-- **Consequences and trade-offs:** The new public URLs and package become authoritative immediately. Existing links should redirect, but third-party caches and copied installation instructions may take time to update. Reversing the public rename would create additional redirects and confusion.
-- **Reconsider when:** Redirect traffic is negligible and the compatibility alias can be retired, or a broken external dependency requires extending the migration period.
+- **Context:** AI Project Steward already functions as an operating layer around AI-assisted builds. Industry discussion of harness engineering offers a useful architectural frame, but calling the skill a complete harness would imply runtime orchestration, tool enforcement, observability, and persistent state that it does not provide.
+- **Options considered:** Keep all harness language out of the product; describe the skill as one layer within a broader AI build harness; reposition the product primarily as an AI harness.
+- **Decision:** Keep “portable operating skill” and the existing value proposition primary. Add secondary language explaining that AI Project Steward can serve as the human-led governance and verification layer within a broader AI build harness.
+- **Rationale:** This makes the product legible within current AI architecture without weakening its plain-language value or overstating technical enforcement.
+- **Consequences and reversal difficulty:** The repository, product page, catalog, packaging explanation, and evidence methodology gain a consistent layer model. The skill name, routing metadata, and `.skill` distribution remain unchanged. Removing the secondary framing later would be easy; making harness the primary category would require stronger runtime and enforcement capabilities.
+- **Reconsider when:** Users mistake the skill for a complete technical harness, the term loses practical meaning, or the product adds native state, enforced gates, tool interception, and automated verification sufficient to support a primary harness category.
+
+## 2026-09-01 — Expanded behavioral evidence scope
+
+- **Status:** Accepted
+- **Context:** The first release evidence established core steward behavior, deployment-skill cooperation, and decision continuity. It did not directly exercise a local integration's important failure paths or a naturally selected positive routing case.
+- **Options considered:** Keep the original core suite; add only more happy-path prompts; add local, observable evaluation cases for routing, approval boundaries, decision reversals, integration verification, and skill composition.
+- **Decision:** Extend the evidence plan with an explicit local integration-verification case and separate natural-routing and coding-composition probes. Retain the existing approval-boundary and decision-reversal cases as their authoritative core checks.
+- **Rationale:** This adds observable coverage of the gap the skill is meant to close without substituting a mock adapter for a live account or overstating what one platform router proves.
+- **Consequences and reversal difficulty:** Results can make more specific claims about safe local verification and composition. A real-account test remains separately approval-gated and cannot be inferred from the local adapter. The additional cases are easy to revise as real integrations and platform access become available.
+- **Reconsider when:** A supported cross-platform evaluation interface provides reliable routing telemetry, or a controlled test account and explicit authorization make a real-connector evaluation appropriate.

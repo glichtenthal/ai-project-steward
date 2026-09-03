@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CRM dashboard fixture</title>
+</head>
+<body>
+  <main>
+    <h1>Customer health</h1>
+    <p id="sync-status">Synced five minutes ago</p>
+    <button id="sync" type="button">Sync now</button>
+    <ul id="accounts"></ul>
+  </main>
+  <script>
+    const fixtureAccounts = [
+      { name: "Northstar", status: "Healthy" },
+      { name: "Harbor", status: "At risk" }
+    ];
+
+    document.querySelector("#accounts").innerHTML = fixtureAccounts
+      .map((account) => `<li>${account.name}: ${account.status}</li>`)
+      .join("");
+
+    document.querySelector("#sync").addEventListener("click", () => {
+      document.querySelector("#sync-status").textContent = "Synced just now";
+    });
+  </script>
+</body>
+</html>

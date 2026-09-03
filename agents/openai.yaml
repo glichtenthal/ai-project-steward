@@ -1,9 +1,9 @@
 interface:
   display_name: "AI Project Steward"
-  short_description: "Keep human authority visible in AI builds"
+  short_description: "Steward an AI build from choices through verification"
   icon_small: "./assets/icon-small.png"
   icon_large: "./assets/icon-large.svg"
   brand_color: "#0E7C70"
-  default_prompt: "Use $ai-project-steward to help me build this project with visible choices, explicit approvals, and a verified result."
+  default_prompt: "Use $ai-project-steward to manage this build with visible choices, preserved approvals, decision continuity, and verification."
 policy:
   allow_implicit_invocation: true
