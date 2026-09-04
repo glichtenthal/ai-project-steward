@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## v2.1.0 — 2026-09-03
 
 - Clarified that an explicitly authorized private local or fixture-data build should use a stated reversible default for routine rules and verify its core behavior rather than defer it as a new approval gate.
 - Added a safe local integration-verification evaluation covering a healthy response plus empty data, stale data, authentication, and rate-limit failures without a real CRM account.

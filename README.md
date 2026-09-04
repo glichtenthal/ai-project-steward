@@ -111,7 +111,7 @@ If `building-partner` is already installed, confirm that `ai-project-steward` pa
 
 ### Other skill-capable platforms
 
-Platforms including Town and Replit can import or recreate the root `SKILL.md` as a private custom skill. Keep automatic selection enabled and run both a positive technical-build test and a negative ordinary-work test after installation.
+Other skill-capable platforms can import or recreate the root `SKILL.md` as a private custom skill. Keep automatic selection enabled and run both a positive technical-build test and a negative ordinary-work test after installation.
 
 ## How it fits with the judgment loop
 
@@ -140,7 +140,7 @@ python3 scripts/evaluate.py validate
 
 See [evals/README.md](evals/README.md) for the live-run process and [evals/results](evals/results/) for versioned results. Behavioral results identify the platform, model, skill version, date, review method, and limitations; they are not presented as deterministic guarantees across every model or run.
 
-The initial Codex composition result verifies cooperation with deployment guidance and decision continuity across fresh sessions. The coding-skill pairing and three-platform comparison remain explicitly unrun rather than being inferred from those results.
+The current Codex composition result verifies cooperation with coding and deployment guidance plus decision continuity across fresh sessions. Cross-platform consistency remains explicitly unrun rather than inferred.
 
 ## Repo layout
 
