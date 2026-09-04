@@ -24,6 +24,9 @@ Before submitting an evaluation change, run:
 
 ```bash
 python3 scripts/evaluate.py validate
+./scripts/package_skill.sh
 ```
+
+The second command builds the installable archive and verifies that every packaged file exactly matches the tracked repository source.
 
 See [evals/README.md](evals/README.md) for the live-run and versioned-results methodology. Never include credentials, private customer data, account identifiers, or unrelated conversation history in an evaluation artifact.

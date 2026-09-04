@@ -31,6 +31,7 @@ REQUIRED_FILES = [
     "examples/fast-reversible-change.md",
     "examples/consequential-deployment.md",
     "examples/false-completion.md",
+    "scripts/package_skill.sh",
     "decisions.md",
     "CHANGELOG.md",
     "LICENSE",

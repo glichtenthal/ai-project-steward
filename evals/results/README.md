@@ -15,6 +15,7 @@ Each result must identify:
 
 ## Current candidate evidence
 
+- [Codex and Claude cross-platform probe](v2.1.0-cross-platform-probe.md) — the identical v2.1.0 instruction payload was exercised on both platforms. Material-decision and ordinary-request controls passed on both; the narrow reversible-change probe passed on Codex and retained a Claude scope-fidelity failure. The formal three-platform case remains incomplete.
 - [Corrected Codex release baseline](v2.1.0-corrected-release-baseline.md) — all ten core cases were run against the exact corrected candidate. All eight positive steward-behavior cases passed; both unforced negative controls passed by observed behavior. This is the current release baseline.
 - [Final Codex release baseline](v2.1.0-release-baseline.md) — all ten core cases were run against the exact current candidate. Seven of eight positive steward-behavior cases passed; the complete local-project build is retained as a failure because it deferred and did not verify the authorized fixture-data logic. Both unforced negative controls passed by observed behavior.
 - [Complete local-build targeted rerun](v2.1.0-complete-local-build-rerun.md) — the narrowly corrected candidate passed the previously failing local-build scenario in a fresh synthetic workspace, including independently verified fixture tests and a dry run. It does not replace the retained baseline failure.

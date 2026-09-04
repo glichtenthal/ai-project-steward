@@ -1,5 +1,13 @@
 # Changelog
 
+## v2.1.1 — 2026-09-04
+
+- Added a deterministic release-archive builder and CI integrity check so the installable package is verified against every tracked repository file.
+- Published a two-platform Codex and Claude probe using the identical v2.1.0 instruction payload, including the retained Claude scope-fidelity miss and the unavailable third-platform limitation.
+- Synchronized the current README, changelog, evaluation evidence, and social-preview source in the release archive.
+- Clarified the catalog evidence link so its label precisely matches the evaluation-suite destination.
+- Left the `SKILL.md` operating instructions unchanged from v2.1.0.
+
 ## v2.1.0 — 2026-09-03
 
 - Clarified that an explicitly authorized private local or fixture-data build should use a stated reversible default for routine rules and verify its core behavior rather than defer it as a new approval gate.

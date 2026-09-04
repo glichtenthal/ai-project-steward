@@ -101,7 +101,7 @@ Or install the current published release manually:
 python3 ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-github.py \
   --repo glichtenthal/ai-project-steward \
   --path . \
-  --ref v2.1.0 \
+  --ref v2.1.1 \
   --method download \
   --name ai-project-steward \
   --dest ~/.agents/skills
@@ -138,9 +138,17 @@ Run the dependency-free package validation with:
 python3 scripts/evaluate.py validate
 ```
 
+Build and verify the installable archive from the repository's tracked files with:
+
+```bash
+./scripts/package_skill.sh
+```
+
+The packaging check extracts the archive and compares every packaged file with the tracked source before reporting its SHA-256 digest.
+
 See [evals/README.md](evals/README.md) for the live-run process and [evals/results](evals/results/) for versioned results. Behavioral results identify the platform, model, skill version, date, review method, and limitations; they are not presented as deterministic guarantees across every model or run.
 
-The current Codex composition result verifies cooperation with coding and deployment guidance plus decision continuity across fresh sessions. Cross-platform consistency remains explicitly unrun rather than inferred.
+The current Codex composition result verifies cooperation with coding and deployment guidance plus decision continuity across fresh sessions. A separate [two-platform probe](evals/results/v2.1.0-cross-platform-probe.md) compares the identical v2.1.0 instruction payload on Codex and Claude. Material-decision and ordinary-request behavior were consistent; the Claude reversible-change run introduced unrelated formatting. A third verified platform remains unavailable, so the formal cross-platform case remains incomplete rather than inferred.
 
 ## Repo layout
 
@@ -159,7 +167,8 @@ ai-project-steward/
 │   └── results/
 ├── examples/
 ├── scripts/
-│   └── evaluate.py
+│   ├── evaluate.py
+│   └── package_skill.sh
 ├── .github/workflows/
 │   └── validate.yml
 ├── README.md

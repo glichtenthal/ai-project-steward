@@ -17,3 +17,5 @@ jobs:
           python-version: "3.12"
       - name: Validate package and evaluation definitions
         run: python3 scripts/evaluate.py validate
+      - name: Build and verify release archive
+        run: ./scripts/package_skill.sh
