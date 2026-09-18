@@ -61,3 +61,12 @@ This public record contains decisions that shape the skill, package, and public 
 - **Rationale:** This adds observable coverage of the gap the skill is meant to close without substituting a mock adapter for a live account or overstating what one platform router proves.
 - **Consequences and reversal difficulty:** Results can make more specific claims about safe local verification and composition. A real-account test remains separately approval-gated and cannot be inferred from the local adapter. The additional cases are easy to revise as real integrations and platform access become available.
 - **Reconsider when:** A supported cross-platform evaluation interface provides reliable routing telemetry, or a controlled test account and explicit authorization make a real-connector evaluation appropriate.
+
+## 2026-09-18 — Prepare Steward 2.1.2 stable release
+
+- **Status:** Accepted for publication on 2026-09-18.
+- **Context:** Promote the tested September 17 candidate unchanged; preserve the separate older hardening experiment.
+- **Options:** Keep candidates only; publish the tested instructions unchanged; add further speculative instructions.
+- **Recommendation:** Prepare the tested instructions unchanged, with version metadata and bounded evidence.
+- **Consequences:** Preserves tested behavior; source publication and installation remain separate steps. Local changes can be discarded before publication.
+- **Reconsider when:** Review finds a source conflict or repeated real-world failures justify a focused instruction change.

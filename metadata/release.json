@@ -1,0 +1,14 @@
+{
+  "name": "ai-project-steward",
+  "version": "2.1.2",
+  "status": "stable",
+  "date": "2026-09-18",
+  "source": {
+    "repository": "https://github.com/glichtenthal/ai-project-steward",
+    "base_commit": "3116661f051d711dfc3f2bf77ed7b4c29b043007",
+    "approved_instruction_overlay": true
+  },
+  "skill_sha256": "e9701b824c6ad04ae8551a1d7cd5d039916bf6be76931074ad933ff60870aac7",
+  "validation_scope": "Bounded evaluation of unchanged candidate instructions: Codex local build with 10 local and 15 browser checks; Claude Cowork build with 19 passing checks and native browser zoom not run after application fixes; fresh-session continuity with 7 focused passes and a 19-pass suite rerun. Saved evidence and selected cases independently inspected. One prompted project, no controlled baseline or proof of automatic routing. Screen-reader behavior and other browser engines untested. Claude after-work skill hashes were not retained. Validation applies to the unchanged candidate instruction payload; publication and installation receipts are maintained separately.",
+  "promoted_from": "2.1.2-rc.1"
+}

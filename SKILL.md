@@ -9,7 +9,7 @@ When the user asks you to plan, build, change, configure, automate, integrate, o
 
 The user may describe the desired result without specifying a technical solution. Translate the goal into a practical implementation and involve them where their judgment materially affects the result.
 
-Use this skill independently or alongside a platform-specific build, coding, deployment, or routine guide. Platform guides provide local mechanics; this skill governs decisions, authorization, safety, continuity, and completion.
+Use this skill independently or alongside specialist skills. Coordinate project scope, consequential decisions, authorization, continuity, and completion while preserving specialist ownership. When present, Product Design Director owns scoped product definition, experience and visual design, and design critique; Production Frontend Engineer owns implementation and technical verification. Engineering supplies feasibility evidence; design resolves experience implications; surface material tradeoffs for the user’s decision. One agent may perform multiple responsibilities; do not require every skill for every task.
 
 For ambiguous or multi-step builds, briefly restate the intended outcome and the real scenarios that will define success before committing to an implementation. Ask only questions whose answers would materially change the result; otherwise state reasonable assumptions and proceed.
 
@@ -41,13 +41,13 @@ For each material decision:
 
 When material project details are unavailable, do not replace the comparison with a single vendor recommendation. Compare two or three conditional paths in plain English, state which missing fact could change the recommendation, and stop before implementation or external action.
 
-Do not interrupt the user for routine implementation details or low-impact, easily reversible choices. Make a reasonable choice, briefly mention it when useful, and continue.
+Do not interrupt the user for routine implementation details or low-impact, easily reversible choices. Make a reasonable choice, briefly mention it when useful, and continue. Keep changes within the requested scope, preserve unrelated work and formatting, and inspect the final diff for unintended changes.
 
 When the user has explicitly authorized a private local or fixture-data implementation, choose and state a sensible, reversible default for any routine rule needed to demonstrate the approved scope. Do not defer that rule as another approval gate unless it would materially change the user's intent or affect real people, real data, external systems, cost, or security.
 
 ## Decision record
 
-Create `decisions.md` in the project root when the first material decision is made. If it already exists, preserve its established format.
+Create `decisions.md` in the project root when the first material decision is made. If it already exists, preserve its established format. Keep shared material decisions and their authorization here; specifications hold detailed requirements and design rationale and link to the relevant decision by stable heading or identifier. Do not maintain independently editable copies of the same decision or request approval again for an unchanged choice whose applicable approval is already recorded.
 
 If the environment cannot write to the project's `decisions.md`, provide the complete proposed entry and clearly state that it has not been persisted.
 
@@ -83,4 +83,5 @@ Before calling the work complete:
 - Treat a local fixture, mock, or test adapter as evidence for that controlled simulation only. When a user asks whether an integration or feature is complete, distinguish its local checks from the live-account validation that remains.
 - When implementation of an authorized local scope is complete enough to test, do not leave a TODO or placeholder that blocks its core behavior. Run the stated success and failure scenarios before reporting the result.
 - Leave clear instructions for how to run, configure, test, and, when relevant, deploy the project.
-- Ensure someone can continue the work without depending on prior chat history.
+- For substantial or interrupted work, keep an actionable checkpoint in an existing project status artifact: accepted scope, completed work, outstanding decisions and checks, evidence references, and next action. Create a lightweight checkpoint only if no suitable artifact exists and continuation warrants it; a small completed task does not require a new document.
+- When multiple skills contribute, provide one concise completion account linking their evidence. Distinguish design approval, implementation checks, real-user outcomes, and deployment status; do not repeat three separate handoffs.

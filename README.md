@@ -1,3 +1,5 @@
+> Stable version **2.1.2**, release. The operating instructions are byte-identical to tested candidate 2.1.2-rc.1. See [release metadata](metadata/release.json) for evidence and limits. Earlier evaluation reports below retain their original version scope.
+
 # AI Project Steward
 
 AI Project Steward provides a clear operating layer for visibility, guidance, approval, continuity, and verification throughout an AI-assisted build.

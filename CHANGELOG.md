@@ -1,5 +1,13 @@
 # Changelog
 
+## v2.1.2 — 2026-09-18 (stable release)
+
+- Clarifies specialist ownership, narrow change fidelity, authoritative decision links, continuation checkpoints, and shared completion reporting.
+- Promotes the unchanged 2.1.2-rc.1 instruction payload after bounded Codex and Claude Cowork evaluation and a fresh-session continuation test.
+- Application defects found during evaluation were corrected in the test project; no additional skill instructions were added.
+- Native zoom, screen-reader behavior, and other browser engines remain unverified. No controlled comparison with earlier skill versions was performed.
+- This release does not include the separate earlier 2.1.2 hardening experiment.
+
 ## v2.1.1 — 2026-09-04
 
 - Added a deterministic release-archive builder and CI integrity check so the installable package is verified against every tracked repository file.
