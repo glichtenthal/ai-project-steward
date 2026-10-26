@@ -61,6 +61,18 @@ class LearningTests(unittest.TestCase):
                           "--output", path)
         return result, json.loads(path.read_text(encoding="utf-8"))
 
+
+    def test_suite_contains_direct_learning_behavior_probes(self):
+        # Recursion-specific controls are required: ordinary build checks alone
+        # cannot demonstrate an improvement from the learning instructions.
+        data = json.loads(CASES.read_text(encoding="utf-8"))["cases"]
+        for role in ("steward", "design", "frontend"):
+            focused = [c for c in data if c["role"] == role
+                       and c["id"].startswith(role + "-learning-")]
+            self.assertGreaterEqual(len(focused), 2, role)
+            self.assertTrue(any(c.get("critical") for c in focused), role)
+            self.assertTrue(any(not c.get("critical") for c in focused), role)
+
     def test_init_run_starts_unreviewed_and_does_not_claim_success(self):
         output = self.base / "new-run.json"
         result = self.cli("init-run", "--role", "design", "--version", "draft",
