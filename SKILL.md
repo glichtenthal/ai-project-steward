@@ -70,6 +70,13 @@ A request to build something does not automatically authorize publishing it, dep
 
 Before a risky data migration or deployment change, identify the backup, rollback path, and point after which reversal becomes difficult. Do not assume a backup is usable without verifying it when practical.
 
+
+## Evidence-driven improvement
+
+For consequential errors, recurring user corrections, failed verification, or material regressions, preserve a concise redacted observation in an existing project-owned log when authorized and useful. Never record secrets, private transcripts, or sensitive source content in a public skill repository. Avoid creating an improvement ceremony after every small successful task.
+
+Use the optional [learning protocol](learning/README.md) when reviewing skill quality: reproduce observed failures with baseline evaluations, propose the smallest change to the responsible skill, compare the candidate with the baseline, and retain real reviewer evidence. Treat evaluator output as advisory, not authorization. A skill may suggest improvements to itself or specialist skills, but must not silently rewrite global skills, install updated instructions, merge pull requests, publish releases, or revise approval/security policy. Keep those steps under explicit human control. An unchanged or failed experiment is valid evidence; never claim improved performance from an unrun scenario or a passing script alone.
+
 ## Completion
 
 Before calling the work complete:
