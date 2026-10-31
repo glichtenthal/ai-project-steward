@@ -1,6 +1,6 @@
-> Unreleased local review proposal. Stable **2.1.2** remains unchanged. No release or installation is authorized by this proposal.
+> **2.1.3-rc.1: unreleased Codex-only candidate.** Stable 2.1.2 remains the published release. No tag, release, or installation is authorized by preparing this candidate.
 
-> [Release metadata](metadata/release.json) and earlier evaluation reports retain their published version scope. They do not certify this modified working tree.
+> [Candidate metadata](metadata/release.json) identifies the tested instruction hash and scope. Earlier release reports retain their original version scope and do not certify this candidate. See the [candidate evaluation summary](evals/results/v2.1.3-rc.1-codex.md).
 
 # AI Project Steward
 
@@ -83,39 +83,42 @@ Review this deployment plan and identify what needs an explicit approval, backup
 
 ## Install
 
-The repository is the readable source of truth. The release package contains the same skill instructions, metadata, and local assets for import into a compatible AI product. Installing it adds the operating layer described above; it does not create a standalone runtime or complete harness, contain credentials, or connect to external systems by itself.
+**Do not install this candidate until the user separately approves installation.** Source preparation and successful checks do not grant that approval. Publishing a release is also a separate action.
 
-Before installing, you can review [SKILL.md](SKILL.md), inspect the [latest release](https://github.com/glichtenthal/ai-project-steward/releases/latest), and verify the release digest shown by GitHub.
+### Codex candidate: private staged installation after approval
 
-### Claude or ChatGPT
+The candidate is currently a local, unpublished package. There is no `v2.1.3-rc.1` remote tag or release asset to download. Use the exact staged archive identified in the candidate receipt, not an unpinned checkout of `main` or a command that requests the latest release.
 
-Download `ai-project-steward.skill` from the [latest release](https://github.com/glichtenthal/ai-project-steward/releases/latest), then import it through your Skills settings.
+After explicit approval:
 
-### Codex
+1. Verify the staged archive SHA-256 against its receipt, extract it into a temporary directory, and confirm `metadata/release.json` says `2.1.3-rc.1`, `candidate`, and `Codex only`. Confirm the extracted `SKILL.md` SHA-256 matches `skill_sha256`.
+2. Locate the existing active Steward directory. Codex's installer defaults to `$CODEX_HOME/skills` (normally `~/.codex/skills`); installations in `~/.agents/skills` may also exist. Update the existing location instead of creating a second active copy. Do not replace Design Director or Frontend Engineer.
+3. Back up the entire current Steward directory outside every active skill-search directory, retain its file hashes, and verify the backup before replacement. Keep the published stable package available for rollback.
+4. Replace only the approved Steward directory with the verified candidate contents. Do not leave `building-partner`, a second Steward version, or a backup directory active alongside it. Do not remove unrelated skills.
+5. In fresh Codex conversations, check positive technical routing, negative ordinary writing, the routine local edit, and unapproved/approved decision replacement. Record the installed hash and the actual results. If a critical check regresses, restore the verified stable backup and report the failure; do not silently declare the candidate promoted.
 
-Ask Codex:
+These are future installation instructions, not actions performed by this candidate preparation. Native routing limitations must remain visible; explicit invocation can verify instructed behavior but cannot establish automatic-selection reliability. The candidate checks reproduced a routine-label source-loading miss in both stable and candidate. Keep that limitation visible when reviewing any explicit-use pilot; do not describe automatic activation as fully verified.
 
-```text
-Install the latest AI Project Steward release into ~/.agents/skills
-```
+### Published stable version
 
-Or install the current published release manually:
+The published stable version is still **v2.1.2**. Its release asset is `ai-project-steward-2.1.2.zip`, with `STEWARD-SHA256SUMS`; do not assume the obsolete `.skill` asset name exists on that release. Review the [v2.1.2 release](https://github.com/glichtenthal/ai-project-steward/releases/tag/v2.1.2) and verify the downloaded archive against its published digest.
+
+For a separately authorized fresh Codex installation of that stable version, the existing installer can pin the exact v2.1.2 release commit and defaults to the configured Codex skills directory:
 
 ```bash
 python3 ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-github.py \
   --repo glichtenthal/ai-project-steward \
   --path . \
-  --ref v2.1.1 \
+  --ref 92b2cd704dd4eff339c10001d229403dc75b446c \
   --method download \
-  --name ai-project-steward \
-  --dest ~/.agents/skills
+  --name ai-project-steward
 ```
 
-If `building-partner` is already installed, confirm that `ai-project-steward` passes a positive build test and a negative ordinary-work test before removing the legacy copy. Do not leave both versions active; overlapping skills can route unpredictably.
+The installer refuses to overwrite an existing skill. Use the verified backup/replacement procedure for an update; do not work around this by installing an overlapping copy elsewhere. The command above is for stable v2.1.2, not this unpublished candidate.
 
-### Other skill-capable platforms
+### Other products and platforms
 
-Other skill-capable platforms can import or recreate the root `SKILL.md` as a private custom skill. Keep automatic selection enabled and run both a positive technical-build test and a negative ordinary-work test after installation.
+This candidate has no new Claude, ChatGPT, or cross-platform certification. Keep existing stable installations there. A future release must name its actual supported asset format and tested platforms rather than implying that a ZIP is universally importable.
 
 ## How it fits with the judgment loop
 
@@ -152,7 +155,7 @@ The packaging check extracts the archive and compares every packaged file with t
 
 See [evals/README.md](evals/README.md) for the live-run process and [evals/results](evals/results/) for versioned results. Behavioral results identify the platform, model, skill version, date, review method, and limitations; they are not presented as deterministic guarantees across every model or run.
 
-The current Codex composition result verifies cooperation with coding and deployment guidance plus decision continuity across fresh sessions. A separate [two-platform probe](evals/results/v2.1.0-cross-platform-probe.md) compares the identical v2.1.0 instruction payload on Codex and Claude. Material-decision and ordinary-request behavior were consistent; the Claude reversible-change run introduced unrelated formatting. A third verified platform remains unavailable, so the formal cross-platform case remains incomplete rather than inferred.
+The historical v2.1.0 Codex composition result verifies cooperation with coding and deployment guidance plus decision continuity across fresh sessions. A separate [two-platform probe](evals/results/v2.1.0-cross-platform-probe.md) compares the identical v2.1.0 instruction payload on Codex and Claude. Material-decision and ordinary-request behavior were consistent; the Claude reversible-change run introduced unrelated formatting. A third verified platform remains unavailable, so the formal cross-platform case remains incomplete rather than inferred.
 
 ## Repo layout
 
