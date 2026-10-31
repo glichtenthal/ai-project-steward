@@ -1,4 +1,6 @@
-> Stable version **2.1.2**, release. The operating instructions are byte-identical to tested candidate 2.1.2-rc.1. See [release metadata](metadata/release.json) for evidence and limits. Earlier evaluation reports below retain their original version scope.
+> Unreleased local review proposal. Stable **2.1.2** remains unchanged. No release or installation is authorized by this proposal.
+
+> [Release metadata](metadata/release.json) and earlier evaluation reports retain their published version scope. They do not certify this modified working tree.
 
 # AI Project Steward
 

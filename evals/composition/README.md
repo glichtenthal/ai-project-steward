@@ -52,3 +52,5 @@ python3 scripts/evaluate.py report-composition \
 ```
 
 Live results should be stored under `evals/results/` with a filename that identifies the skill version, composition scope, and platform. A cross-platform result remains incomplete until at least three platforms are represented.
+
+New composition records use the same [schema 1.1 evidence and comparison contract](../README.md#compare-reviewed-runs) as behavioral records: retain actual outputs with hashes, complete each published assertion with review notes, declare controlled conditions and exact paired skill versions, and keep incomplete work visible. `result` is `not_run` until every assertion is reviewed, then `fail` if any failed, otherwise `pass`. Use `compare --suite composition` for an advisory comparison. Historical schema 1.0 reports remain historical; neither report completion nor a successful comparison grants release approval. Steward coordinates; Design Director owns product experience and Frontend Engineer owns implementation and technical verification.
