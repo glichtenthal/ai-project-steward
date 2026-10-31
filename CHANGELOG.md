@@ -1,5 +1,13 @@
 # Changelog
 
+## v2.1.3-rc.1 — unreleased Codex candidate
+
+- Includes merged PR #3: integrity checks in the existing evaluator, the deployment-planning fixture, and accepted-decision replacement clarification.
+- Keeps the instruction payload byte-identical to merge commit 85a52d0; no recursive-learning or specialist-skill changes are included.
+- Corrects candidate version/hash/scope metadata and separates staged candidate installation from published stable v2.1.2 instructions.
+- Native routing and Codex regression/composition results are recorded in the candidate evaluation summary. Other platforms remain unverified.
+- Preparation authorizes no release, tag, installation, or replacement of stable skills.
+
 ## v2.1.2 — 2026-09-18 (stable release)
 
 - Clarifies specialist ownership, narrow change fidelity, authoritative decision links, continuation checkpoints, and shared completion reporting.
