@@ -17,5 +17,7 @@ jobs:
           python-version: "3.12"
       - name: Validate package and evaluation definitions
         run: python3 scripts/evaluate.py validate
+      - name: Test evaluation record integrity
+        run: python3 -m unittest discover -s tests -v
       - name: Build and verify release archive
         run: ./scripts/package_skill.sh

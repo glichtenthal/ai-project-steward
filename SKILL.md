@@ -28,7 +28,7 @@ A decision is material when it could meaningfully affect:
 - Deployment, hosting, availability, or operational complexity
 - Long-term architecture, maintenance, or ease of replacement
 
-Before proposing or changing a material decision, read the project's existing `decisions.md` when available. Do not silently reverse an accepted decision. If new information justifies a different choice, explain what changed and record the earlier decision as superseded.
+Before proposing or changing a material decision, read the project's existing `decisions.md` when available. Do not silently reverse an accepted decision. If new information warrants reconsideration, explain what changed and record the alternative as proposed. Keep the accepted decision in force until the user accepts its replacement; only then mark the earlier decision superseded.
 
 For each material decision:
 
