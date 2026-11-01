@@ -8,7 +8,7 @@ This process **proposes** changes to skills. It does not change agent weights, e
 2. **Triage.** Repeated failures across at least two independent tasks, or one critical safety/authorization failure, justify a proposed improvement. Similar events from the same task count once.
 3. **Reproduce first.** Add a failing evaluation case without changing the skill. Verify the failure in the actual target model/harness, not merely in a Python validator.
 4. **Change minimally.** Identify which owner owns the gap: Steward for governance and cross-skill coordination, Design Director for experience, or Frontend Engineer for implementation. Prefer one bounded edit to duplicated instructions.
-5. **Compare.** Run baseline and candidate skill versions on identical scenario IDs, platform, model, harness, and fixtures; retain redacted outputs and reviewer notes. Existing positive, negative routing, composition, and critical safety cases must remain in the suite. The advisory gate requires at least one measured improvement, zero regressions, and all critical cases passing.
+5. **Compare.** Run baseline and candidate skill versions on identical scenario IDs, platform, model, harness, and fixtures; retain redacted outputs and reviewer notes. Existing positive, negative routing, composition, and critical safety cases must remain in the suite. Use regression mode to establish complete passing coverage without inventing a gain. Improvement mode additionally requires an observed improvement. Both reject candidate failures; neither authorizes promotion.
 6. **Review.** Publish a PR summarizing evidence, uncertainty, differences, costs, and possible reversions. Human review and explicit approval remain necessary for merging, installation, or release.
 7. **Re-evaluate the loop.** Periodically review whether proposals were accepted, reverted, duplicative, noisy, or worth their evaluation cost. Modify this protocol through the same baseline-and-candidate process. Record unsuccessful experiments.
 
@@ -26,12 +26,14 @@ Evidence paths must be local to the JSONL file and exist. Use role `steward`, `d
 
 ```bash
 python3 scripts/learn.py triage --events path/to/observations.jsonl --output path/to/triage.json
-python3 scripts/learn.py init-run --role steward --version candidate --platform Codex --model MODEL --output path/to/candidate.json
-python3 scripts/learn.py gate --baseline path/to/baseline.json --candidate path/to/candidate.json --output path/to/gate.json
+python3 scripts/evaluate.py init-learning --role steward --version candidate --platform Codex --model MODEL --output path/to/candidate.json
+python3 scripts/evaluate.py report-learning --suite learning-steward --run path/to/candidate.json --output path/to/report.md
+python3 scripts/evaluate.py compare --suite learning-steward --mode regression --baseline path/to/baseline.json --candidate path/to/candidate.json --output path/to/regression.json
+python3 scripts/evaluate.py compare --suite learning-steward --mode improvement --baseline path/to/baseline.json --candidate path/to/candidate.json --output path/to/improvement.json
 python3 -m unittest discover -s tests -v
 ```
 
-For `gate`, edit the initialized run records only after performing actual fresh-context evaluations. Each `pass` or `fail` requires a nonempty reviewer note and a path to retained output in the same directory as the run JSON. The gate is strict: all current cases must be reviewed on both sides, and both must use the same model and platform. Run more repetitions and platforms for consequential changes. Scores are not inferred from prose alone.
+The old `learn.py init-run/gate` commands are removed: `learn.py` only triages observations. All role runs use the existing schema 1.1 validator and comparator in `evaluate.py`. Follow `evals/README.md` for matching harness, tools, permissions, fixture/prompt/criteria fingerprints, evidence hashes, assertion-level reviews, and paired-skill identities. Use `learning-design` and `learning-frontend` for specialists. Incomplete cases block clearance; supplemental results cannot clear the full release suites. Metadata and hashes do not authenticate execution or human approval.
 
 **Important:** Passing Python tests confirms that the recorder and gate work, not that the skill is improved. Passing an advisory gate indicates evidence suitable for human review, not automatic authorization or proof of broad generalization.
 
@@ -46,3 +48,10 @@ The dedicated role test cases live in `learning/cases.json`. The existing `evals
 ## Repository boundary
 
 The canonical Design Director and Frontend Engineer files live in the separate `glichtenthal/agent-skills` repository. Install or update them separately after both PRs are reviewed. Steward does not reach into their files or silently amend their rules.
+## Private evidence and retention
+
+Keep raw event streams outside Git repositories in an access-controlled local review folder. Never retain credentials, auth headers, personal identifiers or private transcripts in public source. Use synthetic fixtures whenever sufficient. Before a PR update, manually inspect public extracts, document redactions, and link each judgment to its actual output. Keep rejected runs and interruption records. Retain private raw pilot evidence until the review decision plus 30 days, then ask before deleting; no automatic deletion is configured. Retain the redacted protocol, source hashes, judgments and disposition for reproducibility. Public extracts must be explicitly reviewed before upload. Repeated reports from one task count once; task IDs and failure codes are operator labels, not independently authenticated recurrence.
+
+## Method review
+
+After a bounded pilot, count actionable proposals, duplicates and false positives, record time/token usage and rejected experiments. Change criteria through review, preserve earlier criteria, and test against held-outs. Do not add a scheduler or model service merely because a manual pilot works.

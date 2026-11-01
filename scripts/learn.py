@@ -33,82 +33,6 @@ def evidence(path, parent):
     return candidate.is_relative_to(base) and candidate.is_file()
 
 
-def suite(role):
-    return [c for c in load(CASES)["cases"] if c["role"] == role]
-
-
-def init_run(args):
-    if args.role not in ROLES:
-        raise ValueError("Invalid role")
-    write(args.output, {"schema_version": "1.0", "role": args.role,
-        "skill_version": args.version, "platform": args.platform, "model": args.model,
-        "review_method": "pending", "cases": [
-            {"id": c["id"], "result": "not_run", "evidence": "", "notes": ""}
-            for c in suite(args.role)]})
-    print(f"Unreviewed run: {args.output}")
-
-
-def validated_run(path):
-    p = Path(path)
-    r = load(p)
-    if r.get("schema_version") != "1.0" or r.get("role") not in ROLES:
-        raise ValueError(f"{p}: invalid run schema/role")
-    for k in ("skill_version", "platform", "model", "review_method"):
-        if not isinstance(r.get(k), str) or not r[k].strip():
-            raise ValueError(f"{p}: missing {k}")
-    expected = {c["id"] for c in suite(r["role"])}
-    records = r.get("cases")
-    if not isinstance(records, list) or len(records) != len(expected):
-        raise ValueError(f"{p}: missing/extra cases")
-    seen = set()
-    for c in records:
-        cid = c.get("id")
-        if cid not in expected or cid in seen:
-            raise ValueError(f"{p}: unknown or duplicate case")
-        seen.add(cid)
-        if c.get("result") not in RESULTS:
-            raise ValueError(f"{p}: invalid result")
-        if c["result"] in {"pass", "fail"}:
-            if not c.get("notes", "").strip() or not evidence(c.get("evidence"), p.parent):
-                raise ValueError(f"{p}: {cid} lacks reviewer notes or retained evidence")
-    return r
-
-
-def gate(args):
-    problems = []
-    improved, regressed = [], []
-    try:
-        base, candidate = validated_run(args.baseline), validated_run(args.candidate)
-        for field in ("role", "model", "platform"):
-            if base[field] != candidate[field]:
-                problems.append(f"Incomparable {field}")
-        old = {c["id"]: c["result"] for c in base["cases"]}
-        new = {c["id"]: c["result"] for c in candidate["cases"]}
-        for item in suite(base["role"]):
-            cid = item["id"]
-            if old[cid] not in {"pass", "fail"} or new[cid] not in {"pass", "fail"}:
-                problems.append(f"Unreviewed: {cid}")
-            elif old[cid] == "fail" and new[cid] == "pass":
-                improved.append(cid)
-            elif old[cid] == "pass" and new[cid] == "fail":
-                regressed.append(cid)
-            if item["critical"] and new[cid] != "pass":
-                problems.append(f"Critical gate failed: {cid}")
-        if regressed:
-            problems.append("New regressions")
-        if not improved:
-            problems.append("No demonstrated improvement")
-    except (ValueError, KeyError, TypeError, OSError) as e:
-        problems.append(str(e))
-    report = {"schema_version": "1.0", "promotable": not problems,
-              "improved": sorted(improved), "regressed": sorted(regressed),
-              "blockers": problems,
-              "note": "Advisory evidence gate only. A positive result never authorizes publication, merge, installation, or release."}
-    write(args.output, report)
-    print(json.dumps(report, indent=2))
-    return 0 if not problems else 1
-
-
 def triage(args):
     rows = []
     ids = set()
@@ -145,14 +69,6 @@ def triage(args):
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     sub = p.add_subparsers(dest="command", required=True)
-    a = sub.add_parser("init-run")
-    for key in ("role", "version", "platform", "model", "output"):
-        a.add_argument("--" + key, required=True)
-    a.set_defaults(func=init_run)
-    a = sub.add_parser("gate")
-    for key in ("baseline", "candidate", "output"):
-        a.add_argument("--" + key, required=True)
-    a.set_defaults(func=gate)
     a = sub.add_parser("triage")
     for key in ("events", "output"):
         a.add_argument("--" + key, required=True)
