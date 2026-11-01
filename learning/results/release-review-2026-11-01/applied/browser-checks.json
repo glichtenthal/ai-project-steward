@@ -1,0 +1,97 @@
+[
+  {
+    "check": "desktop initial",
+    "result": "pass",
+    "detail": "Three seeded reports and named controls visible at 1280x800; screenshot inspected."
+  },
+  {
+    "check": "case-insensitive title filter",
+    "result": "pass",
+    "detail": "INVENTORY shows only Inventory exceptions; focus stays in search."
+  },
+  {
+    "check": "no-match state",
+    "result": "pass",
+    "detail": "Owner search operations returns no matching reports; Clear search is available."
+  },
+  {
+    "check": "clear recovery",
+    "result": "pass",
+    "detail": "All three rows return and focus returns to search."
+  },
+  {
+    "check": "loading",
+    "result": "pass",
+    "detail": "Busy region true and no archive actions."
+  },
+  {
+    "check": "error and retry",
+    "result": "pass",
+    "detail": "Visible failure and Retry; Retry restores Normal, all data and search focus."
+  },
+  {
+    "check": "permission boundary",
+    "result": "pass",
+    "detail": "Simulated denied state remains labeled; all Archive buttons disabled."
+  },
+  {
+    "check": "modal keyboard and Escape",
+    "result": "pass",
+    "detail": "Cancel initial focus, reverse Tab wraps to confirm, Tab wraps back, Escape closes without mutation and restores Archive opener focus."
+  },
+  {
+    "check": "archive and Undo",
+    "result": "pass",
+    "detail": "Only selected item removed, success and persistent Undo shown; Undo restores exact item in original order and its Archive focus."
+  },
+  {
+    "check": "mobile layout",
+    "result": "pass",
+    "detail": "390x844 stacked rows, readable controls, no horizontal overflow; list intentionally scrolls."
+  },
+  {
+    "check": "mobile dialog visual repair",
+    "result": "pass",
+    "detail": "Controller reduced mobile heading from 24px to 20px to remove a stranded final word; reloaded and visually rechecked."
+  },
+  {
+    "check": "short mobile modal",
+    "result": "pass",
+    "detail": "390x320: Cancel and confirm fully visible, in modal, no horizontal overflow."
+  },
+  {
+    "check": "mobile simulated states",
+    "result": "pass",
+    "detail": "Loading, Error/Retry and denied actions rendered and visually inspected at 390x844."
+  },
+  {
+    "check": "mobile Cancel",
+    "result": "pass",
+    "detail": "Cancelling Return trends preserves three reports and restores exact opener focus."
+  },
+  {
+    "check": "all archived recovery",
+    "result": "pass",
+    "detail": "All three archive actions work; empty state and three persistent, named Undo controls remain available."
+  },
+  {
+    "check": "Undo with no-match query",
+    "result": "pass",
+    "detail": "Underlying item restored while no-match filter stays unchanged; focus returns to search."
+  },
+  {
+    "check": "reload reset",
+    "result": "pass",
+    "detail": "Reload restores three seeds, empty query and Normal state."
+  },
+  {
+    "check": "tablet and narrow reflow",
+    "result": "pass",
+    "detail": "768x1024 and 320x800 screenshots inspected; widths equal scroll widths, three reports remain available."
+  },
+  {
+    "check": "console health",
+    "result": "pass",
+    "detail": "No warning/error entries recorded by browser dev logs."
+  }
+]

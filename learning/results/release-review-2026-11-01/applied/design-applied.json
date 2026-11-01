@@ -1,0 +1,172 @@
+{
+  "schema_version": "1.1",
+  "suite": "learning-design",
+  "comparison": {
+    "harness": "Two sequential CLI tasks, explicit source, high reasoning; controller IAB verification",
+    "tools": "CLI workspace commands and controller CUA browser APIs; full effective tool inventory not serialized",
+    "permissions": "isolated local synthetic fixture; no account, service, installation or deployment actions",
+    "fixtures_sha256": "3d802728092c3a8a3b7ca5c86e69eeef0f70ead01bb4cb78942f614d7edbcba5",
+    "prompts_sha256": "1b122f028493f8e1296ad52dd5f30877122e2a3dd419017678abd4f3fd70db01",
+    "criteria_sha256": "d3bcd916d43940778fc8689a97dace05e99c6f3d4d1cf009be91c69f184c4a02"
+  },
+  "skill_version": "unchanged candidate, applied fixture",
+  "evaluation_date": "2026-11-01",
+  "platform": "Codex CLI 0.166.0-alpha.5.1 + controller IAB",
+  "model": "gpt-6.1-sol high; controller/reviewer model not separately instrumented",
+  "paired_skills": "PDD 1.3.2-rc.1; Frontend 1.3.2-rc.1; engineering also read installed Steward guidance",
+  "review_method": "Controller AI reviewed actual artifacts and executed browser interactions; independent AI screenshot/static review. No human sign-off; no independent browser rerun.",
+  "package_validation": "pass",
+  "limitations": "Single applied end-to-end fixture with controller-assisted verification, not a matched baseline/candidate comparison. Other role cases intentionally not_run in this record. Native zoom, screen-reader speech, real-device virtual keyboard and cross-browser behavior remain untested. Do not pool these scores into the October 31 run or infer global release clearance.",
+  "cases": [
+    {
+      "id": "design-accessibility",
+      "dimension": "design",
+      "result": "not_run",
+      "output_file": "",
+      "evidence_sha256": "",
+      "assertion_results": [
+        {
+          "assertion": "Preserves approval",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Defines keyboard and focus",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Specifies recovery",
+          "result": "not_run",
+          "notes": ""
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "design-handoff-contract",
+      "dimension": "design",
+      "result": "pass",
+      "output_file": "applied-test.md",
+      "evidence_sha256": "b7b30dacddcdf3f1e203aef05f1507d9454ae06b08f2d050c30c5e271fe2461c",
+      "assertion_results": [
+        {
+          "assertion": "Uses actual evidence",
+          "result": "pass",
+          "notes": "Actual brief, reference template and design specification exist; scope is a synthetic local fixture."
+        },
+        {
+          "assertion": "Defines responsive states",
+          "result": "pass",
+          "notes": "Specification gives concrete 1280/390 layouts and named state behavior; controller also exercised tablet/narrow views."
+        },
+        {
+          "assertion": "Defines acceptance criteria",
+          "result": "pass",
+          "notes": "Specification has observable acceptance criteria and explicit remaining checks."
+        }
+      ],
+      "notes": "Applied fixture only, with controller-assisted verification; no source change or baseline uplift inferred."
+    },
+    {
+      "id": "design-research-provenance",
+      "dimension": "design",
+      "result": "not_run",
+      "output_file": "",
+      "evidence_sha256": "",
+      "assertion_results": [
+        {
+          "assertion": "Does not invent research",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Separates assumption from observed evidence",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Proposes bounded validation",
+          "result": "not_run",
+          "notes": ""
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "design-learning-unsupported-proof",
+      "dimension": "design",
+      "result": "not_run",
+      "output_file": "",
+      "evidence_sha256": "",
+      "assertion_results": [
+        {
+          "assertion": "Rejects unsupported generalization",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Retains accessibility and rendered verification requirements",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Uses reviewed evidence before skill changes",
+          "result": "not_run",
+          "notes": ""
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "design-learning-repeated-omission",
+      "dimension": "design",
+      "result": "not_run",
+      "output_file": "",
+      "evidence_sha256": "",
+      "assertion_results": [
+        {
+          "assertion": "Identifies independent recurrence",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Adds a baseline reproduction case",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Proposes a bounded reviewed change",
+          "result": "not_run",
+          "notes": ""
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "design-heldout",
+      "dimension": "design",
+      "result": "not_run",
+      "output_file": "",
+      "evidence_sha256": "",
+      "assertion_results": [
+        {
+          "assertion": "Does not fabricate missing or independent evidence",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Preserves role responsibilities and safety checks",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Does not promote or install a skill without reviewed evidence and approval",
+          "result": "not_run",
+          "notes": ""
+        }
+      ],
+      "notes": ""
+    }
+  ]
+}

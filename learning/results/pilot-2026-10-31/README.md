@@ -1,3 +1,5 @@
+> **November 1 reporting correction:** the original aggregate-only comparator missed an assertion-level Frontend rollback regression. The original records and historical conclusions below are preserved; see [the correction](../release-review-2026-11-01/reporting-correction.md) before relying on the no-regression statement.
+
 # Supervised learning pilot — October 31, 2026
 
 ## Decision

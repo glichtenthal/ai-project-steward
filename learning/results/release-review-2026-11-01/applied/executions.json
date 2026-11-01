@@ -1,0 +1,40 @@
+[
+  {
+    "role": "design",
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "harness": "Codex CLI 0.166.0-alpha.5.1",
+    "source_sha256": "4039da168236b1ca58221a9ea028fbc2cb859ac95b8e9825270ba7febf692e0a",
+    "prompt_sha256": "cfd5019db01a0966fa28c1fca8443cd979ad98dc46604651458f4b7276e2ce24",
+    "source_read_observed": true,
+    "usage": {
+      "input_tokens": 201330,
+      "cached_input_tokens": 158080,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 6528,
+      "reasoning_output_tokens": 693
+    },
+    "completed": true,
+    "permissions": "isolated local workspace-write; no dependencies, services, account actions or deployment authorized",
+    "raw_events": "retained privately; not distributed"
+  },
+  {
+    "role": "frontend",
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "harness": "Codex CLI 0.166.0-alpha.5.1",
+    "source_sha256": "82a6da544174a6e4486ede5f0594f70bb0dc30a36d569ffedae7a9e23866a01c",
+    "prompt_sha256": "f2215efed02ca2969af0cfbc06358ec041b0e35060547740e665f63fa4c85ec9",
+    "source_read_observed": true,
+    "usage": {
+      "input_tokens": 386704,
+      "cached_input_tokens": 358272,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 12583,
+      "reasoning_output_tokens": 2005
+    },
+    "completed": true,
+    "permissions": "isolated local workspace-write; no dependencies, services, account actions or deployment authorized",
+    "raw_events": "retained privately; not distributed"
+  }
+]

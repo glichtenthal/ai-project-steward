@@ -301,6 +301,22 @@ class EvaluationIntegrityTests(unittest.TestCase):
         self.assertTrue(report["regressed"])
         self.assertFalse(report["ready_for_human_review"])
 
+    def test_assertion_regression_is_visible_when_case_stays_failed(self):
+        before, after = self.improved_pair("learning-frontend")
+        # Both aggregate cases fail, but two different assertions fail.
+        case_before, case_after = before["cases"][0], after["cases"][0]
+        case_before["assertion_results"][0]["result"] = "fail"
+        case_before["result"] = "fail"
+        case_after["assertion_results"][1]["result"] = "fail"
+        case_after["result"] = "fail"
+        _, report = self.comparison(before, after, "learning-frontend")
+        self.assertEqual(len(report["assertion_regressed"]), 1)
+        self.assertEqual(len(report["assertion_improved"]), 1)
+        self.assertEqual(report["assertion_regressed"][0]["assertion"],
+                         case_after["assertion_results"][1]["assertion"])
+        self.assertFalse(report["regression_clear"])
+        self.assertFalse(report["promotion_authorized"])
+
     def test_success_is_only_advisory(self):
         for kind in ("behavioral", "composition"):
             before, after = self.improved_pair(kind)

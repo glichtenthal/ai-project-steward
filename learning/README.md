@@ -1,3 +1,5 @@
+> Distribution boundary: installed archives contain instructions and this optional protocol only. Evaluation cases, scripts, tests, controllers and evidence are source-repository assets, not runtime dependencies. Run the commands below from the corresponding reviewed [repository checkout](https://github.com/glichtenthal/ai-project-steward), using its project-local Python environment; do not expect them in an installed skill folder.
+
 # Evidence-driven learning protocol (experimental)
 
 This process **proposes** changes to skills. It does not change agent weights, edit instructions autonomously, authorize external actions, or promote a release.

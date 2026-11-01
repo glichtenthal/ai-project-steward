@@ -1,0 +1,3 @@
+Created [experience-spec.md](experience-spec.md) using the actual template frontmatter and contract. Includes routes, states, viewports, responsive behavior, keyboard/accessibility rules, acceptance criteria, and verification gaps.
+
+Records `BRIEF.md#authorization-for-this-test-fixture` as fixture-only approval. Only the specification was written; no implementation or rendered checks were performed.

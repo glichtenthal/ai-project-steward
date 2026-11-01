@@ -109,3 +109,5 @@ A release result is publishable when:
 Publication and production changes still require the user's explicit approval. Deterministic integrity checks establish record consistency; AI-assisted judgments remain provisional until human review. Neither can establish meaningful improvement by itself.
 
 These results demonstrate observed behavior under named conditions. They are not guarantees for every model, platform router, or future run.
+
+Comparisons disclose `assertion_improved` and `assertion_regressed` independently of aggregate case results. A pass-to-fail assertion transition blocks regression clearance even when the case remains failed in both arms. Historical aggregate-only reports are not rewritten; publish corrections with links to the unchanged scored evidence.

@@ -151,7 +151,7 @@ Build and verify the installable archive from the repository's tracked files wit
 ./scripts/package_skill.sh
 ```
 
-The packaging check extracts the archive and compares every packaged file with the tracked source before reporting its SHA-256 digest.
+The packaging check uses `distribution-manifest.txt`: only runtime instructions, required icon/UI metadata, licensing and the optional learning protocol ship. It verifies exact member names and byte parity; evaluation code, tests, controllers and evidence remain in the repository.
 
 See [evals/README.md](evals/README.md) for the live-run process and [evals/results](evals/results/) for versioned results. Behavioral results identify the platform, model, skill version, date, review method, and limitations; they are not presented as deterministic guarantees across every model or run.
 

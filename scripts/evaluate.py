@@ -632,6 +632,7 @@ def command_compare(args: argparse.Namespace) -> int:
     """Compare reviewed records; never grant release authority."""
     report = {"ready_for_human_review": False, "promotion_authorized": False,
               "human_review_required": True, "improved": [], "regressed": [], "blockers": [],
+              "assertion_improved": [], "assertion_regressed": [],
               "regression_clear": False, "improvement_demonstrated": False,
               "note": "Advisory comparison only; metadata equality is not execution proof or merge/install/release approval."}
     records = []
@@ -659,6 +660,14 @@ def command_compare(args: argparse.Namespace) -> int:
             old = {c['id']: c for c in before['cases']}
             for case in after['cases']:
                 cid = case['id']
+                for prior, current in zip(old[cid]['assertion_results'], case['assertion_results']):
+                    transition = {"case": cid, "assertion": current['assertion'],
+                                  "before": prior['result'], "after": current['result']}
+                    if prior['result'] == 'fail' and current['result'] == 'pass':
+                        report['assertion_improved'].append(transition)
+                    if prior['result'] == 'pass' and current['result'] == 'fail':
+                        report['assertion_regressed'].append(transition)
+                        report['blockers'].append(f"Assertion regression {cid}: {current['assertion']}")
                 for field in (("routing_result", "behavior_result") if args.suite == 'behavioral' else ("result",)):
                     a, b = old[cid][field], case[field]
                     if a not in ('pass', 'fail') or b not in ('pass', 'fail'):
