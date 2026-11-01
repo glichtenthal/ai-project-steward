@@ -145,13 +145,13 @@ Run the dependency-free package validation with:
 python3 scripts/evaluate.py validate
 ```
 
-Build and verify the installable archive from the repository's tracked files with:
+Build and verify the installable archive from the explicit distribution manifest with:
 
 ```bash
 ./scripts/package_skill.sh
 ```
 
-The packaging check extracts the archive and compares every packaged file with the tracked source before reporting its SHA-256 digest.
+The packaging check uses `distribution-manifest.txt`, verifies exact archive membership and source-byte parity, and excludes evaluation evidence/controllers. See `learning/README.md` for source-only evaluation tooling.
 
 See [evals/README.md](evals/README.md) for the live-run process and [evals/results](evals/results/) for versioned results. Behavioral results identify the platform, model, skill version, date, review method, and limitations; they are not presented as deterministic guarantees across every model or run.
 
