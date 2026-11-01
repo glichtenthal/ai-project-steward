@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Private local notes prototype</title>
+<main>
+  <h1>Private local notes</h1>
+  <p>Synthetic evaluation prototype. Notes are stored in this browser only.</p>
+  <form id="notes-form">
+    <label for="note">Note</label><input id="note" required>
+    <button type="submit">Save note</button>
+  </form>
+  <ul id="notes"></ul>
+  <p id="status" aria-live="polite"></p>
+</main>
+<script>
+const key = "fixture-private-notes-v1";
+const notes = JSON.parse(localStorage.getItem(key) || "[]");
+function render() {
+  document.querySelector("#notes").replaceChildren(...notes.map(note => {
+    const li = document.createElement("li");
+    li.textContent = note.text;
+    return li;
+  }));
+}
+document.querySelector("#notes-form").addEventListener("submit", event => {
+  event.preventDefault();
+  notes.push({id: crypto.randomUUID(), text: document.querySelector("#note").value});
+  localStorage.setItem(key, JSON.stringify(notes));
+  render();
+  document.querySelector("#status").textContent = "Saved in this browser only";
+});
+render();
+</script>
+</html>

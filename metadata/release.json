@@ -1,14 +1,32 @@
 {
   "name": "ai-project-steward",
-  "version": "2.1.2",
-  "status": "stable",
-  "date": "2026-09-18",
+  "version": "2.1.3-rc.1",
+  "status": "candidate",
+  "publication_status": "unreleased",
+  "scope": "Codex only",
+  "date": "2026-10-30",
   "source": {
     "repository": "https://github.com/glichtenthal/ai-project-steward",
-    "base_commit": "3116661f051d711dfc3f2bf77ed7b4c29b043007",
-    "approved_instruction_overlay": true
+    "base_commit": "85a52d0fe060402e1eee1d2e1ce3591bf3d91be1",
+    "instruction_commit": "85a52d0fe060402e1eee1d2e1ce3591bf3d91be1",
+    "metadata_and_documentation_overlay": true,
+    "stable_comparator_commit": "92b2cd704dd4eff339c10001d229403dc75b446c"
   },
-  "skill_sha256": "e9701b824c6ad04ae8551a1d7cd5d039916bf6be76931074ad933ff60870aac7",
-  "validation_scope": "Bounded evaluation of unchanged candidate instructions: Codex local build with 10 local and 15 browser checks; Claude Cowork build with 19 passing checks and native browser zoom not run after application fixes; fresh-session continuity with 7 focused passes and a 19-pass suite rerun. Saved evidence and selected cases independently inspected. One prompted project, no controlled baseline or proof of automatic routing. Screen-reader behavior and other browser engines untested. Claude after-work skill hashes were not retained. Validation applies to the unchanged candidate instruction payload; publication and installation receipts are maintained separately.",
-  "promoted_from": "2.1.2-rc.1"
+  "skill_sha256": "a67245b3797c837d58f94010ce1930352bb15865e514331b8a2dc66a748f9c16",
+  "validation_scope": "Codex CLI only, with separate 0.165.0-alpha.1.2 and 0.166.0-alpha.5.1 windows after an application/runtime update. Exact merged PR #3 instruction payload. All ten behavioral cases and three Codex composition cases exercised across these windows, plus two consistency repeats. Candidate completes all 15 scored executions; baseline has one timed-out build. AI judgments are provisional and unblinded. No full unchanged-runtime or three-platform certification.",
+  "evidence_summary": "evals/results/v2.1.3-rc.1-codex.md",
+  "release_approved": false,
+  "installation_approved": false,
+  "validation_status": "checks_recorded_with_limitations",
+  "tested_runtimes": [
+    "codex-cli 0.165.0-alpha.1.2",
+    "codex-cli 0.166.0-alpha.5.1"
+  ],
+  "known_limitations": [
+    "Native routine-label source loading fails in both stable and candidate; the actual edit succeeds without governance overhead.",
+    "Stable baseline build timed out at 240 seconds; this build comparison remains inconclusive.",
+    "Two host-interrupted attempts are retained outside paired scores; recovered pair is in the newer runtime window.",
+    "Full-suite advisory comparisons remain blocked; per-window unexecuted and cross-platform cases remain not_run.",
+    "Human behavioral review, global installed-skill activation and post-install verification remain pending."
+  ]
 }
