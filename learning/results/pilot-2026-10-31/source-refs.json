@@ -1,0 +1,26 @@
+{
+  "steward": {
+    "repository": "glichtenthal/ai-project-steward",
+    "baseline": "92b2cd704dd4eff339c10001d229403dc75b446c",
+    "candidate": "b48898034bd58ac77f1bf9dec926e26fb951bfb0",
+    "path": "SKILL.md"
+  },
+  "design": {
+    "repository": "glichtenthal/agent-skills",
+    "baseline": "5128ad2dd195f6a043790273c1c7aac5c315c449",
+    "candidate": "9a3fbf9ec93501e77f0937079504bfb23d1fb298",
+    "path": "applied-judgment-systems/gtm-product-experience/skills/product-design-director/SKILL.md"
+  },
+  "frontend": {
+    "repository": "glichtenthal/agent-skills",
+    "baseline": "5128ad2dd195f6a043790273c1c7aac5c315c449",
+    "candidate": "9a3fbf9ec93501e77f0937079504bfb23d1fb298",
+    "path": "applied-judgment-systems/gtm-product-experience/skills/production-frontend-engineer/SKILL.md"
+  },
+  "decision_confirmation": {
+    "repository": "glichtenthal/ai-project-steward",
+    "baseline": "92b2cd704dd4eff339c10001d229403dc75b446c",
+    "candidate": "fa9f0bf4958cfe3ccd46df97f202da3a7ec73ebd",
+    "path": "SKILL.md"
+  }
+}

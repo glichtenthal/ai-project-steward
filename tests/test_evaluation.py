@@ -9,6 +9,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 
 SCRIPT = Path(__file__).resolve().parents[1] / "scripts/evaluate.py"
@@ -254,6 +255,23 @@ class EvaluationIntegrityTests(unittest.TestCase):
             self.assertEqual(evaluation.validate_record(record, output, "learning-" + role), [])
             self.assertTrue(all(c["result"] == "not_run" for c in record["cases"]))
             self.assertTrue(all(c["assertion_results"] for c in record["cases"]))
+
+    def test_malformed_metadata_is_a_validation_error(self):
+        original = evaluation.load_json
+        metadata_path = evaluation.ROOT / "metadata/release.json"
+        for malformed in ([], None, "not-an-object"):
+            def load(path):
+                return malformed if path == metadata_path else original(path)
+            with patch.object(evaluation, "load_json", side_effect=load):
+                self.assertIn("Release metadata does not match SKILL.md", evaluation.validate_suite())
+
+    def test_candidate_metadata_cannot_grant_approval(self):
+        original = evaluation.load_json
+        metadata_path = evaluation.ROOT / "metadata/release.json"
+        metadata = original(metadata_path)
+        metadata.update(status="candidate", release_approved=True)
+        with patch.object(evaluation, "load_json", side_effect=lambda p: metadata if p == metadata_path else original(p)):
+            self.assertIn("Candidate metadata cannot imply release or installation approval", evaluation.validate_suite())
 
     def test_reviewed_learning_comparisons_and_integrity(self):
         for role in ("steward", "design", "frontend"):

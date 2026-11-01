@@ -14,6 +14,7 @@
   "validation_scope": "Unreleased learning candidate. Targeted read-only real-agent advisory evaluations and deterministic checks must be reviewed separately; no full rendered, cross-platform or production certification.",
   "release_approved": false,
   "installation_approved": false,
-  "validation_status": "pending targeted evaluation",
-  "stable_release": "2.1.2"
+  "validation_status": "targeted advisory evaluations recorded; full release clearance blocked; human review pending",
+  "stable_release": "2.1.2",
+  "evidence_summary": "learning/results/pilot-2026-10-31/README.md"
 }

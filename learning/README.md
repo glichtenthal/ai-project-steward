@@ -55,3 +55,5 @@ Keep raw event streams outside Git repositories in an access-controlled local re
 ## Method review
 
 After a bounded pilot, count actionable proposals, duplicates and false positives, record time/token usage and rejected experiments. Change criteria through review, preserve earlier criteria, and test against held-outs. Do not add a scheduler or model service merely because a manual pilot works.
+
+The recurrence threshold governs automatic triage proposals, not explicitly requested human-led investigations. Keep repeated runs of the same pilot under one task ID. Never relabel retries or model samples as independent real-world failures to satisfy a threshold.

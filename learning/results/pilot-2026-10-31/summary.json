@@ -1,0 +1,122 @@
+{
+  "steward": {
+    "baseline": {
+      "assertions": {
+        "pass": 19,
+        "fail": 0,
+        "not_run": 2
+      },
+      "elapsed_seconds_sum": 150.718,
+      "elapsed_seconds_median": 23.108,
+      "usage": {
+        "input_tokens": 379059,
+        "cached_input_tokens": 318336,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3375,
+        "reasoning_output_tokens": 1122
+      },
+      "source_hashes": [
+        "e9701b824c6ad04ae8551a1d7cd5d039916bf6be76931074ad933ff60870aac7"
+      ]
+    },
+    "candidate": {
+      "assertions": {
+        "pass": 19,
+        "fail": 0,
+        "not_run": 2
+      },
+      "elapsed_seconds_sum": 134.76,
+      "elapsed_seconds_median": 18.766,
+      "usage": {
+        "input_tokens": 404185,
+        "cached_input_tokens": 323072,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3161,
+        "reasoning_output_tokens": 999
+      },
+      "source_hashes": [
+        "801be5dc1c020f4f988d6dfb97befa45f46c11fb5d9419ebafd317e9ae91f5ff"
+      ]
+    }
+  },
+  "design": {
+    "baseline": {
+      "assertions": {
+        "pass": 15,
+        "fail": 1,
+        "not_run": 2
+      },
+      "elapsed_seconds_sum": 123.315,
+      "elapsed_seconds_median": 18.901,
+      "usage": {
+        "input_tokens": 354584,
+        "cached_input_tokens": 284160,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2951,
+        "reasoning_output_tokens": 702
+      },
+      "source_hashes": [
+        "c67ec8f590dac213267d8d1b7b6a5010bf1ab74224be631279c767ef7260976f"
+      ]
+    },
+    "candidate": {
+      "assertions": {
+        "pass": 16,
+        "fail": 0,
+        "not_run": 2
+      },
+      "elapsed_seconds_sum": 121.473,
+      "elapsed_seconds_median": 20.282,
+      "usage": {
+        "input_tokens": 330579,
+        "cached_input_tokens": 245120,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2960,
+        "reasoning_output_tokens": 729
+      },
+      "source_hashes": [
+        "4039da168236b1ca58221a9ea028fbc2cb859ac95b8e9825270ba7febf692e0a"
+      ]
+    }
+  },
+  "frontend": {
+    "baseline": {
+      "assertions": {
+        "pass": 14,
+        "fail": 2,
+        "not_run": 2
+      },
+      "elapsed_seconds_sum": 122.825,
+      "elapsed_seconds_median": 19.93,
+      "usage": {
+        "input_tokens": 300500,
+        "cached_input_tokens": 219904,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3078,
+        "reasoning_output_tokens": 999
+      },
+      "source_hashes": [
+        "180c7aa9942bcc94d9dcd066e4b65dd634331e72e847cc4f3d955ed88c1e20f6"
+      ]
+    },
+    "candidate": {
+      "assertions": {
+        "pass": 15,
+        "fail": 1,
+        "not_run": 2
+      },
+      "elapsed_seconds_sum": 133.494,
+      "elapsed_seconds_median": 21.215,
+      "usage": {
+        "input_tokens": 327691,
+        "cached_input_tokens": 239488,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3273,
+        "reasoning_output_tokens": 991
+      },
+      "source_hashes": [
+        "82a6da544174a6e4486ede5f0594f70bb0dc30a36d569ffedae7a9e23866a01c"
+      ]
+    }
+  }
+}

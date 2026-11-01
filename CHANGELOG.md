@@ -1,5 +1,12 @@
 # Changelog
 
+## v2.1.3-rc.2 — unreleased supervised-learning candidate
+
+- Reconciles learning PR #2 with merged evaluator hardening and decision continuity.
+- Keeps observation triage; removes its duplicate comparison engine. Role cases now share schema 1.1.
+- Separates unchanged regression clearance from demonstrated improvement; all candidate failures and unavailable checks remain blockers.
+- Adds a bounded real-agent advisory pilot with independent AI judgments, held-outs and retained unsuccessful outcomes. No release, installation, scheduler or autonomous modification is authorized.
+
 ## v2.1.3-rc.1 — unreleased Codex candidate
 
 - Includes merged PR #3: integrity checks in the existing evaluator, the deployment-planning fixture, and accepted-decision replacement clarification.

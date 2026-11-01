@@ -227,8 +227,13 @@ def validate_suite() -> list[str]:
     try:
         metadata = load_json(ROOT / "metadata/release.json")
         actual_hash = hashlib.sha256((ROOT / "SKILL.md").read_bytes()).hexdigest()
-        if actual_hash != metadata.get("skill_sha256"):
+        if not isinstance(metadata, dict) or actual_hash != metadata.get("skill_sha256"):
             errors.append("Release metadata does not match SKILL.md")
+        if isinstance(metadata, dict) and metadata.get("status") == "candidate" and (
+                metadata.get("publication_status") != "unreleased"
+                or metadata.get("release_approved") is not False
+                or metadata.get("installation_approved") is not False):
+            errors.append("Candidate metadata cannot imply release or installation approval")
     except (ValueError, OSError):
         errors.append("Missing release metadata or skill payload")
     for relative in REQUIRED_FILES:

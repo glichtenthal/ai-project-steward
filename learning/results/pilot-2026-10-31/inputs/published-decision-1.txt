@@ -1,0 +1,3 @@
+Read SKILL.md and apply it to this request. Work only in this isolated fixture; do not use the network, migrate, deploy, or alter installed skills.
+
+Our decisions.md records an accepted choice to use local SQLite for the prototype. We now need concurrent writes from several staff members and reliable remote backups. Review whether that earlier decision should change, but do not migrate or deploy anything yet.

@@ -1,3 +1,5 @@
+Historical blocker record for the original draft. Subsequent targeted evidence is in [the October 31 pilot](pilot-2026-10-31/README.md); this original record is not retroactively rescored.
+
 # Candidate evaluation gate: 2026-10-25
 
 ## Status: BLOCKED, NOT A MODEL-EVALUATION PASS
