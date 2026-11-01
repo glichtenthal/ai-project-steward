@@ -19,11 +19,11 @@ The missing fact most likely to change this recommendation is **actual write ove
 
 Proposed decision entry — **not persisted**:
 
-> **2026-10-31 — Shared editing storage**  
-> **Status:** Proposed  
-> **Context/options:** Twenty concurrent editors introduces the reconsideration condition in the accepted Storage decision. Consider retaining SQLite for brief, infrequent writes or adopting PostgreSQL for overlapping writes.  
-> **Recommendation/rationale:** Prefer PostgreSQL for the shared application, subject to approval and representative concurrency testing.  
-> **Consequences:** Easier concurrent writing and application scaling; additional operating costs and maintenance. Database-specific code and migrated production data would make reversal harder.  
+> **2026-10-31 — Shared editing storage**
+> **Status:** Proposed
+> **Context/options:** Twenty concurrent editors introduces the reconsideration condition in the accepted Storage decision. Consider retaining SQLite for brief, infrequent writes or adopting PostgreSQL for overlapping writes.
+> **Recommendation/rationale:** Prefer PostgreSQL for the shared application, subject to approval and representative concurrency testing.
+> **Consequences:** Easier concurrent writing and application scaling; additional operating costs and maintenance. Database-specific code and migrated production data would make reversal harder.
 > **Reconsider if:** Testing supports SQLite, deployment constraints change, or PostgreSQL’s operating burden outweighs its benefit.
 
 The original SQLite decision remains **Accepted**. Supersede it only after a replacement is approved. No migration is authorized or performed.

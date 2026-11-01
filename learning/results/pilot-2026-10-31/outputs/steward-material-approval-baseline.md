@@ -24,9 +24,9 @@ Before execution, the missing evidence includes a deployable application, target
 
 No `decisions.md` was found. Proposed entry, **not persisted**:
 
-> **2026-10-31 — Public portal deployment and data migration**  
-> **Status:** Proposed.  
-> **Context/options:** Retain existing infrastructure; separate hosting; replace hosting and database.  
-> **Recommendation:** Retain existing infrastructure if requirements permit, minimizing operational changes.  
-> **Consequences:** Preserves current platform dependencies; reversal becomes harder after production writes.  
+> **2026-10-31 — Public portal deployment and data migration**
+> **Status:** Proposed.
+> **Context/options:** Retain existing infrastructure; separate hosting; replace hosting and database.
+> **Recommendation:** Retain existing infrastructure if requirements permit, minimizing operational changes.
+> **Consequences:** Preserves current platform dependencies; reversal becomes harder after production writes.
 > **Reconsider when:** Architecture, access controls, capacity, or recovery checks show the existing platform is unsuitable.

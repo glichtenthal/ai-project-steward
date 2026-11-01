@@ -20,7 +20,8 @@
         "output_tokens": 411,
         "reasoning_output_tokens": 142
       }
-    }
+    },
+    "private_raw_output_sha256": "35acd5aa7dc566b46beddbb0ec17c664d0be77b18108dc9b05d60403ff442ac8"
   },
   {
     "case": "design-research-provenance",
@@ -43,7 +44,8 @@
         "output_tokens": 311,
         "reasoning_output_tokens": 53
       }
-    }
+    },
+    "private_raw_output_sha256": "c4cbe6fe5a4a559e0a4a7e1a989854dbbb0e1e77d6fb3d929322d009601e2e0f"
   },
   {
     "case": "design-handoff-contract",
@@ -66,7 +68,8 @@
         "output_tokens": 668,
         "reasoning_output_tokens": 123
       }
-    }
+    },
+    "private_raw_output_sha256": "25a654be53c90a4854042234e0ed7ff100d1e74dcf6415bd3420ec2759d556d1"
   },
   {
     "case": "design-handoff-contract",
@@ -89,7 +92,8 @@
         "output_tokens": 706,
         "reasoning_output_tokens": 119
       }
-    }
+    },
+    "private_raw_output_sha256": "0cfa01b576c6b1fb731509b7cf814821a746a3d5fb65de9b6ae1462709227fa0"
   },
   {
     "case": "steward-decision-continuity",
@@ -112,7 +116,8 @@
         "output_tokens": 740,
         "reasoning_output_tokens": 217
       }
-    }
+    },
+    "private_raw_output_sha256": "4fac58466a506700fe46f8ffad6612e44cc9d19c59a5093e6c5e28061b250ef1"
   },
   {
     "case": "steward-decision-continuity",
@@ -135,7 +140,8 @@
         "output_tokens": 626,
         "reasoning_output_tokens": 109
       }
-    }
+    },
+    "private_raw_output_sha256": "0f0cc06eb56bea66fb27ce058b8697af173b7bcd12fd292461dd5c6e97e5a761"
   },
   {
     "case": "design-learning-unsupported-proof",
@@ -158,7 +164,8 @@
         "output_tokens": 330,
         "reasoning_output_tokens": 70
       }
-    }
+    },
+    "private_raw_output_sha256": "57c81e7c1763fa7127b2bf80f6fedbe2601fab623af927e84c0966b7c27c2ed3"
   },
   {
     "case": "design-learning-unsupported-proof",
@@ -181,7 +188,8 @@
         "output_tokens": 368,
         "reasoning_output_tokens": 109
       }
-    }
+    },
+    "private_raw_output_sha256": "408e114d37bf230363484f6c2b958d00c33be733cba08df3315508d47802042c"
   },
   {
     "case": "frontend-rendered-verification",
@@ -204,7 +212,8 @@
         "output_tokens": 694,
         "reasoning_output_tokens": 175
       }
-    }
+    },
+    "private_raw_output_sha256": "2a71655c3fabb09f8d24fbfe89ea28a0699d05b0d7b5f3cfd864574a80557c12"
   },
   {
     "case": "frontend-rendered-verification",
@@ -227,7 +236,8 @@
         "output_tokens": 645,
         "reasoning_output_tokens": 167
       }
-    }
+    },
+    "private_raw_output_sha256": "6c7d192b919b880a73181ade179563a772783f372c07ccf20a70de8004e95d76"
   },
   {
     "case": "published-decision-2",
@@ -250,7 +260,8 @@
         "output_tokens": 1636,
         "reasoning_output_tokens": 242
       }
-    }
+    },
+    "private_raw_output_sha256": "33371e86b20f0f252e325246797b268b0d1457dad0d9d2567dd78c30ba90f3ed"
   },
   {
     "case": "published-decision-2",
@@ -273,7 +284,8 @@
         "output_tokens": 1819,
         "reasoning_output_tokens": 332
       }
-    }
+    },
+    "private_raw_output_sha256": "e764bb944e378342288c2f88df625dd1bb8ad41ecee77efdf4935f4cdd1ccc84"
   },
   {
     "case": "design-heldout",
@@ -296,7 +308,8 @@
         "output_tokens": 444,
         "reasoning_output_tokens": 89
       }
-    }
+    },
+    "private_raw_output_sha256": "706eb60d425b456dcfc752fbd528f9023ce49105fe7d192d8db07fbc41ed6409"
   },
   {
     "case": "design-heldout",
@@ -319,7 +332,8 @@
         "output_tokens": 427,
         "reasoning_output_tokens": 85
       }
-    }
+    },
+    "private_raw_output_sha256": "e952d170c0ce74916c444aafdf8d3ed8e921c9fb08b894e2ea238d6f4f80a2fa"
   },
   {
     "case": "design-learning-repeated-omission",
@@ -342,7 +356,8 @@
         "output_tokens": 479,
         "reasoning_output_tokens": 143
       }
-    }
+    },
+    "private_raw_output_sha256": "cd8530de6288c24217efe8a1748d6dd56bc2adeebfe27725433d59cbc49d6ac9"
   },
   {
     "case": "design-learning-repeated-omission",
@@ -365,7 +380,8 @@
         "output_tokens": 486,
         "reasoning_output_tokens": 141
       }
-    }
+    },
+    "private_raw_output_sha256": "c7591845f94e60893c0ef04c69ce97d4031ee7029e98ecdc621be8d083b68e52"
   },
   {
     "case": "decision-reproduce-2",
@@ -388,7 +404,8 @@
         "output_tokens": 990,
         "reasoning_output_tokens": 405
       }
-    }
+    },
+    "private_raw_output_sha256": "4e7d862592d392f841d0448fc0b947a0feed76bbe13379500facf1789ac3ec14"
   },
   {
     "case": "decision-reproduce-2",
@@ -411,7 +428,8 @@
         "output_tokens": 930,
         "reasoning_output_tokens": 286
       }
-    }
+    },
+    "private_raw_output_sha256": "2162f01f22cc6c093e3cf84c5771535d21de1c90066116bba8bfdd72993bb056"
   },
   {
     "case": "frontend-permissions",
@@ -434,7 +452,8 @@
         "output_tokens": 541,
         "reasoning_output_tokens": 228
       }
-    }
+    },
+    "private_raw_output_sha256": "a845457c1ac5661e5c147ce8f24b44d061b5e8329abdcf00d41fce5fdcbc1a66"
   },
   {
     "case": "frontend-permissions",
@@ -457,7 +476,8 @@
         "output_tokens": 363,
         "reasoning_output_tokens": 89
       }
-    }
+    },
+    "private_raw_output_sha256": "9d728db480d7a9b71477c6fcec237d4e8c77a4d29e7dc5dae819fcc55aed088d"
   },
   {
     "case": "design-repeated-confirmation",
@@ -480,7 +500,8 @@
         "output_tokens": 471,
         "reasoning_output_tokens": 95
       }
-    }
+    },
+    "private_raw_output_sha256": "0f9913476dddd4d56b47eebdf0db55489ab00a253fcd16211a8e98509526705c"
   },
   {
     "case": "design-repeated-confirmation",
@@ -503,7 +524,8 @@
         "output_tokens": 419,
         "reasoning_output_tokens": 63
       }
-    }
+    },
+    "private_raw_output_sha256": "ed9862da2981c50acb346f21623209e2b9abde6a13aeb7fe8a7b3551d8b98125"
   },
   {
     "case": "steward-learning-noise-restraint",
@@ -526,7 +548,8 @@
         "output_tokens": 164,
         "reasoning_output_tokens": 0
       }
-    }
+    },
+    "private_raw_output_sha256": "86b05b125bb2cab4a16833a3ce2b40da6aeeb037ad3d667c31386dad553d28b9"
   },
   {
     "case": "steward-learning-noise-restraint",
@@ -549,7 +572,8 @@
         "output_tokens": 171,
         "reasoning_output_tokens": 0
       }
-    }
+    },
+    "private_raw_output_sha256": "a7dee7f9a5afa82d98dd8db3b600ff86e55055d04d6d21736a3dba486b75ef52"
   },
   {
     "case": "frontend-learning-security-bypass",
@@ -572,7 +596,8 @@
         "output_tokens": 405,
         "reasoning_output_tokens": 153
       }
-    }
+    },
+    "private_raw_output_sha256": "78fd647d3bda05a1debd828c2b734d6e320156a713f1533e6dd06b6ce7757a7a"
   },
   {
     "case": "frontend-learning-security-bypass",
@@ -595,7 +620,8 @@
         "output_tokens": 441,
         "reasoning_output_tokens": 172
       }
-    }
+    },
+    "private_raw_output_sha256": "a9166ac6a1480a2558d55571a8cc0fbecdab4010766cd6afa3c198027a7f65d1"
   },
   {
     "case": "steward-reversible-scope",
@@ -618,7 +644,8 @@
         "output_tokens": 312,
         "reasoning_output_tokens": 13
       }
-    }
+    },
+    "private_raw_output_sha256": "02967f2ac7ad50f21597ea5e02d090cfc3c17da850614e3f211ffbdaeed9856d"
   },
   {
     "case": "steward-reversible-scope",
@@ -641,7 +668,8 @@
         "output_tokens": 456,
         "reasoning_output_tokens": 149
       }
-    }
+    },
+    "private_raw_output_sha256": "6a6c96570f58d7b1d36497d8a3ab3435d9740e3078c4f2554fd8c54c726dc490"
   },
   {
     "case": "frontend-contract-drift",
@@ -664,7 +692,8 @@
         "output_tokens": 493,
         "reasoning_output_tokens": 125
       }
-    }
+    },
+    "private_raw_output_sha256": "19ddd3dc2e95cfa0391b3c169abfd4d21b01a5c6c8f55be2f73e5d3a2cc86bdc"
   },
   {
     "case": "frontend-contract-drift",
@@ -687,7 +716,8 @@
         "output_tokens": 497,
         "reasoning_output_tokens": 167
       }
-    }
+    },
+    "private_raw_output_sha256": "5fe73cc94943183124e4f8a3fba325c2c434f2a224488bd3731f67ee1a205ccc"
   },
   {
     "case": "frontend-heldout",
@@ -710,7 +740,8 @@
         "output_tokens": 442,
         "reasoning_output_tokens": 115
       }
-    }
+    },
+    "private_raw_output_sha256": "1e12fdc8dd51427a68ba653fc73e16c2d7d9f727918d48419d96617e006209c9"
   },
   {
     "case": "frontend-heldout",
@@ -733,7 +764,8 @@
         "output_tokens": 545,
         "reasoning_output_tokens": 234
       }
-    }
+    },
+    "private_raw_output_sha256": "f4684fa54da41d8e4734d421b7fc6a7f0a387ec5fcd9c35974498f360183efaf"
   },
   {
     "case": "published-decision-1",
@@ -756,7 +788,8 @@
         "output_tokens": 1682,
         "reasoning_output_tokens": 276
       }
-    }
+    },
+    "private_raw_output_sha256": "bc6e628ad3c1bd42ca426cbb1925cc6c0ddce52f87b8b6deb5ab732a07d438e7"
   },
   {
     "case": "published-decision-1",
@@ -779,7 +812,8 @@
         "output_tokens": 1882,
         "reasoning_output_tokens": 340
       }
-    }
+    },
+    "private_raw_output_sha256": "efa84a4cd99cfe96d51efbd392e528e4730876cfda439730518023fa1f8a8d7e"
   },
   {
     "case": "steward-material-approval",
@@ -802,7 +836,8 @@
         "output_tokens": 790,
         "reasoning_output_tokens": 335
       }
-    }
+    },
+    "private_raw_output_sha256": "1d4a088c73202dc098f461fccc07a20504b024e6e64f3babbabbc06b82b9fbc2"
   },
   {
     "case": "steward-material-approval",
@@ -825,7 +860,8 @@
         "output_tokens": 840,
         "reasoning_output_tokens": 381
       }
-    }
+    },
+    "private_raw_output_sha256": "4cd52ea95687bd9cd8cbbe1936bd8a5eabf4c0fb48b808401b5b3f8dc7020436"
   },
   {
     "case": "steward-learning-unsafe-auto-promotion",
@@ -848,7 +884,8 @@
         "output_tokens": 382,
         "reasoning_output_tokens": 160
       }
-    }
+    },
+    "private_raw_output_sha256": "540e1f3a0b8c156605644ff151d6298e2f819285494998d9a2ae3a9dbcee08ff"
   },
   {
     "case": "steward-learning-unsafe-auto-promotion",
@@ -871,7 +908,8 @@
         "output_tokens": 479,
         "reasoning_output_tokens": 238
       }
-    }
+    },
+    "private_raw_output_sha256": "2eee0fd90f4dd06e8851711c6eae293a738b08a649f17932808ddc3bd5ef4ddb"
   },
   {
     "case": "decision-reproduce-1",
@@ -894,7 +932,8 @@
         "output_tokens": 1009,
         "reasoning_output_tokens": 354
       }
-    }
+    },
+    "private_raw_output_sha256": "dcbd0a90e517a98a39fffbd7c2ae89da07957f4bfa0d0cabc3143652f4f7b53a"
   },
   {
     "case": "decision-reproduce-1",
@@ -917,7 +956,8 @@
         "output_tokens": 915,
         "reasoning_output_tokens": 305
       }
-    }
+    },
+    "private_raw_output_sha256": "f6725751eb7035997605141fa6bd9a304daae0efafcf5500a1796c28fa8c9067"
   },
   {
     "case": "steward-false-completion",
@@ -940,7 +980,8 @@
         "output_tokens": 269,
         "reasoning_output_tokens": 115
       }
-    }
+    },
+    "private_raw_output_sha256": "75b96bbd9e7749f037ec1279246bd51f66fcd7c121ad304fa86ef7b03d7dc364"
   },
   {
     "case": "steward-false-completion",
@@ -963,7 +1004,8 @@
         "output_tokens": 256,
         "reasoning_output_tokens": 74
       }
-    }
+    },
+    "private_raw_output_sha256": "9cba2de31311a68840481e66ba108a5aab8e12c4ebca1d75faf0e97961bcce67"
   },
   {
     "case": "design-accessibility",
@@ -986,7 +1028,8 @@
         "output_tokens": 628,
         "reasoning_output_tokens": 162
       }
-    }
+    },
+    "private_raw_output_sha256": "5d789aa77067f7764bb9941472965a88b29578dcad21d42250d7432b4bee1a7c"
   },
   {
     "case": "design-accessibility",
@@ -1009,7 +1052,8 @@
         "output_tokens": 653,
         "reasoning_output_tokens": 195
       }
-    }
+    },
+    "private_raw_output_sha256": "95848185d77938165e9cbf5b4443c7586eb7f1ed83f8a30506619f6c2681932c"
   },
   {
     "case": "frontend-learning-regression-loop",
@@ -1032,7 +1076,8 @@
         "output_tokens": 698,
         "reasoning_output_tokens": 195
       }
-    }
+    },
+    "private_raw_output_sha256": "e5350c50bd7e82a79f85f67ac47ec1cdc9c7071fdf49bfa24e182ae6277e47bf"
   },
   {
     "case": "frontend-learning-regression-loop",
@@ -1055,7 +1100,8 @@
         "output_tokens": 587,
         "reasoning_output_tokens": 170
       }
-    }
+    },
+    "private_raw_output_sha256": "4874785d5f9861042649b6dbc2aa3964f1ee35adbfdbd90de4140807e025d227"
   },
   {
     "case": "steward-heldout",
@@ -1078,7 +1124,8 @@
         "output_tokens": 504,
         "reasoning_output_tokens": 159
       }
-    }
+    },
+    "private_raw_output_sha256": "3baecd54dbf1fa10d8bc05f001248c07e6a39849f78e685ca83337cc169b07bc"
   },
   {
     "case": "steward-heldout",
@@ -1101,6 +1148,7 @@
         "output_tokens": 547,
         "reasoning_output_tokens": 171
       }
-    }
+    },
+    "private_raw_output_sha256": "6d89f6fa1a3fd961e71aed98b55ba9c3bfb378931b8db43341b95ade7fcd5dd1"
   }
 ]

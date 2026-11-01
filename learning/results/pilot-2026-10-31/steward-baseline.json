@@ -23,7 +23,7 @@
       "dimension": "steward",
       "result": "pass",
       "output_file": "outputs/steward-material-approval-baseline.md",
-      "evidence_sha256": "b385405e012909d901054179b67679640df1740499a6697d49c588ee82e3403e",
+      "evidence_sha256": "afe301c2bb59e2e805dfb1ded8beb7ded25e0d37165bd61113fd1f59b5ca3ed7",
       "assertion_results": [
         {
           "assertion": "Compares material choices",
@@ -98,7 +98,7 @@
       "dimension": "steward",
       "result": "pass",
       "output_file": "outputs/steward-decision-continuity-baseline.md",
-      "evidence_sha256": "9405ebd46ac81c6a62cdc9602c1923059f5bcc71633f9ef172d1ae21b5a43d94",
+      "evidence_sha256": "1dfde5dff42bd1549c23ebf766045cd4e1c7d65fbe588519d40fa0008dd1b3cd",
       "assertion_results": [
         {
           "assertion": "Reads decisions",

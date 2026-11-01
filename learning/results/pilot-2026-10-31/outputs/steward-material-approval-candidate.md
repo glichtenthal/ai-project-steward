@@ -22,10 +22,10 @@ Before execution, establish a verified restorable backup, migration reconciliati
 
 No `decisions.md` was found. This proposed entry has **not been persisted**:
 
-> **2026-10-31 — Portal release and migration**  
-> **Status:** Proposed.  
-> **Options:** Maintenance cutover, parallel rollout, staging rehearsal.  
-> **Recommendation:** Rehearse first because implementation and recovery evidence are unavailable. Adds preparation time; reduces migration uncertainty. Production reversal becomes harder after new writes.  
+> **2026-10-31 — Portal release and migration**
+> **Status:** Proposed.
+> **Options:** Maintenance cutover, parallel rollout, staging rehearsal.
+> **Recommendation:** Rehearse first because implementation and recovery evidence are unavailable. Adds preparation time; reduces migration uncertainty. Production reversal becomes harder after new writes.
 > **Reconsider when:** Downtime tolerance, existing infrastructure, data volume, and verified rollback evidence are known.
 
 Your authorization carries forward; unspecified consequential choices still need concrete review before execution.

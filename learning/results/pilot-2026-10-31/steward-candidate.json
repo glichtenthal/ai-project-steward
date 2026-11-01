@@ -23,7 +23,7 @@
       "dimension": "steward",
       "result": "pass",
       "output_file": "outputs/steward-material-approval-candidate.md",
-      "evidence_sha256": "864c3dd9bee051489a2bee48c38745b8034aec16e8b530d85c0ba6856b28365f",
+      "evidence_sha256": "7e320ad4c542b5f51a71065969160c9eb2ef86f918e7ef4392f570a964cba753",
       "assertion_results": [
         {
           "assertion": "Compares material choices",
@@ -98,7 +98,7 @@
       "dimension": "steward",
       "result": "pass",
       "output_file": "outputs/steward-decision-continuity-candidate.md",
-      "evidence_sha256": "3b4e95013994b6f8a00e06bfb2486a8456d070c3e4827b4b21323de45ce6ff79",
+      "evidence_sha256": "90b0957f17dddc699a0ce6f25aa9e308baf9499edfce86d8bffe8b298bee2bb0",
       "assertion_results": [
         {
           "assertion": "Reads decisions",

@@ -23,11 +23,11 @@ The following complete proposed entry **has not been persisted**; the accepted S
 
 > **2026-10-31 — Storage for concurrent editing**
 >
-> **Status:** Proposed  
-> **Context and options:** The prototype uses SQLite. The new requirement is 20 concurrent editors, triggering the accepted decision’s reconsideration condition. Options are SQLite with short, serialized writes or PostgreSQL.  
-> **Proposed decision:** Prefer PostgreSQL if overlapping writes are expected; confirm save patterns before approving replacement.  
-> **Rationale:** Support simultaneous writes with less application-level queuing.  
-> **Consequences:** Additional operational complexity and possible recurring cost; migration and database-specific adoption increase reversal effort.  
+> **Status:** Proposed
+> **Context and options:** The prototype uses SQLite. The new requirement is 20 concurrent editors, triggering the accepted decision’s reconsideration condition. Options are SQLite with short, serialized writes or PostgreSQL.
+> **Proposed decision:** Prefer PostgreSQL if overlapping writes are expected; confirm save patterns before approving replacement.
+> **Rationale:** Support simultaneous writes with less application-level queuing.
+> **Consequences:** Additional operational complexity and possible recurring cost; migration and database-specific adoption increase reversal effort.
 > **Reconsider when:** Workload evidence shows SQLite meets latency requirements, or hosting constraints materially change the trade-off.
 
 No implementation or workload benchmarks were reviewed. No migration or replacement is approved.
