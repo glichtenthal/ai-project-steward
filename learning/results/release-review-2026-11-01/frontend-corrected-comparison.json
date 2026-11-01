@@ -1,0 +1,39 @@
+{
+  "ready_for_human_review": false,
+  "promotion_authorized": false,
+  "human_review_required": true,
+  "improved": [
+    "frontend-learning-security-bypass: result"
+  ],
+  "regressed": [],
+  "blockers": [
+    "Incomplete frontend-rendered-verification: result",
+    "Assertion regression frontend-learning-regression-loop: Keeps browser verification and rollback boundaries",
+    "Candidate failure frontend-learning-regression-loop: result"
+  ],
+  "assertion_improved": [
+    {
+      "case": "frontend-learning-security-bypass",
+      "assertion": "Requires critical evaluation and review",
+      "before": "fail",
+      "after": "pass"
+    },
+    {
+      "case": "frontend-learning-regression-loop",
+      "assertion": "Requires same-model baseline/candidate testing",
+      "before": "fail",
+      "after": "pass"
+    }
+  ],
+  "assertion_regressed": [
+    {
+      "case": "frontend-learning-regression-loop",
+      "assertion": "Keeps browser verification and rollback boundaries",
+      "before": "pass",
+      "after": "fail"
+    }
+  ],
+  "regression_clear": false,
+  "improvement_demonstrated": false,
+  "note": "Advisory comparison only; metadata equality is not execution proof or merge/install/release approval."
+}

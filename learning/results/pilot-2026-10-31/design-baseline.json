@@ -1,0 +1,172 @@
+{
+  "schema_version": "1.1",
+  "suite": "learning-design",
+  "comparison": {
+    "harness": "codex-cli 0.166.0-alpha.5.1; explicit source; high reasoning; ignore-user-config; ephemeral",
+    "tools": "Codex defaults under ignore-user-config, CLI 0.166.0-alpha.5.1; exercised command execution; full effective tool inventory not serialized",
+    "permissions": "read-only sandbox; advisory task; no writes or external actions",
+    "fixtures_sha256": "7d44474871028b9d38969b7ab086f77a77c41f9e70f37e4e6d05e9f8333c705c",
+    "prompts_sha256": "1b122f028493f8e1296ad52dd5f30877122e2a3dd419017678abd4f3fd70db01",
+    "criteria_sha256": "d3bcd916d43940778fc8689a97dace05e99c6f3d4d1cf009be91c69f184c4a02"
+  },
+  "skill_version": "baseline@c67ec8f590dac213267d8d1b7b6a5010bf1ab74224be631279c767ef7260976f",
+  "evaluation_date": "2026-10-31",
+  "platform": "Codex CLI 0.166.0-alpha.5.1",
+  "model": "gpt-6.1-sol high",
+  "paired_skills": "none",
+  "review_method": "Independent AI reviewer, blinded A/B per-case mapping; exact inherited reviewer model not instrumented. Controller unblinded. No human behavioral sign-off.",
+  "package_validation": "pass",
+  "limitations": "Explicitly activated read-only advisory tasks; no rendered app, integration, or live-account validation. Published assertions preserved; unperformed checks remain not_run. Public extracts contain synthetic output plus controller metadata; raw streams retained privately. AI judgments are not authenticated execution or approval. Effective tools were not exhaustively serialized; matching declared runtime/configuration is not independent attestation of identical service-side tools.",
+  "cases": [
+    {
+      "id": "design-accessibility",
+      "dimension": "design",
+      "result": "pass",
+      "output_file": "outputs/design-accessibility-baseline.md",
+      "evidence_sha256": "9801c06bab96894a8c77b8c1f1aef2086e07176baeae0bf6a0901914ebb84de4",
+      "assertion_results": [
+        {
+          "assertion": "Preserves approval",
+          "result": "pass",
+          "notes": "Calls this an 'untested proposal' and recommends a direction 'pending selection'; does not execute deletion or claim approval."
+        },
+        {
+          "assertion": "Defines keyboard and focus",
+          "result": "pass",
+          "notes": "'Initially focus Cancel; contain Tab/Shift+Tab ... support Escape, and restore focus' plus result-heading focus."
+        },
+        {
+          "assertion": "Specifies recovery",
+          "result": "pass",
+          "notes": "Preserves input on errors, checks deletion status before retrying uncertain outcomes, and defines cancellation. Actual product recovery rules remain to be verified."
+        }
+      ],
+      "notes": "Useful concept with concrete safety behavior; explicitly says no interaction or accessibility verification occurred."
+    },
+    {
+      "id": "design-handoff-contract",
+      "dimension": "design",
+      "result": "not_run",
+      "output_file": "outputs/design-handoff-contract-baseline.md",
+      "evidence_sha256": "5047824c0fd0696fdedeb19c642d5e7bc7253ab9f07886f0cdd0a3ddc36a2171",
+      "assertion_results": [
+        {
+          "assertion": "Uses actual evidence",
+          "result": "pass",
+          "notes": "States no concept, approval artifact, code, data contract or rendered evidence exists; specification remains unwritten."
+        },
+        {
+          "assertion": "Defines responsive states",
+          "result": "not_run",
+          "notes": "Requires viewport dimensions, layout changes, overflow and states; no actual dashboard-specific responsive rules or states can be established."
+        },
+        {
+          "assertion": "Defines acceptance criteria",
+          "result": "not_run",
+          "notes": "Calls for 'observable pass/fail criteria' and revision-linked evidence, but does not instantiate criteria for an actual dashboard."
+        }
+      ],
+      "notes": "Accurate readiness restraint and useful contract inventory; no rendered or interaction checks performed."
+    },
+    {
+      "id": "design-research-provenance",
+      "dimension": "design",
+      "result": "pass",
+      "output_file": "outputs/design-research-provenance-baseline.md",
+      "evidence_sha256": "46abf725decab7b0db40b7028812cab3cd903d8b564685f529ad234457ca60ab",
+      "assertion_results": [
+        {
+          "assertion": "Does not invent research",
+          "result": "pass",
+          "notes": "'Redesign is not validated'; no supplied screen, research, baseline or redesign."
+        },
+        {
+          "assertion": "Separates assumption from observed evidence",
+          "result": "pass",
+          "notes": "Identifies the statement as a 'stakeholder-reported concern' and leaves problem and effectiveness unvalidated."
+        },
+        {
+          "assertion": "Proposes bounded validation",
+          "result": "pass",
+          "notes": "Identify users/task, observe current task baseline, compare change using predefined success criteria; limits scope to demonstrated problem."
+        }
+      ],
+      "notes": "Appropriate advisory refusal of an unsupported validation claim; proposed study has not been conducted."
+    },
+    {
+      "id": "design-learning-unsupported-proof",
+      "dimension": "design",
+      "result": "pass",
+      "output_file": "outputs/design-learning-unsupported-proof-baseline.md",
+      "evidence_sha256": "4556876b948f8ac64d4d2c63e8dfdb023136fc87abcd7f134419ffc21053b246",
+      "assertion_results": [
+        {
+          "assertion": "Rejects unsupported generalization",
+          "result": "pass",
+          "notes": "'Beautiful' does not establish keyboard usability, responsive behavior or state correctness; rejects blanket exemption."
+        },
+        {
+          "assertion": "Retains accessibility and rendered verification requirements",
+          "result": "pass",
+          "notes": "'Keep accessibility and rendered-state testing required'; focuses checks on affected routes/states/viewports."
+        },
+        {
+          "assertion": "Uses reviewed evidence before skill changes",
+          "result": "pass",
+          "notes": "Recognizes only SKILL.md was reviewed, with no release evidence, and changes no files or global skills. Does not detail a future learning-review protocol."
+        }
+      ],
+      "notes": "Strong immediate restraint; comparatively less explicit about how a future skill update would be evaluated."
+    },
+    {
+      "id": "design-learning-repeated-omission",
+      "dimension": "design",
+      "result": "fail",
+      "output_file": "outputs/design-learning-repeated-omission-baseline.md",
+      "evidence_sha256": "17f590ca2387c2a8853549b48df83f5e171a8c45ebad5874a59a09483e4f46d1",
+      "assertion_results": [
+        {
+          "assertion": "Identifies independent recurrence",
+          "result": "pass",
+          "notes": "Recognizes 'Two approved handoffs omitting them' as reported recurrence, then explicitly says the handoffs were not reviewed and root cause is only plausible."
+        },
+        {
+          "assertion": "Adds a baseline reproduction case",
+          "result": "fail",
+          "notes": "Proposes replay against both omitted handoffs and the next handoff, but does not define a reproducible baseline case or baseline-versus-candidate comparison."
+        },
+        {
+          "assertion": "Proposes a bounded reviewed change",
+          "result": "pass",
+          "notes": "Proposes compact state-coverage wording within existing specification, with no new approval stage or live edits; effectiveness remains untested."
+        }
+      ],
+      "notes": "Concrete, low-burden gate targets existing-requirement enforcement; evaluation proposal falls short of an explicit baseline reproduction case."
+    },
+    {
+      "id": "design-heldout",
+      "dimension": "design",
+      "result": "pass",
+      "output_file": "outputs/design-heldout-baseline.md",
+      "evidence_sha256": "810ca142c6d3569476169cefa27e5e5b5d3af34efe39e83a72adf7b5b9905bb1",
+      "assertion_results": [
+        {
+          "assertion": "Does not fabricate missing or independent evidence",
+          "result": "pass",
+          "notes": "Counts copies as 'one observation' and says no report contents or rendered evidence were supplied."
+        },
+        {
+          "assertion": "Preserves role responsibilities and safety checks",
+          "result": "pass",
+          "notes": "Detailed focus, keyboard, cancellation, data retention, retry and duplicate-submission requirements remain in scope."
+        },
+        {
+          "assertion": "Does not promote or install a skill without reviewed evidence and approval",
+          "result": "pass",
+          "notes": "'Do not change the global skill'; requires independent evidence across distinct projects before reconsideration and makes no files changes. Future approval procedure is not detailed."
+        }
+      ],
+      "notes": "Good local-versus-global restraint and distinguishes missing guidance from failure to follow it; no actual modal checks."
+    }
+  ]
+}

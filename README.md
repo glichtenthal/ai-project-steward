@@ -1,6 +1,6 @@
-> **2.1.3-rc.1: unreleased Codex-only candidate.** Stable 2.1.2 remains the published release. No tag, release, or installation is authorized by preparing this candidate.
+> **2.1.3-rc.2: unreleased supervised-learning candidate.** Stable 2.1.2 remains the published release. No tag, release, or installation is authorized by preparing this candidate.
 
-> [Candidate metadata](metadata/release.json) identifies the tested instruction hash and scope. Earlier release reports retain their original version scope and do not certify this candidate. See the [candidate evaluation summary](evals/results/v2.1.3-rc.1-codex.md).
+> [Candidate metadata](metadata/release.json) identifies the tested instruction hash and scope. Earlier release reports retain their original version scope and do not certify this candidate. See the [learning pilot](learning/results/pilot-2026-10-31/README.md). The [earlier rc.1 report](evals/results/v2.1.3-rc.1-codex.md) covers merged PR #3 only. The older staged rc.1 installation instructions below are historical; do not use them to install this learning candidate.
 
 # AI Project Steward
 

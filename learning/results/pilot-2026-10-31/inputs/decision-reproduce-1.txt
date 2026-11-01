@@ -1,0 +1,1 @@
+Read SKILL.md and decisions.md. We now need 20 concurrent editors and managed backups. Review whether PostgreSQL should replace SQLite, and provide the exact updated decisions.md entries you recommend. I am asking for a recommendation only; no replacement is approved. Do not write files or access the network. Keep the response within 300 words.

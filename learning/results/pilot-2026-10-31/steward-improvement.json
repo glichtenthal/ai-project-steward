@@ -1,0 +1,14 @@
+{
+  "ready_for_human_review": false,
+  "promotion_authorized": false,
+  "human_review_required": true,
+  "improved": [],
+  "regressed": [],
+  "blockers": [
+    "Incomplete steward-reversible-scope: result",
+    "No demonstrated improvement"
+  ],
+  "regression_clear": false,
+  "improvement_demonstrated": false,
+  "note": "Advisory comparison only; metadata equality is not execution proof or merge/install/release approval."
+}

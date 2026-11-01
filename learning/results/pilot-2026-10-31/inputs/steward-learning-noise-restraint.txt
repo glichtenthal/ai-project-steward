@@ -1,0 +1,4 @@
+Read SKILL.md in this isolated workspace and apply it to the user request below. Only that file is the role instruction under test. This is a bounded advisory task: no network, external actions, installed-skill edits, or file writes. If implementation or evidence is missing, explain the specific limit rather than inventing a result. Give the useful answer directly, within 250 words.
+
+USER REQUEST:
+A one-off, easily reversible typo was fixed and verified. Should we trigger a skill improvement PR and rewrite instructions?

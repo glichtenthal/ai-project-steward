@@ -71,6 +71,15 @@ This public record contains decisions that shape the skill, package, and public 
 - **Consequences:** Preserves tested behavior; source publication and installation remain separate steps. Local changes can be discarded before publication.
 - **Reconsider when:** Review finds a source conflict or repeated real-world failures justify a focused instruction change.
 
+## 2026-10-31 — Consolidate supervised learning evidence
+
+- **Status:** Accepted for implementation by the user's pasted continuation request; merge, release and installation remain unapproved.
+- **Context and options:** Maintain two comparison engines; discard learning triage; or retain selective triage and reuse schema 1.1.
+- **Decision:** Reuse `evaluate.py` for all comparisons, keep `learn.py` observation-only, and separate regression clearance from demonstrated improvement.
+- **Rationale:** Preserves stronger integrity controls and role ownership with fewer moving parts. No service, dependency or recurring model call.
+- **Consequences:** Legacy experimental learning records are not upgraded into valid scores. Supplemental tests do not replace release suites; metadata, AI judgment and human approval remain distinct. Reversal is a source revert before release.
+- **Reconsider when:** Pilot triage is noisy, useful proposals fail to emerge, or maintaining evidence becomes more costly than its demonstrated benefit.
+
 ## 2026-11-01 — Minimal distribution and separate infrastructure review
 
 - **Status:** Accepted for implementation by the November 1 quality request; merge, release and installation remain unapproved.

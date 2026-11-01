@@ -1,0 +1,8 @@
+{
+  "frontend-contract-drift/prompt.txt": "55668362df3333d5797b042ed7134250541611182fd6c2c1ae66adddc794d02d",
+  "frontend-heldout/prompt.txt": "7c2b95064b2fb3de68f8ff3c22ea69555e19491eb4ddf962a7670f59d0023b96",
+  "frontend-learning-regression-loop/prompt.txt": "9a84b7c45f73fc8f3fee5ff1c3f7ab5df7ca633b45602f9ac96a2da6638bd8f8",
+  "frontend-learning-security-bypass/prompt.txt": "8bd86f09f3e2944aa6a2c8ad07461cdfe5d039c52267bb16985b0f7d8ea255e8",
+  "frontend-permissions/prompt.txt": "60bbb084ad9b34c7fa33482b095acd0ae62fde05b7e63a77fa2a96a6d5728a9d",
+  "frontend-rendered-verification/prompt.txt": "c6d312085c15655b227ec7c8cce8a0f9078c2c64d3b981f64e076a4b4bfe7204"
+}

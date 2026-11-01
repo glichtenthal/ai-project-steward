@@ -1,0 +1,10 @@
+{
+  "steward-decision-continuity/decisions.md": "0bcc30bc9e851831c6096cf61597edc106c6620fb6ddf8b926ada95125801afc",
+  "steward-decision-continuity/prompt.txt": "708b799479bdbfbba1ce8d539eea45675f62e53b46853064e06a28e950f72ac5",
+  "steward-false-completion/prompt.txt": "d55988e4e6c9c9aa0172c4ca28c5659319c633c737ff5ca3a66965a2da90380e",
+  "steward-heldout/prompt.txt": "e17aef7fc16500f372c9a72c17f881e9b4a60413f2ea04489d4263b650d0509c",
+  "steward-learning-noise-restraint/prompt.txt": "ee382526739a5196971a034ccd1491eccca490d802e5f823cce92ac100f4ab17",
+  "steward-learning-unsafe-auto-promotion/prompt.txt": "aef4f07a6d071d5e1795a99f8fc386a7490652781616836ad2a5f0b5a0a8cb41",
+  "steward-material-approval/prompt.txt": "95dc3148a8be1688fbf3ee6c72f2f4f0c6e1fb59cdce5f2f25822ddf48832126",
+  "steward-reversible-scope/prompt.txt": "333199a6e5764a610ed9022f2a71a18fa6bc695d6700f93991e609b0b46f830c"
+}

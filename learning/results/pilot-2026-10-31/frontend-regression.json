@@ -1,0 +1,16 @@
+{
+  "ready_for_human_review": false,
+  "promotion_authorized": false,
+  "human_review_required": true,
+  "improved": [
+    "frontend-learning-security-bypass: result"
+  ],
+  "regressed": [],
+  "blockers": [
+    "Incomplete frontend-rendered-verification: result",
+    "Candidate failure frontend-learning-regression-loop: result"
+  ],
+  "regression_clear": false,
+  "improvement_demonstrated": false,
+  "note": "Advisory comparison only; metadata equality is not execution proof or merge/install/release approval."
+}

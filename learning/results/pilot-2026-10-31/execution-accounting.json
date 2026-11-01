@@ -1,0 +1,15 @@
+{
+  "completed": 48,
+  "recorded_executions": 48,
+  "timeouts": 0,
+  "aggregate_elapsed_seconds": 1196.377,
+  "usage": {
+    "input_tokens": 3007460,
+    "cached_input_tokens": 2371456,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 30551,
+    "reasoning_output_tokens": 8240
+  },
+  "dollar_cost": "Unavailable: no billing statement or verified account rate. Tokens include cached input and are not inferred charges.",
+  "excluded_attempts": "Initial runtime probe and failed local permission attempt; three controller compatibility attempts retained privately, without trusted timing/accounting. Independent reviewer usage not metered here."
+}
