@@ -1,0 +1,9 @@
+# Reviewed runtime distribution allowlist. Evaluation tooling and evidence stay in Git.
+SKILL.md
+LICENSE
+agents/openai.yaml
+metadata/release.json
+assets/icon-small.png
+assets/icon-large.svg
+learning/README.md
+distribution-manifest.txt

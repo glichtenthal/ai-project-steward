@@ -70,3 +70,12 @@ This public record contains decisions that shape the skill, package, and public 
 - **Recommendation:** Prepare the tested instructions unchanged, with version metadata and bounded evidence.
 - **Consequences:** Preserves tested behavior; source publication and installation remain separate steps. Local changes can be discarded before publication.
 - **Reconsider when:** Review finds a source conflict or repeated real-world failures justify a focused instruction change.
+
+## 2026-11-01 — Minimal distribution and separate infrastructure review
+
+- **Status:** Accepted for implementation by the November 1 quality request; merge, release and installation remain unapproved.
+- **Context/options:** Ship every tracked source file; maintain parallel runtime/evidence archives; or ship one explicit runtime allowlist and retain evidence in versioned source.
+- **Decision:** Use one reviewed distribution manifest, reject unsafe/missing/untracked/linked entries, and verify exact membership and byte parity. Keep evaluation tooling and evidence in Git. Prepare infrastructure independently of behavioral instruction promotion.
+- **Rationale:** Smaller portable instructions and one source evidence system; no new services, dependencies or evaluation engine.
+- **Consequences:** Source-based tooling must run in its reviewed checkout, not inside installed skills. Stable releases and instruction hashes are unchanged. Reverting the packaging change is straightforward before any release; no installed archive is replaced here.
+- **Reconsider when:** A required runtime reference is missing, platform consumers require another asset, or source-retained evidence cannot reproduce a result.

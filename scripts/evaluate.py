@@ -22,6 +22,12 @@ CONTRACT_FIELDS = ("harness", "tools", "permissions", "fixtures_sha256",
 
 
 def suite_cases(kind: str) -> list[dict]:
+    if kind.startswith("learning-"):
+        role = kind.removeprefix("learning-")
+        if role not in ("steward", "design", "frontend"):
+            raise ValueError("Unknown learning role")
+        return [dict(c, dimension=c["role"], turns=[c["prompt"]])
+                for c in load_json(ROOT / "learning/cases.json")["cases"] if c["role"] == role]
     return load_json(EVALS_PATH)["evals"] if kind == "behavioral" else load_json(COMPOSITION_PATH)["cases"]
 
 
@@ -65,7 +71,7 @@ def validate_record(record: dict, path: Path, kind: str, strict: bool = False) -
         for key in ("skill_version", "platform", "model", "review_method"):
             if not isinstance(record.get(key), str) or not record[key].strip():
                 errors.append(f"Missing {key}")
-        if kind == "composition" and (not isinstance(record.get("paired_skills"), str) or not record["paired_skills"].strip()):
+        if kind != "behavioral" and (not isinstance(record.get("paired_skills"), str) or not record["paired_skills"].strip()):
             errors.append("Missing paired_skills")
         reviewed = any(isinstance(c, dict) and has_review(c,
                        ("routing_result", "behavior_result") if kind == "behavioral" else ("result",)) for c in cases)
@@ -103,7 +109,7 @@ def validate_record(record: dict, path: Path, kind: str, strict: bool = False) -
             continue
         if kind == "behavioral" and case.get("routing_expected") != expected[cid]["routing_expected"]:
             errors.append(f"{cid}: changed routing expectation")
-        if kind == "composition" and case.get("dimension") != expected[cid]["dimension"]:
+        if kind != "behavioral" and case.get("dimension") != expected[cid]["dimension"]:
             errors.append(f"{cid}: changed composition dimension")
         if any(case.get(k) == "not_applicable" for k in keys):
             errors.append(f"{cid}: use not_run for unavailable checks; published cases cannot be waived")
@@ -196,7 +202,40 @@ def load_json(path: Path) -> dict:
 
 
 def validate_suite() -> list[str]:
-    errors: list[str] = []
+    # Supplemental role cases share the assertion/evidence validator below;
+    # they never replace the behavioral or composition release suites.
+    learning_errors = []
+    try:
+        learning = load_json(ROOT / "learning/cases.json")["cases"]
+        seen_learning = set()
+        for case in learning:
+            if (not isinstance(case, dict) or not isinstance(case.get("id"), str)
+                    or case["id"] in seen_learning
+                    or case.get("role") not in ("steward", "design", "frontend")
+                    or not isinstance(case.get("critical"), bool)
+                    or not isinstance(case.get("prompt"), str) or not case["prompt"].strip()
+                    or not isinstance(case.get("assertions"), list) or not case["assertions"]
+                    or any(not isinstance(a, str) or not a.strip() for a in case["assertions"])):
+                learning_errors.append("Invalid or duplicate supplemental learning case")
+            else:
+                seen_learning.add(case["id"])
+        if {c.get("role") for c in learning if isinstance(c, dict)} != {"steward", "design", "frontend"}:
+            learning_errors.append("Supplemental cases must cover all three roles")
+    except (ValueError, OSError, KeyError, TypeError):
+        learning_errors.append("Missing or invalid supplemental learning cases")
+    errors: list[str] = list(learning_errors)
+    try:
+        metadata = load_json(ROOT / "metadata/release.json")
+        actual_hash = hashlib.sha256((ROOT / "SKILL.md").read_bytes()).hexdigest()
+        if not isinstance(metadata, dict) or actual_hash != metadata.get("skill_sha256"):
+            errors.append("Release metadata does not match SKILL.md")
+        if isinstance(metadata, dict) and metadata.get("status") == "candidate" and (
+                metadata.get("publication_status") != "unreleased"
+                or metadata.get("release_approved") is not False
+                or metadata.get("installation_approved") is not False):
+            errors.append("Candidate metadata cannot imply release or installation approval")
+    except (ValueError, OSError):
+        errors.append("Missing release metadata or skill payload")
     for relative in REQUIRED_FILES:
         if not (ROOT / relative).is_file():
             errors.append(f"Missing required file: {relative}")
@@ -482,7 +521,8 @@ def command_init_composition(args: argparse.Namespace) -> int:
     if errors:
         print("Run package validation before creating a composition run.", file=sys.stderr)
         return 1
-    suite = load_json(COMPOSITION_PATH)
+    kind = getattr(args, "suite", "composition")
+    suite = {"cases": suite_cases(kind)}
     output = Path(args.output)
     if not output.is_absolute():
         output = ROOT / output
@@ -491,7 +531,8 @@ def command_init_composition(args: argparse.Namespace) -> int:
         return 1
     record = {
         "schema_version": "1.1",
-        "comparison": comparison_template("composition"),
+        "suite": kind,
+        "comparison": comparison_template(kind),
         "skill_version": args.version,
         "evaluation_date": dt.date.today().isoformat(),
         "platform": args.platform,
@@ -520,6 +561,8 @@ def command_init_composition(args: argparse.Namespace) -> int:
 
 
 def command_report_composition(args: argparse.Namespace) -> int:
+    kind = getattr(args, "suite", "composition")
+    label = "Supplemental " + kind if kind.startswith("learning-") else "Composition"
     run_path = Path(args.run)
     if not run_path.is_absolute():
         run_path = ROOT / run_path
@@ -529,7 +572,7 @@ def command_report_composition(args: argparse.Namespace) -> int:
         print(exc, file=sys.stderr)
         return 1
 
-    errors = validate_record(run, run_path, "composition")
+    errors = validate_record(run, run_path, getattr(args, "suite", "composition"))
     if errors:
         for error in errors:
             print(f"- {error}", file=sys.stderr)
@@ -545,7 +588,7 @@ def command_report_composition(args: argparse.Namespace) -> int:
 
     reviewed = _count(cases, "result", "pass") + _count(cases, "result", "fail")
     lines = [
-        f"# AI Project Steward {run.get('skill_version', 'unknown')} Composition Results",
+        f"# {label} {run.get('skill_version', 'unknown')} Results",
         "",
         f"- **Status:** {'Complete' if all(case['result'] != 'not_run' for case in cases) else 'Incomplete'}",
         f"- **Evidence status:** {evidence_status(run)}",
@@ -558,7 +601,7 @@ def command_report_composition(args: argparse.Namespace) -> int:
         "",
         "## Summary",
         "",
-        f"- Composition: {_count(cases, 'result', 'pass')} passed, {_count(cases, 'result', 'fail')} failed, {len(cases) - reviewed} not run or not applicable.",
+        f"- {label}: {_count(cases, 'result', 'pass')} passed, {_count(cases, 'result', 'fail')} failed, {len(cases) - reviewed} not run or not applicable.",
         "",
         "## Case Results",
         "",
@@ -576,7 +619,7 @@ def command_report_composition(args: argparse.Namespace) -> int:
             "",
             run.get("limitations", "No limitations recorded."),
             "",
-            "These results show observed composition under named conditions. They do not establish deterministic enforcement or guarantee identical behavior across every model, platform, paired skill, or future run.",
+            f"These {label.lower()} results cover only the named suite and conditions, not full release clearance. They do not establish enforcement, human approval, or universal behavior.",
         ]
     )
     output.parent.mkdir(parents=True, exist_ok=True)
@@ -589,6 +632,8 @@ def command_compare(args: argparse.Namespace) -> int:
     """Compare reviewed records; never grant release authority."""
     report = {"ready_for_human_review": False, "promotion_authorized": False,
               "human_review_required": True, "improved": [], "regressed": [], "blockers": [],
+              "assertion_improved": [], "assertion_regressed": [],
+              "regression_clear": False, "improvement_demonstrated": False,
               "note": "Advisory comparison only; metadata equality is not execution proof or merge/install/release approval."}
     records = []
     for name in (args.baseline, args.candidate):
@@ -606,7 +651,7 @@ def command_compare(args: argparse.Namespace) -> int:
         for field in ("model", "platform"):
             if before[field] != after[field]:
                 report["blockers"].append(f"Incomparable {field}")
-        if args.suite == "composition" and before["paired_skills"] != after["paired_skills"]:
+        if args.suite != "behavioral" and before["paired_skills"] != after["paired_skills"]:
             report["blockers"].append("Incomparable paired_skills")
         for field in CONTRACT_FIELDS:
             if before["comparison"][field] != after["comparison"][field]:
@@ -615,6 +660,14 @@ def command_compare(args: argparse.Namespace) -> int:
             old = {c['id']: c for c in before['cases']}
             for case in after['cases']:
                 cid = case['id']
+                for prior, current in zip(old[cid]['assertion_results'], case['assertion_results']):
+                    transition = {"case": cid, "assertion": current['assertion'],
+                                  "before": prior['result'], "after": current['result']}
+                    if prior['result'] == 'fail' and current['result'] == 'pass':
+                        report['assertion_improved'].append(transition)
+                    if prior['result'] == 'pass' and current['result'] == 'fail':
+                        report['assertion_regressed'].append(transition)
+                        report['blockers'].append(f"Assertion regression {cid}: {current['assertion']}")
                 for field in (("routing_result", "behavior_result") if args.suite == 'behavioral' else ("result",)):
                     a, b = old[cid][field], case[field]
                     if a not in ('pass', 'fail') or b not in ('pass', 'fail'):
@@ -625,7 +678,9 @@ def command_compare(args: argparse.Namespace) -> int:
                         report['improved'].append(f"{cid}: {field}")
                     if a == 'pass' and b == 'fail':
                         report['regressed'].append(f"{cid}: {field}")
-            if not report['improved']:
+            report['regression_clear'] = not report['blockers']
+            report['improvement_demonstrated'] = bool(report['improved']) and report['regression_clear']
+            if getattr(args, 'mode', 'improvement') == 'improvement' and not report['improved']:
                 report['blockers'].append('No demonstrated improvement')
             report['ready_for_human_review'] = not report['blockers']
     output = Path(args.output)
@@ -674,8 +729,26 @@ def build_parser() -> argparse.ArgumentParser:
     report_composition.add_argument("--output", required=True, help="Markdown result path")
     report_composition.add_argument("--force", action="store_true", help="Overwrite an existing output file")
     report_composition.set_defaults(func=command_report_composition)
+    learning = subparsers.add_parser("init-learning", help="Initialize role cases with shared schema 1.1")
+    learning.add_argument("--role", choices=("steward", "design", "frontend"), required=True)
+    for key in ("version", "platform", "model", "output"):
+        learning.add_argument("--" + key, required=True)
+    learning.add_argument("--paired-skills", default="none")
+    learning.add_argument("--force", action="store_true")
+    def init_learning(args):
+        args.suite = "learning-" + args.role
+        return command_init_composition(args)
+    learning.set_defaults(func=init_learning)
+    learning_report = subparsers.add_parser("report-learning", help="Report reviewed role cases")
+    learning_report.add_argument("--suite", choices=("learning-steward", "learning-design", "learning-frontend"), required=True)
+    learning_report.add_argument("--run", required=True)
+    learning_report.add_argument("--output", required=True)
+    learning_report.add_argument("--force", action="store_true")
+    learning_report.set_defaults(func=command_report_composition)
     compare = subparsers.add_parser("compare", help="Compare controlled reviewed records; no promotion authority")
-    compare.add_argument("--suite", choices=("behavioral", "composition"), required=True)
+    suites = ("behavioral", "composition", "learning-steward", "learning-design", "learning-frontend")
+    compare.add_argument("--suite", choices=suites, required=True)
+    compare.add_argument("--mode", choices=("regression", "improvement"), default="improvement")
     for key in ("baseline", "candidate", "output"):
         compare.add_argument("--" + key, required=True)
     compare.add_argument("--force", action="store_true")

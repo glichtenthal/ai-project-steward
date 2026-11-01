@@ -9,6 +9,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 
 SCRIPT = Path(__file__).resolve().parents[1] / "scripts/evaluate.py"
@@ -29,11 +30,14 @@ class EvaluationIntegrityTests(unittest.TestCase):
 
     def record(self, kind="behavioral", name="run.json"):
         path = self.root / name
-        args = ["init" if kind == "behavioral" else "init-composition",
+        command = "init-learning" if kind.startswith("learning-") else "init" if kind == "behavioral" else "init-composition"
+        args = [command,
                 "--version", "SYNTHETIC UNIT FIXTURE", "--platform", "test harness",
                 "--model", "test model", "--output", path, "--force"]
-        if kind == "composition":
+        if kind != "behavioral":
             args.extend(["--paired-skills", "synthetic role@1"])
+        if kind.startswith("learning-"):
+            args.extend(["--role", kind.removeprefix("learning-")])
         result = self.cli(*args)
         self.assertEqual(result.returncode, 0, result.stderr)
         return path, json.loads(path.read_text())
@@ -225,6 +229,70 @@ class EvaluationIntegrityTests(unittest.TestCase):
         self.assertNotEqual(result.returncode, 0)
         self.assertIn("No demonstrated improvement", report["blockers"])
 
+    def test_regression_clearance_does_not_invent_improvement(self):
+        _, record = self.reviewed()
+        baseline, candidate = self.root / "before.json", self.root / "after.json"
+        self.save(baseline, record)
+        self.save(candidate, record)
+        output = self.root / "regression.json"
+        result = self.cli("compare", "--suite", "behavioral", "--mode", "regression",
+                          "--baseline", baseline, "--candidate", candidate, "--output", output)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        report = json.loads(output.read_text())
+        self.assertTrue(report["regression_clear"])
+        self.assertFalse(report["improvement_demonstrated"])
+        self.assertFalse(report["promotion_authorized"])
+
+    def test_learning_uses_shared_integrity_validator(self):
+        for role in ("steward", "design", "frontend"):
+            output = self.root / (role + ".json")
+            result = self.cli("init-learning", "--role", role, "--version", "candidate",
+                              "--platform", "synthetic", "--model", "synthetic",
+                              "--output", output)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            record = json.loads(output.read_text())
+            self.assertEqual(record["schema_version"], "1.1")
+            self.assertEqual(evaluation.validate_record(record, output, "learning-" + role), [])
+            self.assertTrue(all(c["result"] == "not_run" for c in record["cases"]))
+            self.assertTrue(all(c["assertion_results"] for c in record["cases"]))
+
+    def test_malformed_metadata_is_a_validation_error(self):
+        original = evaluation.load_json
+        metadata_path = evaluation.ROOT / "metadata/release.json"
+        for malformed in ([], None, "not-an-object"):
+            def load(path):
+                return malformed if path == metadata_path else original(path)
+            with patch.object(evaluation, "load_json", side_effect=load):
+                self.assertIn("Release metadata does not match SKILL.md", evaluation.validate_suite())
+
+    def test_candidate_metadata_cannot_grant_approval(self):
+        original = evaluation.load_json
+        metadata_path = evaluation.ROOT / "metadata/release.json"
+        metadata = original(metadata_path)
+        metadata.update(status="candidate", release_approved=True)
+        with patch.object(evaluation, "load_json", side_effect=lambda p: metadata if p == metadata_path else original(p)):
+            self.assertIn("Candidate metadata cannot imply release or installation approval", evaluation.validate_suite())
+
+    def test_reviewed_learning_comparisons_and_integrity(self):
+        for role in ("steward", "design", "frontend"):
+            kind = "learning-" + role
+            before, after = self.improved_pair(kind)
+            result, report = self.comparison(before, after, kind)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertTrue(report["improvement_demonstrated"])
+            path = self.root / "run.json"
+            for fault in ("paired_skills", "dimension", "evidence", "assertions"):
+                broken = copy.deepcopy(after)
+                if fault == "paired_skills":
+                    del broken["paired_skills"]
+                elif fault == "dimension":
+                    broken["cases"][0]["dimension"] = "other-role"
+                elif fault == "evidence":
+                    broken["cases"][0]["evidence_sha256"] = "0" * 64
+                else:
+                    broken["cases"][0]["assertion_results"].pop()
+                self.assertTrue(self.errors(broken, path, kind), (role, fault))
+
     def test_regression_blocks_even_with_improvement_elsewhere(self):
         before, after = self.improved_pair()
         after["cases"][1]["routing_result"] = "fail"
@@ -232,6 +300,22 @@ class EvaluationIntegrityTests(unittest.TestCase):
         self.assertTrue(report["improved"])
         self.assertTrue(report["regressed"])
         self.assertFalse(report["ready_for_human_review"])
+
+    def test_assertion_regression_is_visible_when_case_stays_failed(self):
+        before, after = self.improved_pair("learning-frontend")
+        # Both aggregate cases fail, but two different assertions fail.
+        case_before, case_after = before["cases"][0], after["cases"][0]
+        case_before["assertion_results"][0]["result"] = "fail"
+        case_before["result"] = "fail"
+        case_after["assertion_results"][1]["result"] = "fail"
+        case_after["result"] = "fail"
+        _, report = self.comparison(before, after, "learning-frontend")
+        self.assertEqual(len(report["assertion_regressed"]), 1)
+        self.assertEqual(len(report["assertion_improved"]), 1)
+        self.assertEqual(report["assertion_regressed"][0]["assertion"],
+                         case_after["assertion_results"][1]["assertion"])
+        self.assertFalse(report["regression_clear"])
+        self.assertFalse(report["promotion_authorized"])
 
     def test_success_is_only_advisory(self):
         for kind in ("behavioral", "composition"):
