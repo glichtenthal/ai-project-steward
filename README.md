@@ -1,16 +1,12 @@
-> **2.1.3-rc.1: unreleased Codex-only candidate.** Stable 2.1.2 remains the published release. No tag, release, or installation is authorized by preparing this candidate.
-
-> [Candidate metadata](metadata/release.json) identifies the tested instruction hash and scope. Earlier release reports retain their original version scope and do not certify this candidate. See the [candidate evaluation summary](evals/results/v2.1.3-rc.1-codex.md).
-
 # AI Project Steward
 
-AI Project Steward provides a clear operating layer for visibility, guidance, approval, continuity, and verification throughout an AI-assisted build.
+**Bring your ideas to life with AI, while your judgment shapes what gets built.**
 
-Use it independently as a portable skill or as the human-led governance and verification layer within a broader AI build harness.
+AI Project Steward helps you navigate consequential technical decisions, preserve choices throughout development, and verify that what gets built works as intended.
 
-Most AI building workflows help produce the next step. AI Project Steward helps the human and AI manage the build as a whole: it makes consequential choices visible, recommends practical approaches, preserves approval authority, records accepted decisions, and verifies the real result before calling the work complete.
+Use this portable agent skill to build apps, prototypes, automations, and integrations with AI. It translates goals into practical plans, explains significant tradeoffs in architecture, data, security, cost, and deployment, and keeps accepted decisions available across sessions.
 
-Recommended for people who regularly use AI to build apps, prototypes, automations, integrations, deployments, or other technical projects—especially when the work spans multiple sessions or involves consequential choices.
+For developers and teams, it brings consistent approval boundaries, project continuity, and meaningful completion checks to existing AI-assisted workflows. Routine, reversible work stays lightweight.
 
 ## Why this exists
 
@@ -38,6 +34,12 @@ AI Project Steward:
 - refuses to describe mocked, disconnected, or partially verified behavior as finished
 
 It does **not** require approval or a decision record for every small choice. A reversible local change should remain fast.
+
+## For people building with AI and developers
+
+- **People bringing ideas to life:** Understand the choices that could affect cost, data, privacy, or what can be changed later, without having to direct every implementation detail.
+- **Developers and engineering teams:** Keep accepted decisions and approval boundaries clear across sessions, surface hidden assumptions early, and check real functionality instead of relying on a convincing demo.
+- **Teams using specialist skills:** Use Steward for project-wide scope, decisions, and completion; Product Design Director for experience design and critique; and Production Frontend Engineer for implementation and technical verification. These roles are complementary, not a bundled or automatically orchestrated multi-agent system.
 
 ## How it fits in an AI build harness
 
@@ -80,6 +82,10 @@ Build a small customer-health workflow that reads CRM data and drafts a private 
 ```text
 Review this deployment plan and identify what needs an explicit approval, backup, or rollback path.
 ```
+
+## Release status
+
+**Published stable:** [v2.1.2](https://github.com/glichtenthal/ai-project-steward/releases/tag/v2.1.2). **Unreleased candidate:** 2.1.3-rc.1, Codex-only; not approved for publication or installation. [Candidate metadata](metadata/release.json) and [evaluation summary](evals/results/v2.1.3-rc.1-codex.md) describe its specific test scope and limitations. Preparing this candidate does not authorize a release or installation.
 
 ## Install
 
