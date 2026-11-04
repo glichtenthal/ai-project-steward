@@ -94,3 +94,28 @@ Before any stable installation: obtain its separate authorization, inspect activ
 ## Owner authorization after clearance — November 3
 
 The owner explicitly accepted the documented Codex-only exceptions and authorized final package verification, stable publication, backup of the current pilot, installation and smoke checks. This supersedes the earlier lack of authorization; it does not change the failed strict gate, historical test results or scope. No other skills or experimental PRs are authorized to change. Execution completion must be verified separately from this authorization.
+
+## Authorized publication and installation completed — November 3
+
+The accepted-exception Codex-only release is published as [v2.1.3](https://github.com/glichtenthal/ai-project-steward/releases/tag/v2.1.3), targeting source commit `ac43773b8fdfcca993ff5449ee87cf16fb3ad581`. The published `ai-project-steward-2.1.3-codex.zip` has SHA-256 `89c417673beb4d35805642d9ff75a11f0a75d9c7e2077dd0fcf57a59e13790b7`. The tag, both asset downloads, ZIP CRC, exact eight-file membership and every payload hash were independently checked against the final source and published checksum. The tested instruction hash remains unchanged. Final source validation and all 42 existing local tests passed; [hosted validation](https://github.com/glichtenthal/ai-project-steward/actions/runs/41767861103) also succeeded. The tag remains pinned to the final package source; this later execution addendum does not change that asset.
+
+The current 110-file private pilot was fully backed up and hash-verified outside active skill locations, with a separate private configuration backup, before replacing one authoritative Steward directory with the downloaded published eight-file package. All 60 files in the other local installed-skill directories still match their pre-update hashes. Design Director and Frontend Engineer remain present and unchanged; their specialist behavior was not re-evaluated. No overlapping Steward or legacy Building Partner source was found in the checked global and project-ancestor skill locations. Rollback was not needed; both a verified pilot backup archive and the original retired directory are retained privately.
+
+### Actual installed-surface smoke results
+
+Reused the existing case definitions and controlled execution adapter in fresh ephemeral CLI sessions against the actual installed directory, with no repository-local Steward copy. All six executions completed in one CLI `0.166.0-alpha.5.1` window on `gpt-6.1-sol`, high reasoning. Seven distinct conversations include the two-phase continuity case. Apps/plugins/web/memory were disabled for these synthetic sessions; neighboring specialists were disabled only within each invocation, with their installed files untouched. Restricted local Chrome `156.0.8078.81` supplied actual render/click evidence.
+
+| Smoke case | Observed result |
+| --- | --- |
+| Ordinary writing, natural selection | Direct email draft; no Steward source read, tools or file changes; 3 assertion passes. |
+| Authentication choice, natural selection | Installed Steward read; conditional options/recommendation and permission boundaries; no implementation; 5 passes. |
+| Routine label edit, natural selection | Installed Steward read in this sample; only the label changed, real browser/click check passed, no governance overhead; 5 passes. |
+| Routine label edit, explicit invocation | Installed source read; only `index.html` changed; label and existing click behavior verified; 5 passes. |
+| Unapproved decision replacement | Original SQLite Accepted entry stayed unchanged; alternative appended as Proposed; no external action; 5 passes. |
+| Approved replacement, then fresh conversation | PostgreSQL Accepted and SQLite Superseded only after explicit approval; fresh conversation recovered the decision without reverting it or authorizing implementation; 5 passes. |
+
+**Total: 28 passing, zero failing assertion judgments; no newly identified critical regression.** Reviews are unblinded AI-assisted inspections of actual events, outputs and artifacts, not independent human grading or a new baseline/candidate benchmark. The native routine-edit activation success in this single smoke does **not** erase the historical shared misses or prove automatic activation is reliable. The strict regression gate remains failed, and all accepted release limitations remain in force. Desktop UI activation and specialist behavior were not certified by these CLI checks.
+
+A preparation-only attempt failed on a browser-adapter filename before any model call; it was retained and fresh run identifiers were used after correction. The CLI also automatically registered six scratch project paths as trusted despite the ignore-user-config flag. Only those exact entries were removed after testing; the original configuration was restored byte for byte and the transient snapshot retained privately. No unrelated configuration change was overwritten.
+
+Private raw smoke traces, assertion notes, evidence hashes, backup and installation receipts remain local. Historical evaluation records were not rewritten. Steward experimental PR #2 and specialist experimental PR #5 remain open, draft and unmerged; their heads and last-update metadata remain from before this release work. No other installed skills or experimental PRs were changed.
