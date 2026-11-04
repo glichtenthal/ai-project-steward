@@ -90,3 +90,7 @@ Before publication: obtain explicit owner acceptance of that exception and separ
 Before any stable installation: obtain its separate authorization, inspect active/duplicate sources, verify a fresh backup of the **currently installed pilot** and relevant configuration, install the verified published eight-file asset into one authoritative target, and run fresh-session positive/negative routing, explicit decision-control and neighboring-skill smoke checks. Preserve the disclosed native routine-edit limitation and restore the backup on a critical failure. The old stable backup is historical, not automatically the correct rollback for today's pilot state.
 
 **Stopped after clearance.** Only this redacted review document is updated. No stable release metadata, tag, release, installation, experimental PR, Design Director or Frontend Engineer was changed.
+
+## Owner authorization after clearance — November 3
+
+The owner explicitly accepted the documented Codex-only exceptions and authorized final package verification, stable publication, backup of the current pilot, installation and smoke checks. This supersedes the earlier lack of authorization; it does not change the failed strict gate, historical test results or scope. No other skills or experimental PRs are authorized to change. Execution completion must be verified separately from this authorization.

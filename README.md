@@ -85,46 +85,27 @@ Review this deployment plan and identify what needs an explicit approval, backup
 
 ## Release status
 
-**Published stable:** [v2.1.2](https://github.com/glichtenthal/ai-project-steward/releases/tag/v2.1.2). **Unreleased candidate:** 2.1.3-rc.1, Codex-only; not approved for publication or installation. [Candidate metadata](metadata/release.json) and [evaluation summary](evals/results/v2.1.3-rc.1-codex.md) describe its specific test scope and limitations. Preparing this candidate does not authorize a release or installation.
+**Stable Codex release:** [v2.1.3](https://github.com/glichtenthal/ai-project-steward/releases/tag/v2.1.3), approved with the explicit exceptions in the [bounded clearance review](docs/release-review-v2.1.3-2026-11-02.md#november-3-clearance-addendum). The tested instruction payload is unchanged from 2.1.3-rc.1. Previously accepted decisions stay accepted until the user approves a replacement.
+
+The strict regression gate did **not** pass. The shared routine-label natural-activation miss, mixed runtime/incomplete per-window coverage, inconclusive baseline build and unexecuted cross-platform case remain disclosed. Use explicit invocation when Steward coverage matters. No general speed/cost gain, reliable automatic activation, three-platform certification or autonomous recursive improvement is claimed. [Metadata](metadata/release.json) and the unchanged [candidate evidence](evals/results/v2.1.3-rc.1-codex.md) retain the scope and limitations.
 
 ## Install
 
-**Do not install this candidate until the user separately approves installation.** Source preparation and successful checks do not grant that approval. Publishing a release is also a separate action.
+### Codex 2.1.3
 
-### Codex candidate: private staged installation after approval
+Download `ai-project-steward-2.1.3-codex.zip` and `STEWARD-SHA256SUMS` from the [v2.1.3 release](https://github.com/glichtenthal/ai-project-steward/releases/tag/v2.1.3). Verify the archive's SHA-256 before extracting. Use the release asset rather than a full source checkout or the historical 110-file pilot ZIP.
 
-The candidate is currently a local, unpublished package. There is no `v2.1.3-rc.1` remote tag or release asset to download. Use the exact staged archive identified in the candidate receipt, not an unpinned checkout of `main` or a command that requests the latest release.
+1. Extract into a temporary directory. Verify `metadata/release.json` names `2.1.3`, `stable`, and `Codex only`, and verify `SKILL.md` against its `skill_sha256`. The archive contains exactly the eight entries in `distribution-manifest.txt`; evaluation tools and evidence remain in the repository.
+2. Locate the active Steward directory, normally `~/.codex/skills/ai-project-steward` or the configured Codex skills location. Inspect `~/.agents/skills` and project-local skill sources for overlapping Steward or legacy `building-partner` copies. Update one authoritative target and preserve unrelated skills.
+3. Back up the entire current Steward directory and relevant configuration outside active skill-search directories. Record hashes and verify the backup before replacement. If updating a private pilot, back up that current pilot rather than assuming an older stable backup represents today's state.
+4. Replace only the selected Steward directory with the verified `ai-project-steward/` archive contents. Do not install source evaluation files, retain active backup copies, or replace Design Director or Frontend Engineer.
+5. In fresh Codex conversations, test positive technical routing, negative ordinary writing, proportional routine edits, unapproved decision preservation and explicitly approved replacement with fresh-session continuity. Keep the known natural routine-edit loading miss visible; explicit use does not prove automatic selection. Restore the verified backup if a critical check regresses.
 
-After explicit approval:
-
-1. Verify the staged archive SHA-256 against its receipt, extract it into a temporary directory, and confirm `metadata/release.json` says `2.1.3-rc.1`, `candidate`, and `Codex only`. Confirm the extracted `SKILL.md` SHA-256 matches `skill_sha256`.
-2. Locate the existing active Steward directory. Codex's installer defaults to `$CODEX_HOME/skills` (normally `~/.codex/skills`); installations in `~/.agents/skills` may also exist. Update the existing location instead of creating a second active copy. Do not replace Design Director or Frontend Engineer.
-3. Back up the entire current Steward directory outside every active skill-search directory, retain its file hashes, and verify the backup before replacement. Keep the published stable package available for rollback.
-4. Replace only the approved Steward directory with the verified candidate contents. Do not leave `building-partner`, a second Steward version, or a backup directory active alongside it. Do not remove unrelated skills.
-5. In fresh Codex conversations, check positive technical routing, negative ordinary writing, the routine local edit, and unapproved/approved decision replacement. Record the installed hash and the actual results. If a critical check regresses, restore the verified stable backup and report the failure; do not silently declare the candidate promoted.
-
-These are future installation instructions, not actions performed by this candidate preparation. Native routing limitations must remain visible; explicit invocation can verify instructed behavior but cannot establish automatic-selection reliability. The candidate checks reproduced a routine-label source-loading miss in both stable and candidate. Keep that limitation visible when reviewing any explicit-use pilot; do not describe automatic activation as fully verified.
-
-### Published stable version
-
-The published stable version is still **v2.1.2**. Its release asset is `ai-project-steward-2.1.2.zip`, with `STEWARD-SHA256SUMS`; do not assume the obsolete `.skill` asset name exists on that release. Review the [v2.1.2 release](https://github.com/glichtenthal/ai-project-steward/releases/tag/v2.1.2) and verify the downloaded archive against its published digest.
-
-For a separately authorized fresh Codex installation of that stable version, the existing installer can pin the exact v2.1.2 release commit and defaults to the configured Codex skills directory:
-
-```bash
-python3 ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-github.py \
-  --repo glichtenthal/ai-project-steward \
-  --path . \
-  --ref 92b2cd704dd4eff339c10001d229403dc75b446c \
-  --method download \
-  --name ai-project-steward
-```
-
-The installer refuses to overwrite an existing skill. Use the verified backup/replacement procedure for an update; do not work around this by installing an overlapping copy elsewhere. The command above is for stable v2.1.2, not this unpublished candidate.
+The skill will be available on the next turn. Restart a conversation when checking fresh-session behavior. Installing Steward does not authorize the systems it helps you build to publish, spend money, expose data or bypass approval boundaries.
 
 ### Other products and platforms
 
-This candidate has no new Claude, ChatGPT, or cross-platform certification. Keep existing stable installations there. A future release must name its actual supported asset format and tested platforms rather than implying that a ZIP is universally importable.
+Version 2.1.3 clearance is Codex-only. Keep existing stable Claude/ChatGPT installations unchanged; this release does not establish new certification for them. The earlier [v2.1.2 release](https://github.com/glichtenthal/ai-project-steward/releases/tag/v2.1.2) remains available for its historical scope and rollback needs.
 
 ## How it fits with the judgment loop
 

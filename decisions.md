@@ -79,3 +79,11 @@ This public record contains decisions that shape the skill, package, and public 
 - **Rationale:** Smaller portable instructions and one source evidence system; no new services, dependencies or evaluation engine.
 - **Consequences:** Source-based tooling must run in its reviewed checkout, not inside installed skills. Stable releases and instruction hashes are unchanged. Reverting the packaging change is straightforward before any release; no installed archive is replaced here.
 - **Reconsider when:** A required runtime reference is missing, platform consumers require another asset, or source-retained evidence cannot reproduce a result.
+
+## 2026-11-03 — Codex-only 2.1.3 release exception
+
+- **Status:** Accepted by explicit owner instruction on November 3; package finalization, publication, current-pilot backup, installation and smoke checks authorized.
+- **Context/options:** Hold pending a complete strict matrix, remediate routing before release, or release the already tested narrow correction under disclosed Codex-only exceptions.
+- **Decision:** Release unchanged tested instructions under the exact exceptions in the [clearance review](docs/release-review-v2.1.3-2026-11-02.md#november-3-clearance-addendum). Preserve the failed strict gate and original results.
+- **Rationale/consequences:** Retained evidence supports the accepted-decision correction without more model evaluation. Automatic routine-edit activation remains unreliable; use explicit invocation when coverage matters. No broad performance or cross-platform claim is authorized.
+- **Reversal and review triggers:** Verify published package integrity and current-pilot backup; restore that backup on a critical installation/smoke regression. Reconsider release clearance if instruction bytes change, evidence integrity fails or a material regression emerges. Other skills and experimental PRs remain unchanged.

@@ -1,5 +1,14 @@
 # Changelog
 
+## v2.1.3 — 2026-11-03 (Codex-only stable release)
+
+- Preserves the tested 2.1.3-rc.1 instruction bytes: accepted decisions remain accepted until the user approves their replacement.
+- Includes the separately reviewed evaluator integrity, assertion-level regression and triage infrastructure; these do not establish behavioral improvement or autonomous learning.
+- Distributes exactly eight reviewed runtime files, with evidence and evaluation tools retained in source. The historical 110-file pilot ZIP is not the stable release asset.
+- Owner accepted the bounded release exceptions: shared routine-edit natural activation failure, mixed-runtime/incomplete comparisons, baseline build timeout and unexecuted cross-platform case. The strict regression gate did not pass.
+- No Design Director, Frontend Engineer or experimental recursive-learning instruction changes are included.
+- See the November 3 clearance addendum for evidence, AI-assisted review limitations and required explicit invocation when Steward coverage matters.
+
 ## v2.1.3-rc.1 — unreleased Codex candidate
 
 - Includes merged PR #3: integrity checks in the existing evaluator, the deployment-planning fixture, and accepted-decision replacement clarification.
