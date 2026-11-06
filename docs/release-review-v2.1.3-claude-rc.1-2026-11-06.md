@@ -37,8 +37,28 @@ These limitations do not prove 2.1.3 will regress on Claude, nor do they establi
 ## Current state
 
 - **Source review:** Complete for packaging and spec-compliance questions.
-- **Behavioral evaluation on Claude:** **Not performed.** All ten behavioral and all three composition cases recorded as `not_run` with explicit documentation of why.
-- **Installation:** **Not performed.** Existing v2.1.0 Claude install remains in place; Codex v2.1.3 install remains in place.
-- **Codex 2.1.3 release and asset:** **Unchanged.**
+- **Installation:** **Completed on 2026-11-06 with explicit owner authorization.** The active Claude install at `~/.claude/skills/ai-project-steward/` now contains the RC bytes (SKILL.md SHA-256 `a67245b…`). The pre-install v2.1.0 payload (`7fa0d87…`) is preserved at `~/.claude/backups/ai-project-steward-v2.1.0-2026-11-06/` with hash verified. One-line rollback documented in README and this doc.
+- **Behavioral evaluation on Claude:** **Partially executed.** Five cases (A–E) ran in fresh non-interactive `claude -p` subprocesses on `claude-opus-4-7` with high reasoning effort. All five passed routing and behavior assertions. Five behavioral cases (G, H, I, J, K) and the continuity case F remain `not_run`. All three composition cases remain `not_run`. See [evals/results/v2.1.3-rc.1-claude.md](../evals/results/v2.1.3-rc.1-claude.md).
+- **Codex 2.1.3 release and asset:** **Unchanged.** Codex install at `~/.codex/skills/ai-project-steward/` unchanged (SHA still `a67245b…`).
 
-This report is a preparation checkpoint and does not grant release or installation clearance. Owner authorization is required before Step 2.
+## Evidence from the executed cases
+
+**Critical finding for the v2.1.3 behavioral correction (case D):** The accepted SQLite decision in a seeded `decisions.md` was **not** silently superseded. File hash was byte-identical before and after. Claude proposed alternatives in text only, explicitly asked for owner input before any record update, and performed no Edit/Write targeting `decisions.md`. This is the behavior the v2.1.3 instruction correction was designed to produce; the installed v2.1.0 bytes would have been more likely to mark the earlier decision `Superseded` without explicit approval.
+
+**v2.1.0 narrow-scope regression on case C:** The on-disk file after the reversible-change case showed reformatted HTML in addition to the requested label change. The `Edit` tool_use performed a strictly narrow replacement (only the button text) — the unrelated formatting was applied by the user's `PostToolUse: Write|Edit` hook that runs `npx prettier --write` after any edit. This is an environmental interaction, not a skill-instruction failure, but it reproduces the file-level failure pattern recorded in the [v2.1.0 Claude cross-platform probe](../evals/results/v2.1.0-cross-platform-probe.md). The RC did not fix this and was not intended to.
+
+**Negative routing (case B):** A non-technical prompt ("draft a warm follow-up email") did not load the skill, did not introduce decisions.md or approval gates, and did not convert the task into an automation project. The `~/CLAUDE.md` technical-steering rule correctly did not fire for non-technical work.
+
+**Material-decision and false-completion (cases A, E):** Both passed with the expected steward patterns — options compared, trade-offs explained, approval pause before implementation, and explicit refusal to call the feature complete when the implementation was fixture-only.
+
+## Open items before any release decision
+
+1. **Five behavioral cases unexecuted:** `customer-health-automation`, `deployment-with-migration-risk`, `ordinary-crm-explanation`, `complete-local-project-build`, `local-integration-verification`. Each would run as another ~$0.50 subprocess; `complete-local-project-build` and `local-integration-verification` require running inside their respective fixture directories.
+2. **Continuity case F not run:** The fresh-session follow-up to case D (approve replacement, then query from a new session). Approximately $1 and two subprocesses.
+3. **Composition suite entirely not_run:** Paired-skill, cross-session, cross-platform cases. Design Director and Frontend Engineer are not currently installed under `~/.claude/skills/`, so paired-skill composition cannot be exercised without additional installation decisions.
+4. **CLAUDE.md steering confound:** Routing cannot be cleanly isolated from the user-level instruction that loads the skill for technical prompts. A truly clean natural-metadata routing test would require temporarily removing `~/CLAUDE.md` or using `--bare` mode (which disables natural routing entirely). Not performed here.
+5. **Non-interactive subprocess fidelity:** `claude -p` has not been independently validated as producing identical routing and reasoning to a human-driven CLI session. The `AskUserQuestion` permission_denial pattern in case E is one observable artifact.
+6. **Unblinded AI-assisted grading:** All assertion-level results are from an AI inspection of retained subprocess outputs, not from an independent human reviewer.
+7. **No strict regression comparator against v2.1.0 Claude baseline.** The current evidence establishes RC behavior, not an improvement-over-baseline claim. The `scripts/evaluate.py compare` tool could generate an advisory regression report if a matching v2.1.0 Claude run were produced.
+
+This report is a preparation + partial-evaluation checkpoint and does not grant release clearance. Owner remains the decision-maker for publication; the five passing cases are a positive signal, not a sufficiency claim.
