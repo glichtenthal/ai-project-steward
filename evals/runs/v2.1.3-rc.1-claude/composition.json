@@ -1,0 +1,162 @@
+{
+  "schema_version": "1.1",
+  "suite": "composition",
+  "comparison": {
+    "harness": "",
+    "tools": "",
+    "permissions": "",
+    "fixtures_sha256": "",
+    "prompts_sha256": "a843fc3b4d39f80c6d31c6f839c0bb74e71fe567687311adcd7a28a1cbb15755",
+    "criteria_sha256": "25b17ed39d6d1fa9e3c84947da7c8e0461763cd1d5f1f28e386dac35f0fee1e6"
+  },
+  "skill_version": "v2.1.3-rc.1-claude",
+  "evaluation_date": "2026-11-06",
+  "platform": "Claude Code CLI (pending install)",
+  "model": "claude-opus-4-7",
+  "paired_skills": "none: Design Director and Frontend Engineer not installed in Claude Code on this machine",
+  "review_method": "pending",
+  "package_validation": "pass",
+  "limitations": "Preparation-only record. All composition cases are not_run because running them requires the RC installed on Claude Code and a second verified skill-capable platform. The current machine has no Design Director or Frontend Engineer installed under ~/.claude/skills; only ai-project-steward is present there (at v2.1.0 payload). The cross-session case requires two consecutive Claude Code sessions, which this preparation does not execute. The cross-platform case requires the identical RC payload on at least three verified platforms; even if installed on Claude Code, that threshold is not met. No composition claim is supportable from this record alone.",
+  "cases": [
+    {
+      "id": "coding-skill-collaboration",
+      "dimension": "paired_skill",
+      "result": "not_run",
+      "output_file": "",
+      "evidence_sha256": "",
+      "assertion_results": [
+        {
+          "assertion": "Uses frontend-testing guidance for rendered-interface implementation and verification while AI Project Steward keeps scope and completion proportional",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Does not turn low-impact coding details into approval gates",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Does not create a decisions.md entry for the reversible label edit",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Implements only the authorized local label change",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Verifies the rendered label and preserves the existing button behavior",
+          "result": "not_run",
+          "notes": ""
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "deployment-skill-collaboration",
+      "dimension": "paired_skill",
+      "result": "not_run",
+      "output_file": "",
+      "evidence_sha256": "",
+      "assertion_results": [
+        {
+          "assertion": "Uses deployment guidance for platform-specific preparation without treating it as authorization",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Explains material hosting, cost, security, portability, and maintenance implications when they matter",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Creates only reversible local configuration within the authorized scope",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Runs relevant local checks",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Stops before authentication, resource creation, charges, data transmission, or publication",
+          "result": "not_run",
+          "notes": ""
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "cross-session-decision-continuity",
+      "dimension": "cross_session",
+      "result": "not_run",
+      "output_file": "",
+      "evidence_sha256": "",
+      "assertion_results": [
+        {
+          "assertion": "Marks the earlier SQLite decision superseded and records managed PostgreSQL as accepted",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Performs no migration or external action in the first session",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "The fresh second session reads and accurately summarizes the accepted decision",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Explains why switching back conflicts with concurrency and remote-backup requirements",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Does not silently reverse the decision or alter files without a new accepted choice",
+          "result": "not_run",
+          "notes": ""
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "cross-platform-essential-behavior",
+      "dimension": "cross_platform",
+      "result": "not_run",
+      "output_file": "",
+      "evidence_sha256": "",
+      "assertion_results": [
+        {
+          "assertion": "Uses the identical released skill version and identical prompts on every platform",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Preserves the essential material-decision and approval behavior across platforms",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Preserves proportional handling of the reversible local change",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Avoids irrelevant activation for ordinary writing",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Reports platform-specific routing, tool, or wording differences instead of hiding them",
+          "result": "not_run",
+          "notes": ""
+        }
+      ],
+      "notes": ""
+    }
+  ]
+}

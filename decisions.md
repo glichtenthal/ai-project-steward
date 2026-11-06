@@ -80,6 +80,36 @@ This public record contains decisions that shape the skill, package, and public 
 - **Consequences:** Source-based tooling must run in its reviewed checkout, not inside installed skills. Stable releases and instruction hashes are unchanged. Reverting the packaging change is straightforward before any release; no installed archive is replaced here.
 - **Reconsider when:** A required runtime reference is missing, platform consumers require another asset, or source-retained evidence cannot reproduce a result.
 
+## 2026-11-06 — Prepare Claude 2.1.3 release candidate from shared source
+
+- **Status:** Accepted for release-candidate preparation on 2026-11-06. Publication, tag creation, and installation remain unapproved.
+- **Context:** The published v2.1.3 Codex-only release preserves the tested instruction bytes. Users want Claude support without maintaining a separate skill or weakening the existing instructions. The Agent Skills spec (`name` ≤ 64 chars, `description` ≤ 1024 chars, non-empty) is already satisfied by the current `SKILL.md` (473-char description, compliant identifier). Prior Claude evidence exists only on v2.1.0 (material-decision and ordinary-request passed; narrow-scope reversible-change failed on unrelated HTML formatting).
+- **Options considered:** (A) Minimal RC: build a Claude-scoped archive from the existing 8-file manifest with a Claude-targeted `metadata/release.json`, leave the Codex release and source files otherwise untouched. (B) Parametric packaging: add `--scope` to `scripts/package_skill.sh`, produce per-platform archives, and introduce `agents/anthropic.yaml`. (C) Universal scope: update the shared metadata to declare "Codex and Claude" scope in one shared archive.
+- **Decision:** Use (A) for the RC. Keep (C) as the follow-up state once Claude evaluation evidence supports broadening scope. Reject (B) for this RC because the added packaging surface is not required by the Agent Skills spec and increases the maintained manifest.
+- **Rationale:** Smallest reversible change; preserves the published Codex 2.1.3 asset and tag unchanged; keeps one canonical `SKILL.md` instruction payload across platforms; defers the shared-scope metadata change until Claude evaluation evidence exists.
+- **Consequences and reversal difficulty:** The RC produces a separately labeled `ai-project-steward-2.1.3-rc.1-claude.zip` with Claude-scoped release metadata. Reversible by deleting the staged `dist/` artifact and the branch. Final move to (C) requires owner approval after evaluation and would update `metadata/release.json` and the README install section.
+- **Reconsider when:** Claude evaluation introduces instruction-level requirements that cannot be served by the current SKILL.md bytes, the Agent Skills spec changes materially, or a new Claude UI layer requires platform-specific interface metadata.
+
+## 2026-11-06 — Defer Claude release tag until publication
+
+- **Status:** Accepted for preparation on 2026-11-06.
+- **Context:** The published `v2.1.3` tag is pinned to the Codex-only release. A Claude release could extend v2.1.3 (asset addition) or ship as a new tag (e.g. v2.1.4) once evidence clears.
+- **Options considered:** Pre-commit to a v2.1.4 tag; pre-commit to extending v2.1.3 via asset addition; defer the tag decision until publication time.
+- **Decision:** Stay as an RC during preparation. Owner selects the final tag approach when publication is authorized, based on the Claude evaluation record and scope-change acceptability.
+- **Rationale:** Keeps the preparation reversible, avoids committing to a tag name that the evaluation outcome might contradict, and preserves the immutability of the current v2.1.3 release.
+- **Consequences and reversal difficulty:** No new tag is created during preparation. No asset is uploaded. Reverting the branch is sufficient to cancel.
+- **Reconsider when:** The Claude evaluation clears and the owner is ready to publish; or a stakeholder requires a pre-committed version plan before evaluation proceeds.
+
+## 2026-11-06 — Omit agents/anthropic.yaml for the Claude 2.1.3 RC
+
+- **Status:** Accepted on 2026-11-06.
+- **Context:** `agents/openai.yaml` supplies Codex-specific interface metadata (short description, icons, brand color, implicit-invocation policy). claude.ai and Claude Code do not consume an equivalent file today.
+- **Options considered:** Include an `agents/anthropic.yaml` mirroring `openai.yaml` for parity; omit it for this RC and reconsider if a Claude surface introduces an interface-metadata contract.
+- **Decision:** Omit `agents/anthropic.yaml` from the Claude RC distribution. The existing `agents/openai.yaml` remains in the archive and is documented as Codex-only interface metadata.
+- **Rationale:** No consumer exists today; adding the file creates manifest and validator surface that must be maintained without a current purpose.
+- **Consequences and reversal difficulty:** Smaller archive, no new validator rule. Reversible by adding the file and extending the distribution manifest if a Claude UI contract appears.
+- **Reconsider when:** claude.ai, Claude Code, or a managed-agent surface publishes an interface-metadata contract analogous to Codex's `agents/openai.yaml`.
+
 ## 2026-11-03 — Codex-only 2.1.3 release exception
 
 - **Status:** Accepted by explicit owner instruction on November 3; package finalization, publication, current-pilot backup, installation and smoke checks authorized.

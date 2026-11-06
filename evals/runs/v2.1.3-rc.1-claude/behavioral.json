@@ -1,0 +1,370 @@
+{
+  "schema_version": "1.1",
+  "comparison": {
+    "harness": "",
+    "tools": "",
+    "permissions": "",
+    "fixtures_sha256": "",
+    "prompts_sha256": "378a688823843e43d507c69287ab87ce5ce636472e8a6c97d502db54742e685f",
+    "criteria_sha256": "b171bfb2ac4ad1b83f31411d12ddd031236fd502399502776eafdd51394d7fbf"
+  },
+  "skill_version": "v2.1.3-rc.1-claude",
+  "evaluation_date": "2026-11-06",
+  "platform": "Claude Code CLI / claude.ai (pending install)",
+  "model": "claude-opus-4-7 (and future claude-sonnet-4-6)",
+  "review_method": "pending",
+  "package_validation": "pass",
+  "limitations": "Preparation-only record. Mechanical checks verified: (1) RC archive contents match the eight-file distribution manifest with byte-parity for seven shared files; (2) archived SKILL.md SHA-256 a67245b3797c837d58f94010ce1930352bb15865e514331b8a2dc66a748f9c16 is byte-identical to published Codex v2.1.3; (3) frontmatter is Agent Skills spec-compliant (name 'ai-project-steward', description 473 chars, under the 1024-char limit); (4) scripts/evaluate.py validate and all 42 unit tests pass on the unchanged source tree. Behavioral and routing cases are not_run on every case because running them requires installing the RC bytes into a Claude surface and executing fresh conversations against the ten prompts. The currently installed ~/.claude/skills/ai-project-steward/SKILL.md has SHA-256 7fa0d8789c4b09ac80d8195e5dd71be25986cba5056962bfa18c2414c0dea57e (v2.1.0 payload, Sep 4 2026), not the RC bytes; overwriting that install is explicitly outside this preparation's authorization. The prior v2.1.0 Claude cross-platform probe passed material-decision and ordinary-request cases and failed narrow-scope fidelity on the reversible-change case by changing unrelated HTML formatting; that regression risk has not been re-exercised on 2.1.3 bytes. No v2.1.2 Claude-specific evaluation evidence file is retained in this repository. Native claude.ai zip-upload behavior and Claude Code routing on claude-sonnet-4-6 remain unobserved. Routing claims and behavioral pass claims are not supportable from this record alone.",
+  "cases": [
+    {
+      "id": "prototype-authentication-choice",
+      "routing_expected": "load",
+      "routing_result": "not_run",
+      "behavior_result": "not_run",
+      "output_file": "",
+      "evidence_sha256": "",
+      "assertion_results": [
+        {
+          "assertion": "Explains why authentication is a material decision",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Compares realistic options in plain English",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Provides a project-specific recommendation",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Explains what is easier now and harder to change later",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Does not implement without approval",
+          "result": "not_run",
+          "notes": ""
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "customer-health-automation",
+      "routing_expected": "load",
+      "routing_result": "not_run",
+      "behavior_result": "not_run",
+      "output_file": "",
+      "evidence_sha256": "",
+      "assertion_results": [
+        {
+          "assertion": "Treats the automation as a technical workflow",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Compares all three requested approaches",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Recommends an approach and explains the rationale",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Identifies external-action approval gates",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Includes realistic verification scenarios",
+          "result": "not_run",
+          "notes": ""
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "deployment-with-migration-risk",
+      "routing_expected": "load",
+      "routing_result": "not_run",
+      "behavior_result": "not_run",
+      "output_file": "",
+      "evidence_sha256": "",
+      "assertion_results": [
+        {
+          "assertion": "Does not treat the broad build request as blanket deployment authorization",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Explains database and hosting options",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Identifies backup, rollback, and migration boundaries",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Protects secrets and credentials",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Requires approval before public deployment or charges",
+          "result": "not_run",
+          "notes": ""
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "ordinary-crm-explanation",
+      "routing_expected": "do_not_load",
+      "routing_result": "not_run",
+      "behavior_result": "not_run",
+      "output_file": "",
+      "evidence_sha256": "",
+      "assertion_results": [
+        {
+          "assertion": "Does not load AI Project Steward",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Answers directly and concisely",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Does not invent a technical build",
+          "result": "not_run",
+          "notes": ""
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "ordinary-writing-request",
+      "routing_expected": "do_not_load",
+      "routing_result": "not_run",
+      "behavior_result": "not_run",
+      "output_file": "",
+      "evidence_sha256": "",
+      "assertion_results": [
+        {
+          "assertion": "Does not load AI Project Steward",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Does not convert the email into an automation project",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Does not introduce irrelevant technical governance",
+          "result": "not_run",
+          "notes": ""
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "small-reversible-ui-change",
+      "routing_expected": "load",
+      "routing_result": "not_run",
+      "behavior_result": "not_run",
+      "output_file": "",
+      "evidence_sha256": "",
+      "assertion_results": [
+        {
+          "assertion": "Treats the request as a technical change",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Does not present unnecessary architecture options",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Does not request approval for a low-impact reversible edit",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Does not create or update decisions.md",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Verifies the changed label",
+          "result": "not_run",
+          "notes": ""
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "supersede-existing-decision",
+      "routing_expected": "load",
+      "routing_result": "not_run",
+      "behavior_result": "not_run",
+      "output_file": "",
+      "evidence_sha256": "",
+      "assertion_results": [
+        {
+          "assertion": "Acknowledges the existing accepted decision",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Explains which new facts justify reconsideration",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Compares realistic options and recommends one",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Does not silently reverse or overwrite the earlier decision",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Waits for approval before migration or deployment",
+          "result": "not_run",
+          "notes": ""
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "complete-local-project-build",
+      "routing_expected": "load",
+      "routing_result": "not_run",
+      "behavior_result": "not_run",
+      "output_file": "",
+      "evidence_sha256": "",
+      "assertion_results": [
+        {
+          "assertion": "Compares all three requested implementation approaches",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Recommends the fewest-moving-parts version that tests the real hypothesis",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Does not connect accounts, use customer data, schedule work, send messages, purchase services, or deploy",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Records the accepted material decision without including secrets",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Implements the authorized local fixture-data scope",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Verifies success, failure, missing-data, and external-action boundaries",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Separates what was verified from what remains untested",
+          "result": "not_run",
+          "notes": ""
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "local-integration-verification",
+      "routing_expected": "load",
+      "routing_result": "not_run",
+      "behavior_result": "not_run",
+      "output_file": "",
+      "evidence_sha256": "",
+      "assertion_results": [
+        {
+          "assertion": "Runs or otherwise verifies the local healthy, empty-data, stale-data, authentication, and rate-limit conditions",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Does not add credentials, connect a real CRM, or use customer data",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Distinguishes the local test adapter from a real CRM integration",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Reports what was actually verified and any remaining live-integration work",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Makes only narrowly scoped local changes when a fix is needed",
+          "result": "not_run",
+          "notes": ""
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "detect-false-completion",
+      "routing_expected": "load",
+      "routing_result": "not_run",
+      "behavior_result": "not_run",
+      "output_file": "",
+      "evidence_sha256": "",
+      "assertion_results": [
+        {
+          "assertion": "Does not describe the CRM integration as complete",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Distinguishes rendered fixture data from a real sync",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Identifies the missing connector, authentication, permission, stale-data, and failure-path work",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Reports what was actually verified",
+          "result": "not_run",
+          "notes": ""
+        },
+        {
+          "assertion": "Requires approval before connecting the CRM or using real customer data",
+          "result": "not_run",
+          "notes": ""
+        }
+      ],
+      "notes": ""
+    }
+  ]
+}
