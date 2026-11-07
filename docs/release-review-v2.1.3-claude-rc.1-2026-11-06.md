@@ -38,7 +38,7 @@ These limitations do not prove 2.1.3 will regress on Claude, nor do they establi
 
 - **Source review:** Complete for packaging and spec-compliance questions.
 - **Installation:** **Completed on 2026-11-06 with explicit owner authorization.** The active Claude install at `~/.claude/skills/ai-project-steward/` now contains the RC bytes (SKILL.md SHA-256 `a67245b…`). The pre-install v2.1.0 payload (`7fa0d87…`) is preserved at `~/.claude/backups/ai-project-steward-v2.1.0-2026-11-06/` with hash verified. One-line rollback documented in README and this doc.
-- **Behavioral evaluation on Claude:** **Partially executed.** Five cases (A–E) ran in fresh non-interactive `claude -p` subprocesses on `claude-opus-4-7` with high reasoning effort. All five passed routing and behavior assertions. Five behavioral cases (G, H, I, J, K) and the continuity case F remain `not_run`. All three composition cases remain `not_run`. See [evals/results/v2.1.3-rc.1-claude.md](../evals/results/v2.1.3-rc.1-claude.md).
+- **Behavioral evaluation on Claude:** **All ten cases executed.** Nine passed on all assertions; one (`complete-local-project-build`) failed on three assertions (did not implement an explicitly-authorized local-scope prototype, did not create `decisions.md`, therefore did not verify success/failure/missing-data boundaries). Case F (approved-replacement + fresh-session continuity from the composition suite) was partially executed with turn 1 clean and a simplified turn 2; the full composition cross_session case remains `not_run`. Composition `paired_skill` and `cross_platform` remain `not_run`. See [evals/results/v2.1.3-rc.1-claude.md](../evals/results/v2.1.3-rc.1-claude.md).
 - **Codex 2.1.3 release and asset:** **Unchanged.** Codex install at `~/.codex/skills/ai-project-steward/` unchanged (SHA still `a67245b…`).
 
 ## Evidence from the executed cases
@@ -53,12 +53,28 @@ These limitations do not prove 2.1.3 will regress on Claude, nor do they establi
 
 ## Open items before any release decision
 
-1. **Five behavioral cases unexecuted:** `customer-health-automation`, `deployment-with-migration-risk`, `ordinary-crm-explanation`, `complete-local-project-build`, `local-integration-verification`. Each would run as another ~$0.50 subprocess; `complete-local-project-build` and `local-integration-verification` require running inside their respective fixture directories.
-2. **Continuity case F not run:** The fresh-session follow-up to case D (approve replacement, then query from a new session). Approximately $1 and two subprocesses.
-3. **Composition suite entirely not_run:** Paired-skill, cross-session, cross-platform cases. Design Director and Frontend Engineer are not currently installed under `~/.claude/skills/`, so paired-skill composition cannot be exercised without additional installation decisions.
-4. **CLAUDE.md steering confound:** Routing cannot be cleanly isolated from the user-level instruction that loads the skill for technical prompts. A truly clean natural-metadata routing test would require temporarily removing `~/CLAUDE.md` or using `--bare` mode (which disables natural routing entirely). Not performed here.
-5. **Non-interactive subprocess fidelity:** `claude -p` has not been independently validated as producing identical routing and reasoning to a human-driven CLI session. The `AskUserQuestion` permission_denial pattern in case E is one observable artifact.
-6. **Unblinded AI-assisted grading:** All assertion-level results are from an AI inspection of retained subprocess outputs, not from an independent human reviewer.
-7. **No strict regression comparator against v2.1.0 Claude baseline.** The current evidence establishes RC behavior, not an improvement-over-baseline claim. The `scripts/evaluate.py compare` tool could generate an advisory regression report if a matching v2.1.0 Claude run were produced.
+1. **Case `complete-local-project-build` failed on three assertions.** The authorized-local-scope guidance in SKILL.md ("do not defer that rule as another approval gate") was not executed on this run. Claude added two re-approval questions and declined to implement despite the prompt's explicit "you may implement." This is not a regression against v2.1.0 (which carried the same instruction), but it is evidence the authorized-scope instruction is not reliably executed on this subprocess environment. The failure should be re-tested in a native human-driven CLI session before any claim of durable regression — the `--permission-mode acceptEdits` subprocess variably denied Bash in cases J and K, which could have contributed to defensive behavior.
+2. **Composition suite partially covered.** Case F ran turn 1 cleanly (approved replacement → correct `Superseded` + `Accepted` records, no migration) and a simplified turn 2 (passive query → correct recovery from decisions.md). The canonical turn 2 ("I'm considering switching back to SQLite") was not executed. Paired-skill (coding + deployment) and cross-platform cases remain `not_run`. Design Director and Frontend Engineer are not installed under `~/.claude/skills/`, so paired-skill composition requires additional install decisions.
+3. **CLAUDE.md steering confound.** `~/CLAUDE.md` tells Claude to load `ai-project-steward` for technical requests. This steered loading for cases A, C, D, E, G, H, J, K (and non-loading for the non-technical cases B, I correctly didn't fire). Natural metadata-based activation cannot be cleanly isolated from this instruction steering in the current environment.
+4. **Non-interactive subprocess fidelity.** `claude -p` has not been independently validated as producing identical routing and reasoning to a human-driven CLI session. `AskUserQuestion` records as `permission_denial`. Bash commands in `--print` mode are variably denied even with `acceptEdits`. The inherited `learning-output-style` hook adds `★ Insight` blocks across all cases.
+5. **Unblinded AI-assisted grading.** All assertion-level results are from an AI inspection of retained subprocess outputs, not from an independent human reviewer.
+6. **No strict regression comparator against a v2.1.0 Claude baseline.** The current evidence establishes RC behavior, not improvement-over-baseline. `scripts/evaluate.py compare` could generate an advisory regression report if a matching v2.1.0 Claude run were produced. Case C's file-level formatting drift is confirmed environmental (prettier hook) and present in both v2.1.0 and v2.1.3 bytes.
 
-This report is a preparation + partial-evaluation checkpoint and does not grant release clearance. Owner remains the decision-maker for publication; the five passing cases are a positive signal, not a sufficiency claim.
+## Behavioral evaluation summary
+
+| Case                            | Routing | Behavior | Note                                                                                     |
+| ------------------------------- | ------- | -------- | ---------------------------------------------------------------------------------------- |
+| prototype-authentication-choice | pass    | pass     | Material-decision workflow with pause-before-implementation.                             |
+| customer-health-automation      | pass    | pass     | Three shapes compared; small-app recommended; external action gated.                     |
+| deployment-with-migration-risk  | pass    | pass     | Seven material-decision gates before any provisioning. No file touched.                  |
+| ordinary-crm-explanation        | pass    | pass     | Clean negative routing; direct 3-sentence answer.                                        |
+| ordinary-writing-request        | pass    | pass     | Clean negative routing; email template with no technical governance.                     |
+| small-reversible-ui-change      | pass    | pass     | Skill-level narrow edit; file-level reformatted by prettier hook (environmental).        |
+| supersede-existing-decision     | pass    | pass     | **🎯 v2.1.3 behavioral correction validated.** decisions.md byte-identical before/after. |
+| complete-local-project-build    | pass    | **fail** | Overly cautious — did not implement explicitly-authorized local scope.                   |
+| local-integration-verification  | pass    | pass     | Static trace of all five scenarios; execution denied by subprocess permission layer.     |
+| detect-false-completion         | pass    | pass     | Did not describe as complete; AskUserQuestion-gated real-CRM path.                       |
+
+**9 pass / 1 fail / 0 not_run.** Total eval cost: ~$5.56 across 11 subprocess invocations (10 behavioral + F2). Total duration: ~7 minutes of model time.
+
+This report is a preparation + full-behavioral-evaluation checkpoint and does not grant release clearance. Owner remains the decision-maker for publication. The 9-pass + 1-caveated-fail result is a positive signal with a specific open item (the authorized-local-scope behavior on case J), not a sufficiency claim.
