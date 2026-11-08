@@ -103,6 +103,16 @@ Download `ai-project-steward-2.1.3-codex.zip` and `STEWARD-SHA256SUMS` from the 
 
 The skill will be available on the next turn. Restart a conversation when checking fresh-session behavior. Installing Steward does not authorize the systems it helps you build to publish, spend money, expose data or bypass approval boundaries.
 
+### Claude 2.1.3 release candidate (not yet published)
+
+A Claude-scoped release candidate — `ai-project-steward-2.1.3-rc.1-claude` — has been prepared from the same canonical SKILL.md bytes as the published Codex 2.1.3 release. It is **not published**, **not tagged**, and **not approved for installation**. The candidate archive, SHA-256 checksum, Claude-scoped metadata, and preparation review are retained on the `prepare/claude-2.1.3-rc.1` branch for review.
+
+The candidate's instruction payload is byte-identical to Codex v2.1.3 (`skill_sha256: a67245b3797c837d58f94010ce1930352bb15865e514331b8a2dc66a748f9c16`). The only payload difference from the Codex asset is `metadata/release.json`, which declares `status: candidate`, `scope: "Claude release candidate"`, and both `release_approved` and `installation_approved` as `false`. `agents/openai.yaml` remains in the archive and is documented as Codex-only interface metadata; no `agents/anthropic.yaml` is included.
+
+Behavioral and routing evaluation on Claude Code and claude.ai has **not been performed** on the RC bytes. The prior [v2.1.0 cross-platform probe](evals/results/v2.1.0-cross-platform-probe.md) remains the only retained Claude-specific evaluation; its narrow-scope reversible-change failure has not been re-exercised on 2.1.3 bytes. See [docs/release-review-v2.1.3-claude-rc.1-2026-11-06.md](docs/release-review-v2.1.3-claude-rc.1-2026-11-06.md) for the full preparation review, open gates, and the five-step completion plan.
+
+If the owner authorizes Claude installation and the behavioral evaluation clears, this file will be updated with reviewed install instructions for both Claude Code (filesystem copy to `~/.claude/skills/ai-project-steward/`) and claude.ai (custom-skills zip upload). Until then, do not install the RC.
+
 ### Other products and platforms
 
 Version 2.1.3 clearance is Codex-only. Keep existing stable Claude/ChatGPT installations unchanged; this release does not establish new certification for them. The earlier [v2.1.2 release](https://github.com/glichtenthal/ai-project-steward/releases/tag/v2.1.2) remains available for its historical scope and rollback needs.

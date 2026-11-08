@@ -1,5 +1,14 @@
 # Changelog
 
+## v2.1.3-rc.1-claude — unreleased Claude candidate
+
+- Preparation-only candidate scoped to Claude. Not published, not tagged, not approved for installation.
+- Instruction payload byte-identical to Codex v2.1.3 (SKILL.md SHA-256 `a67245b3797c837d58f94010ce1930352bb15865e514331b8a2dc66a748f9c16`). No new instructions, specialist-skill changes, or validator rules.
+- Ships the same eight-file distribution manifest as Codex v2.1.3; only `metadata/release.json` is replaced with a Claude-scoped candidate variant that declares `status: candidate`, `publication_status: unreleased`, and both approval flags as `false`.
+- `agents/openai.yaml` remains in the archive as Codex-only interface metadata. No `agents/anthropic.yaml` is added.
+- Behavioral and routing evaluation on Claude Code and claude.ai is not performed; the behavioral and composition run records exist as scaffolds with every case `not_run` and explicit documentation of why.
+- Published Codex `v2.1.3` release, tag, and asset remain unchanged by this preparation.
+
 ## v2.1.3 — 2026-11-03 (Codex-only stable release)
 
 - Preserves the tested 2.1.3-rc.1 instruction bytes: accepted decisions remain accepted until the user approves their replacement.
