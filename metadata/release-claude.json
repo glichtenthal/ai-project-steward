@@ -1,0 +1,33 @@
+{
+  "name": "ai-project-steward",
+  "version": "2.1.3",
+  "status": "stable",
+  "publication_status": "stable_release",
+  "scope": "Claude Code",
+  "date": "2026-11-08",
+  "source": {
+    "repository": "https://github.com/glichtenthal/ai-project-steward",
+    "base_commit": "85a52d0fe060402e1eee1d2e1ce3591bf3d91be1",
+    "instruction_commit": "85a52d0fe060402e1eee1d2e1ce3591bf3d91be1",
+    "instruction_bytes_identical_to_codex_v2_1_3": true,
+    "codex_stable_release": "v2.1.3",
+    "claude_evidence_merge_commit": "522098c"
+  },
+  "skill_sha256": "a67245b3797c837d58f94010ce1930352bb15865e514331b8a2dc66a748f9c16",
+  "validation_scope": "Claude Code CLI only. Exact released instruction payload (byte-identical to Codex v2.1.3). Ten behavioral cases and three of four composition cases executed on Claude Code CLI 2.1.141 (claude-opus-4-7). Behavioral aggregate: 10 pass / 0 fail / 0 not_run. Composition aggregate: 3 pass / 0 fail / 1 not_run. Nine behavioral cases executed in fresh `claude -p` subprocesses; case J re-graded authoritatively via a native interactive CLI run. All composition PASS cases carry canonical evidence with SHA-verified fixtures. claude.ai validation of the same bytes is deferred to a future authorization step. Grading is AI-assisted inspection of retained outputs and file hashes; no independent human review.",
+  "evidence_summary": "evals/results/v2.1.3-rc.1-claude.md",
+  "release_approved": true,
+  "installation_approved": true,
+  "validation_status": "bounded_clearance_with_owner_accepted_exceptions",
+  "tested_runtimes": ["claude-code-cli 2.1.141"],
+  "known_limitations": [
+    "deployment-skill-collaboration composition case graded 5/5 PASS with a bounded paired-skill caveat: production-frontend-engineer was paired as the deployment skill under a loosened interpretation because no dedicated deployment skill is installed under ~/.claude/skills. Grading is clean on Steward behavior; a dedicated deployment skill would likely produce stronger platform-specific preparation evidence but is unlikely to change the Steward-behavior grading.",
+    "cross-platform-essential-behavior composition case not_run. Requires identical released bytes on at least three skill-capable platforms; this evaluation covers Claude Code only. claude.ai validation of the same bytes is deferred to a future authorization step.",
+    "Nine of ten behavioral cases were executed solely in fresh `claude -p` subprocesses; case J re-graded authoritatively via a native interactive CLI run. All assertion gradings are AI-assisted inspections of retained outputs and file hashes, not independent human review.",
+    "All subprocess runs inherited the parent user's ~/CLAUDE.md, ~/.claude/CLAUDE.md, and configured hooks; natural activation cannot be cleanly isolated from user-level instruction steering. The prettier PostToolUse hook produced an unrelated HTML formatting change in behavioral case C (environmental, not skill-level). The learning output-style hook added insight blocks across all cases.",
+    "Two earlier deployment-skill-collaboration attempts on 2026-11-07 failed via multi-line-paste workdir drift; the canonical run used a one-line launcher script with cd || exit 1. The off-rails runs are documented in the composition.json limitations note and are not treated as valid evidence."
+  ],
+  "release_review": "docs/release-review-v2.1.3-claude-rc.1-2026-11-06.md",
+  "strict_regression_gate_passed": false,
+  "exception_acceptance": "Owner explicitly accepted the following Claude-Code-specific bounded exceptions on 2026-11-08 and authorized final packaging, tagging, publication, and release-note creation for v2.1.3-claude: (1) deployment-skill-collaboration composition case graded 5/5 PASS with a bounded paired-skill caveat (production-frontend-engineer paired under a loosened interpretation because no dedicated deployment skill is installed). (2) cross-platform-essential-behavior composition case not_run (requires identical released bytes on at least three skill-capable platforms; this evaluation covers Claude Code only; claude.ai validation deferred). (3) Nine of ten behavioral cases executed solely in fresh `claude -p` subprocesses; case J re-graded authoritatively via a native interactive CLI run; all assertion gradings are AI-assisted inspections of retained outputs and file hashes, not independent human review. This records this release approval for Claude Code; it grants no authority to other users, projects, or surfaces (including claude.ai)."
+}
