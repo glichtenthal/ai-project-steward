@@ -28,6 +28,45 @@ The skill bytes are shared across surfaces; the validation records are not.
 - Each surface produces its own evidence record under `evals/results/` and its own entry in `metadata/release.json`'s `validated_surfaces` array.
 - The release can grow over time: surfaces are added to the same release as their evidence lands.
 
+## Rigor tiers
+
+Each surface validation declares a rigor tier. The tier records what was actually tested; it does not change the skill bytes, which are identical across tiers.
+
+### `baseline` tier
+
+What a single-pass surface validation looks like. Sufficient for routine releases where the goal is "defensible evidence of behavior on this surface."
+
+- Behavioral suite: 10 cases × 1 runtime version × 1 model
+- Composition suite: 4 cases run once each; `cross-platform-essential-behavior` may be `not_run` and documented as such
+- Paired skills: scope-adjacent pairings acceptable under documented loosened interpretation
+- No consistency repeats required
+
+The v2.1.3-claude release is a `baseline` tier record.
+
+### `parity` tier
+
+Matches the structural rigor of Codex v2.1.3 and extends it for Claude-native axes. Target for one release per quarter or at major Claude Code / claude.ai version transitions, whichever comes first.
+
+**Claude-native axes that `parity` covers (beyond the Codex pillars):**
+
+1. **Model axis** — Claude surfaces let the user choose Opus vs. Sonnet; the skill must behave consistently across both. Codex does not have this axis.
+2. **Surface axis** — Claude Code CLI, claude.ai web, and (when added) other Claude-enabled harnesses. Codex is a single surface.
+3. **Interaction-mode axis** — `claude -p` subprocess vs. native interactive CLI behave differently (different permission models, different tool availability). Treat them as distinct runtimes when documenting coverage.
+
+**`parity` tier requirements:**
+
+- Behavioral suite: 10 cases × **at least 2 runtime versions** × **both Opus and Sonnet**
+- Consistency repeats: pick 2 behavioral cases, run each a second time on the same (runtime, model) combination, confirm gradings hold
+- Composition suite: all 4 cases PASS (no `not_run`); `cross-platform-essential-behavior` closed via Claude Code + claude.ai minimum, or Claude Code + Codex if paired with that cycle's Codex record
+- Paired skills: a **dedicated** deployment skill installed (no loosened-interpretation caveat on `deployment-skill-collaboration`)
+- Interaction-mode coverage: critical cases (case J, deployment, cross-session) validated in **both** `claude -p` and native interactive CLI where feasible
+
+**Expected effort per `parity` release:** 5–8 hours of focused evaluation, plus any dedicated-skill install time.
+
+## Cadence recommendation
+
+Default new releases to `baseline`. Schedule one `parity`-tier release per quarter, or sooner if a major Claude Code or claude.ai version ships. This gets honest multi-runtime / multi-model stability evidence on a sustainable cadence without burning the full parity cost on every doc-level Codex update.
+
 ## Trigger
 
 A new instruction-payload version is ready to be published. The usual pattern:
@@ -79,6 +118,11 @@ Ten cases live in `evals/evals.json`. Run them against the RC bytes via:
 
 Record each case's output to `evals/runs/vX.Y.Z-rc.1-<surface>/outputs/<case>.md` and the aggregate to `evals/runs/vX.Y.Z-rc.1-<surface>/behavioral.json`.
 
+**Tier-specific requirements:**
+
+- `baseline`: 10 cases × 1 runtime × 1 model (the current RC runtime; the model specified in the surface's default settings).
+- `parity`: 10 cases × at least 2 runtime versions × both Opus and Sonnet. Plus 2 consistency-repeat cases per (runtime, model) combination — pick two cases known to be sensitive to variation (historically `supersede-existing-decision` and `complete-local-project-build`) and run each a second time; confirm gradings hold.
+
 ### Step 4 — Run the composition suite on this surface
 
 Four cases live in `evals/composition.json`:
@@ -91,6 +135,11 @@ Four cases live in `evals/composition.json`:
 **Workdir discipline for native-CLI runs:** use a one-line launcher script with `cd ~/path || exit 1` to make the working directory a hard gate. Multi-line pastes split under terminal auto-wrap and silently drop the `cd`, causing the agent to attach to the home directory and real user projects. This has happened twice in historical runs; both required cleanup.
 
 Record each case to `evals/runs/vX.Y.Z-rc.1-<surface>/outputs/<case>.md` and the aggregate to `evals/runs/vX.Y.Z-rc.1-<surface>/composition.json`.
+
+**Tier-specific requirements:**
+
+- `baseline`: 4 cases attempted; scope-adjacent paired skills acceptable under documented loosened interpretation; `cross-platform-essential-behavior` may be `not_run` if multi-platform availability is missing.
+- `parity`: all 4 cases PASS (no `not_run`); `deployment-skill-collaboration` paired with a **dedicated** deployment skill (no loosened interpretation); `cross-platform-essential-behavior` closed via Claude Code + claude.ai minimum (or Claude Code + Codex, if paired with that cycle's Codex record). Critical cases (deployment, cross-session) validated in both `claude -p` and native interactive CLI where feasible.
 
 ### Step 5 — Open the evidence PR into main
 
@@ -118,9 +167,12 @@ Open `metadata/release.json`. If `validated_surfaces` doesn't exist yet, add it 
 ```json
 {
   "surface": "<surface name>",
+  "tier": "baseline",
   "status": "approved_with_bounded_exceptions",
   "date": "<YYYY-MM-DD>",
   "tested_runtimes": ["<runtime and version>"],
+  "tested_models": ["<model and tier>"],
+  "consistency_repeats": [],
   "evidence_summary": "evals/results/vX.Y.Z-rc.1-<surface>.md",
   "release_review": "docs/release-review-vX.Y.Z-<surface>-rc.1-<date>.md",
   "known_limitations": ["<bounded exception 1>", "..."],
@@ -129,7 +181,14 @@ Open `metadata/release.json`. If `validated_surfaces` doesn't exist yet, add it 
 }
 ```
 
-Commit with a message naming the surface, the merge commit of the evidence PR, and enumerating the bounded exceptions.
+**Field notes:**
+
+- `tier`: `"baseline"` or `"parity"` — see the Rigor tiers section.
+- `tested_runtimes`: array; for `parity` tier this should have at least two entries.
+- `tested_models`: array; for `parity` tier this must include both `"claude-opus-4-X"` and `"claude-sonnet-4-X"` (or their equivalents). For `baseline` tier, the single model used.
+- `consistency_repeats`: array of objects documenting which cases were re-run and whether gradings matched. Empty for `baseline`; at least 2 entries for `parity`. Example entry: `{"case": "supersede-existing-decision", "runtime": "claude-code-cli 2.1.141", "model": "claude-opus-4-7", "second_run_matches_first": true}`.
+
+Commit with a message naming the surface, the tier, the merge commit of the evidence PR, and enumerating the bounded exceptions.
 
 ### Step 7 — Update the release notes and (if needed) the release artifacts
 
@@ -179,6 +238,11 @@ The historical pattern: assistant prepares the launcher script, the human pastes
 ## References
 
 - First release using the single-release multi-surface pattern: `v2.1.4` (pending)
-- Last release using the per-surface pattern (historical reference): [`v2.1.3`](https://github.com/glichtenthal/ai-project-steward/releases/tag/v2.1.3) (Codex), [`v2.1.3-claude`](https://github.com/glichtenthal/ai-project-steward/releases/tag/v2.1.3-claude) (Claude Code)
+- Last release using the per-surface pattern (historical reference): [`v2.1.3`](https://github.com/glichtenthal/ai-project-steward/releases/tag/v2.1.3) (Codex), [`v2.1.3-claude`](https://github.com/glichtenthal/ai-project-steward/releases/tag/v2.1.3-claude) (Claude Code — `baseline` tier)
 - First Claude Code evidence PR: [#8](https://github.com/glichtenthal/ai-project-steward/pull/8)
 - Release review document for the Claude 2.1.3 cycle: [`docs/release-review-v2.1.3-claude-rc.1-2026-11-06.md`](release-review-v2.1.3-claude-rc.1-2026-11-06.md)
+
+## Change log for this document
+
+- **2026-11-10**: Deprecated the per-surface-release pattern used in v2.1.3; introduced the single-release multi-surface pattern starting with v2.1.4.
+- **2026-11-12**: Added rigor tiers (`baseline`, `parity`) with Claude-native axes (model, surface, interaction-mode) and a cadence recommendation of one `parity` release per quarter.
