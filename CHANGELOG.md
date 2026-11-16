@@ -1,8 +1,17 @@
 # Changelog
 
-## v2.1.3-rc.1-claude — unreleased Claude candidate
+## v2.1.3-claude — 2026-11-08 (stable Claude Code release)
 
-- Preparation-only candidate scoped to Claude. Not published, not tagged, not approved for installation.
+- Published [v2.1.3-claude](https://github.com/glichtenthal/ai-project-steward/releases/tag/v2.1.3-claude) as a separately authorized Claude Code CLI distribution of the v2.1.3 instructions, byte-identical to the Codex skill (SKILL.md SHA-256 `a67245b3797c837d58f94010ce1930352bb15865e514331b8a2dc66a748f9c16`).
+- Claude Code CLI 2.1.141 (claude-opus-4-7): 10/10 behavioral PASS; 3/4 composition PASS; cross-platform-essential-behavior not run. Owner accepted bounded exceptions, including a loosened paired-skill deployment case and AI-assisted grading.
+- Released `ai-project-steward-2.1.3-claude.zip` with `STEWARD-CLAUDE-SHA256SUMS`; kept the separately authorized Codex v2.1.3 release unchanged.
+- Evidence: [Claude result](evals/results/v2.1.3-rc.1-claude.md), [Claude release metadata](metadata/release-claude.json), and [PR #8](https://github.com/glichtenthal/ai-project-steward/pull/8). Native claude.ai validation remains outstanding.
+
+## v2.1.3-rc.1-claude — 2026-11-06 (historical pre-release preparation)
+
+This section describes the candidate's **pre-approval state on November 6**, since superseded by the published Claude Code release above.
+
+- Preparation-only candidate scoped to Claude. Not published, not tagged, not approved for installation at the time.
 - Instruction payload byte-identical to Codex v2.1.3 (SKILL.md SHA-256 `a67245b3797c837d58f94010ce1930352bb15865e514331b8a2dc66a748f9c16`). No new instructions, specialist-skill changes, or validator rules.
 - Ships the same eight-file distribution manifest as Codex v2.1.3; only `metadata/release.json` is replaced with a Claude-scoped candidate variant that declares `status: candidate`, `publication_status: unreleased`, and both approval flags as `false`.
 - `agents/openai.yaml` remains in the archive as Codex-only interface metadata. No `agents/anthropic.yaml` is added.
