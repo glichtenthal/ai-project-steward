@@ -87,7 +87,9 @@ Review this deployment plan and identify what needs an explicit approval, backup
 
 **Stable Codex release:** [v2.1.3](https://github.com/glichtenthal/ai-project-steward/releases/tag/v2.1.3), approved with the explicit exceptions in the [bounded clearance review](docs/release-review-v2.1.3-2026-11-02.md#november-3-clearance-addendum). The tested instruction payload is unchanged from 2.1.3-rc.1. Previously accepted decisions stay accepted until the user approves a replacement.
 
-The strict regression gate did **not** pass. The shared routine-label natural-activation miss, mixed runtime/incomplete per-window coverage, inconclusive baseline build and unexecuted cross-platform case remain disclosed. Use explicit invocation when Steward coverage matters. No general speed/cost gain, reliable automatic activation, three-platform certification or autonomous recursive improvement is claimed. [Metadata](metadata/release.json) and the unchanged [candidate evidence](evals/results/v2.1.3-rc.1-codex.md) retain the scope and limitations.
+**Stable Claude Code release:** [v2.1.3-claude](https://github.com/glichtenthal/ai-project-steward/releases/tag/v2.1.3-claude), published 2026-11-08, with SKILL.md bytes identical to Codex v2.1.3. Its Claude Code CLI evaluation recorded 10/10 behavioral cases passing and 3/4 composition cases passing, with the cross-platform case not run. The owner accepted documented bounded exceptions. [Claude release metadata](metadata/release-claude.json) and [retained Claude evaluation](evals/results/v2.1.3-rc.1-claude.md) describe the test scope. This is **Claude Code authorization only**, not validation of native Claude on claude.ai.
+
+The Codex strict regression gate did **not** pass. The shared routine-label natural-activation miss, mixed runtime/incomplete per-window coverage, inconclusive baseline build and unexecuted cross-platform case remain disclosed. Use explicit invocation when Steward coverage matters. Neither release establishes general speed/cost gains, reliable automatic activation, three-platform certification or autonomous recursive improvement. [Codex metadata](metadata/release.json) and [candidate evidence](evals/results/v2.1.3-rc.1-codex.md) retain its scope and limitations.
 
 ## Install
 
@@ -103,19 +105,19 @@ Download `ai-project-steward-2.1.3-codex.zip` and `STEWARD-SHA256SUMS` from the 
 
 The skill will be available on the next turn. Restart a conversation when checking fresh-session behavior. Installing Steward does not authorize the systems it helps you build to publish, spend money, expose data or bypass approval boundaries.
 
-### Claude 2.1.3 release candidate (not yet published)
+### Claude Code 2.1.3
 
-A Claude-scoped release candidate — `ai-project-steward-2.1.3-rc.1-claude` — has been prepared from the same canonical SKILL.md bytes as the published Codex 2.1.3 release. It is **not published**, **not tagged**, and **not approved for installation**. The candidate archive, SHA-256 checksum, Claude-scoped metadata, and preparation review are retained on the `prepare/claude-2.1.3-rc.1` branch for review.
+Download [`ai-project-steward-2.1.3-claude.zip`](https://github.com/glichtenthal/ai-project-steward/releases/download/v2.1.3-claude/ai-project-steward-2.1.3-claude.zip) and [`STEWARD-CLAUDE-SHA256SUMS`](https://github.com/glichtenthal/ai-project-steward/releases/download/v2.1.3-claude/STEWARD-CLAUDE-SHA256SUMS) from the [v2.1.3-claude release](https://github.com/glichtenthal/ai-project-steward/releases/tag/v2.1.3-claude). Verify the archive checksum before using it. This is an independently approved **Claude Code CLI** distribution of the same eight-file skill payload used for Codex v2.1.3; the SKILL.md SHA-256 is `a67245b3797c837d58f94010ce1930352bb15865e514331b8a2dc66a748f9c16`.
 
-The candidate's instruction payload is byte-identical to Codex v2.1.3 (`skill_sha256: a67245b3797c837d58f94010ce1930352bb15865e514331b8a2dc66a748f9c16`). The only payload difference from the Codex asset is `metadata/release.json`, which declares `status: candidate`, `scope: "Claude release candidate"`, and both `release_approved` and `installation_approved` as `false`. `agents/openai.yaml` remains in the archive and is documented as Codex-only interface metadata; no `agents/anthropic.yaml` is included.
+1. Check for existing Claude Code Steward copies (normally `~/.claude/skills/ai-project-steward/`, plus any project-level skills). Back up the current installation and relevant configuration outside active skill-discovery directories; do not overwrite an active copy before verifying the backup.
+2. Extract the ZIP into a temporary location. Verify the eight-file manifest, `SKILL.md` hash, and Claude Code-specific `metadata/release.json` version and scope. Install one authoritative `ai-project-steward/` skill folder in the selected Claude Code skills location. Do not change the Codex installation or specialist skills.
+3. Use a fresh Claude Code session to verify explicit activation, narrow reversible work, material decision approval boundaries, decision continuity, and honest completion reporting. Roll back if a critical regression appears.
 
-Behavioral and routing evaluation on Claude Code and claude.ai has **not been performed** on the RC bytes. The prior [v2.1.0 cross-platform probe](evals/results/v2.1.0-cross-platform-probe.md) remains the only retained Claude-specific evaluation; its narrow-scope reversible-change failure has not been re-exercised on 2.1.3 bytes. See [docs/release-review-v2.1.3-claude-rc.1-2026-11-06.md](docs/release-review-v2.1.3-claude-rc.1-2026-11-06.md) for the full preparation review, open gates, and the five-step completion plan.
-
-If the owner authorizes Claude installation and the behavioral evaluation clears, this file will be updated with reviewed install instructions for both Claude Code (filesystem copy to `~/.claude/skills/ai-project-steward/`) and claude.ai (custom-skills zip upload). Until then, do not install the RC.
+The [Claude Code evaluation](evals/results/v2.1.3-rc.1-claude.md) recorded 10/10 behavioral passes and 3/4 composition passes, with one cross-platform case not run. Testing inherited user-level configuration and relied on AI-assisted grading, among other documented limitations. This does not establish independent validation on claude.ai.
 
 ### Other products and platforms
 
-Version 2.1.3 clearance is Codex-only. Keep existing stable Claude/ChatGPT installations unchanged; this release does not establish new certification for them. The earlier [v2.1.2 release](https://github.com/glichtenthal/ai-project-steward/releases/tag/v2.1.2) remains available for its historical scope and rollback needs.
+**Native Claude (claude.ai) has not been validated on v2.1.3.** The Claude Code ZIP is not a certified claude.ai upgrade. Keep existing native-Claude or ChatGPT installations unchanged until the intended surface is tested and approved. The earlier [v2.1.2 release](https://github.com/glichtenthal/ai-project-steward/releases/tag/v2.1.2) remains available for historical scope and rollback.
 
 ## How it fits with the judgment loop
 
