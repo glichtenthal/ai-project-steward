@@ -192,6 +192,16 @@ Commit with a message naming the surface, the tier, the merge commit of the evid
 
 ### Step 7 — Update the release notes and (if needed) the release artifacts
 
+**Gate before uploading any archive.** Build the archive from the final approved metadata; never upload an archive built for a release candidate. Then run:
+
+```bash
+python3 scripts/check_release_metadata.py dist/ai-project-steward-X.Y.Z.zip --expect-version X.Y.Z
+```
+
+It rejects a pre-release version (for example `-rc.1`), a non-`stable` status, `publication_status` other than `stable_release`, `release_approved` other than `true`, and a `skill_sha256` that does not match the archived `SKILL.md`. Do not upload an archive that fails.
+
+After publication, the `Verify release assets` workflow (`.github/workflows/release-assets.yml`) runs the same check on every `.zip` attached to a non-prerelease release when it is published or edited. An asset kept only as an audit record is listed by SHA-256 in `metadata/superseded-assets.json` with its replacement; the original `v2.1.3-claude` archive is the first entry. The workflow fails if no non-superseded ZIP remains to validate.
+
 **If this is the first surface validation for this version** (and the release hasn't been cut yet):
 
 ```bash
@@ -246,3 +256,4 @@ The historical pattern: assistant prepares the launcher script, the human pastes
 
 - **2026-11-10**: Deprecated the per-surface-release pattern used in v2.1.3; introduced the single-release multi-surface pattern starting with v2.1.4.
 - **2026-11-12**: Added rigor tiers (`baseline`, `parity`) with Claude-native axes (model, surface, interaction-mode) and a cadence recommendation of one `parity` release per quarter.
+- **2026-11-20**: Added the Step 7 stable-metadata gate and the release-asset verification workflow after the `v2.1.3-claude` archive shipped release-candidate metadata.
