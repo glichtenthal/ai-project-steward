@@ -1,0 +1,9 @@
+[
+  {
+    "sha256": "89fc8c7ec16a2e53073cba3ee4dbb265331e15ca5cc9ec6448641b43a9dc98fc",
+    "asset": "ai-project-steward-2.1.3-claude.zip",
+    "release": "v2.1.3-claude",
+    "reason": "Published with release-candidate metadata (2.1.3-rc.1-claude); instructions unaffected. Retained unchanged as the audit record.",
+    "replacement": "ai-project-steward-2.1.3-claude-r2.zip (sha256 37456b38e018af03fc333c2a5940f4dd36de0d55190068a435f12d05861d88ea)"
+  }
+]
