@@ -1,5 +1,12 @@
 # Changelog
 
+## v2.1.3-claude packaging correction — 2026-11-21
+
+- Added [ai-project-steward-2.1.3-claude-r2.zip](https://github.com/glichtenthal/ai-project-steward/releases/download/v2.1.3-claude/ai-project-steward-2.1.3-claude-r2.zip) and [STEWARD-CLAUDE-R2-SHA256SUMS](https://github.com/glichtenthal/ai-project-steward/releases/download/v2.1.3-claude/STEWARD-CLAUDE-R2-SHA256SUMS) to the existing Claude release. No new tag or instruction version.
+- Corrected only packaged `metadata/release.json` to match the canonical stable Claude Code record; all seven other files are unchanged. ZIP SHA-256: `37456b38e018af03fc333c2a5940f4dd36de0d55190068a435f12d05861d88ea`.
+- Preserved the original archive, checksum, tag, release notes and historical evidence. Recommend r2 for Claude Code; native claude.ai support remains unverified.
+- Independently downloaded and verified the published bytes. The existing [release-assets workflow](https://github.com/glichtenthal/ai-project-steward/actions/runs/44942257978) passed. No behavioral evaluation was repeated and no incremental quality advantage is claimed. See [details](docs/packaging-correction-v2.1.3-claude.md).
+
 ## v2.1.3-claude — 2026-11-08 (stable Claude Code release)
 
 - Published [v2.1.3-claude](https://github.com/glichtenthal/ai-project-steward/releases/tag/v2.1.3-claude) as a separately authorized Claude Code CLI distribution of the v2.1.3 instructions, byte-identical to the Codex skill (SKILL.md SHA-256 `a67245b3797c837d58f94010ce1930352bb15865e514331b8a2dc66a748f9c16`).
