@@ -117,3 +117,12 @@ This public record contains decisions that shape the skill, package, and public 
 - **Decision:** Release unchanged tested instructions under the exact exceptions in the [clearance review](docs/release-review-v2.1.3-2026-11-02.md#november-3-clearance-addendum). Preserve the failed strict gate and original results.
 - **Rationale/consequences:** Retained evidence supports the accepted-decision correction without more model evaluation. Automatic routine-edit activation remains unreliable; use explicit invocation when coverage matters. No broad performance or cross-platform claim is authorized.
 - **Reversal and review triggers:** Verify published package integrity and current-pilot backup; restore that backup on a critical installation/smoke regression. Reconsider release clearance if instruction bytes change, evidence integrity fails or a material regression emerges. Other skills and experimental PRs remain unchanged.
+
+## 2026-11-26 — Native plugin candidate distributions
+
+- **Status:** Accepted for candidate preparation and private OpenAI plugin creation by the owner on November 26. Stable release promotion remains pending platform-specific evaluation and review.
+- **Context/options:** Maintain separate skill instructions; operate a hosted shared service; or generate native OpenAI and Claude packages from the reviewed standalone skill payload.
+- **Decision:** Generate two versioned plugin ZIPs from the same verified `SKILL.md`; retain existing standalone release scope and evidence. Use the native manifest for each platform and reuse the existing identity assets where supported.
+- **Rationale:** One source of behavioral instructions with no additional service or recurring cost; separate packaging is necessary for the respective plugin formats.
+- **Consequences and reversal difficulty:** Candidate packages and their build script can be removed independently. Existing stable tags and installed skill copies remain available. Native behavior must be evaluated in the intended runtimes before broadening release clearance.
+- **Reconsider when:** A platform changes its manifest contract, the shared instructions change, or native behavioral evidence identifies a specific compatibility issue.
