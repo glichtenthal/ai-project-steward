@@ -120,7 +120,7 @@ This public record contains decisions that shape the skill, package, and public 
 
 ## 2026-11-26 — Native plugin candidate distributions
 
-- **Status:** Accepted for candidate preparation and private OpenAI plugin creation by the owner on November 26. Stable release promotion remains pending platform-specific evaluation and review.
+- **Status:** Accepted for candidate preparation, private OpenAI plugin creation, merge, and prerelease publication by the owner on November 26. The packages are available as [v2.1.3-plugin.1](https://github.com/glichtenthal/ai-project-steward/releases/tag/v2.1.3-plugin.1). Stable release promotion remains pending platform-specific evaluation and review.
 - **Context/options:** Maintain separate skill instructions; operate a hosted shared service; or generate native OpenAI and Claude packages from the reviewed standalone skill payload.
 - **Decision:** Generate two versioned plugin ZIPs from the same verified `SKILL.md`; retain existing standalone release scope and evidence. Use the native manifest for each platform and reuse the existing identity assets where supported.
 - **Rationale:** One source of behavioral instructions with no additional service or recurring cost; separate packaging is necessary for the respective plugin formats.
