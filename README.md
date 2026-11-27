@@ -119,7 +119,7 @@ The [Claude Code evaluation](evals/results/v2.1.3-rc.1-claude.md) recorded 10/10
 
 ### Other products and platforms
 
-Native plugin packages for ChatGPT/Codex and Claude/Cowork/Claude Code are being prepared from the same reviewed instructions. See [native plugin candidates](docs/native-plugin-candidates.md) for the build and pilot validation process.
+Native plugin packages for ChatGPT/Codex and Claude/Cowork/Claude Code are available as [v2.1.3-plugin.1 prerelease candidates](https://github.com/glichtenthal/ai-project-steward/releases/tag/v2.1.3-plugin.1). Both contain the same reviewed v2.1.3 skill instructions. See [native plugin candidates](docs/native-plugin-candidates.md) for the build and pilot validation process.
 
 **Native Claude (claude.ai) has not been validated on v2.1.3.** The Claude Code ZIP is not a certified claude.ai upgrade. Keep existing native-Claude or ChatGPT installations unchanged until the intended surface is tested and approved. The earlier [v2.1.2 release](https://github.com/glichtenthal/ai-project-steward/releases/tag/v2.1.2) remains available for historical scope and rollback.
 
